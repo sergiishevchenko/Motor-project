@@ -12,7 +12,7 @@ build/
 develop-eggs/
 dist/
 downloads/
-eggs/
+eggs/ш
 .eggs/
 lib/
 lib64/
@@ -103,5 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# pycharm shit
+# pycharm & vscode shit
 .idea/
+.vscode
