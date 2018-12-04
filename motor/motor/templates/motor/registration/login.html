@@ -1,0 +1,35 @@
+<!-- Модальное окно -->
+<div id="login-form" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h1 class="h3 mb-3 font-weight-normal">motor</h1>
+            <div class="modal-body">
+                <form>
+                   <div class="form-group">
+                        <label for="Email">Ваш Email</label>
+                        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp"
+                               placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Пароль</label>
+                        <input type="password" class="form-control" id="Password" placeholder="Password">
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me">Запомнить меня</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary">Вход</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="{$('#login-form').modal('hide'); $('#register-form').modal('show'); }">Регистрация</button>
+            </div>
+        </div>
+    </div>
+</div>
