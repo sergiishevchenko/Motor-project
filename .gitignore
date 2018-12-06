@@ -106,3 +106,4 @@ venv.bak/
 # pycharm & vscode shit
 .idea/
 .vscode
+.github 
