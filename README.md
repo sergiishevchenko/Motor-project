@@ -9,3 +9,8 @@ python3 -m venv venv
 source venv\bin\activate
 pip install -r requirements.txt
 ```
+
+## Database Schemas
+
+#### User
+![User schema](https://github.com/SimonOsipov/Motor-website/blob/dev/Support%20material/User%20DB%20schema.jpeg)
