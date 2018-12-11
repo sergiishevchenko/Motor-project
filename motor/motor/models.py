@@ -60,7 +60,13 @@ class User(models.Model):
         help_text='Активен / Не активен'
     )
 
-    # GroupID
+    GroupID = models.ForeignKey(
+        'UserGroup',
+        on_delete=models.SET_NULL,
+        verbose_name='Группа пользователя',
+        help_text='К какой группе относится пользователь',
+        null=True        
+    )
 
 """
 class LoginAttempt(models.Model):
@@ -79,11 +85,23 @@ class Password(models.Model):
     Password
     PasswordQuestion
     PasswordAnswer
+"""
 
 class UserGroup(models.Model):
-    UserGroupID
-    GroupType
-    Active
+    class Meta:
+        verbose_name_plural = 'Пользовательские группы'
+
+    def __str__(self):
+        return f'Группа {self.GroupType}'
+
+    GroupType = models.CharField(
+        max_length=15,
+        verbose_name='Группа пользователя',
+    )
+
+    Active = models.BooleanField(
+        verbose_name='Статус группы',
+        help_text='Активена / Не активена'
+    )
 
 
-"""
