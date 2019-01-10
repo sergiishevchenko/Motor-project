@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+import datetime
 
 
 class User(models.Model):
@@ -42,22 +43,32 @@ class User(models.Model):
     
     Email = models.CharField(
         max_length=30,
-        verbose_name='Емейл пользователя'
-    )    
+        verbose_name='Емейл пользователя',
+        unique=True
+    )
+
+    Password = models.CharField(
+        max_length=30,
+        verbose_name='Пароль пользователя',
+        default='None'
+    )
     
     CreatedDate = models.DateTimeField(
         verbose_name='Дата создания',
-        help_text='День, когда был создан аккаунт'
+        help_text='День, когда был создан аккаунт',
+        auto_now_add=True
     )
     
     ModifiedDate = models.DateTimeField(
         verbose_name='Дата последнего изменения',
-        help_text='Когда было изменено что-нибудь в аккаунте'
+        help_text='Когда было изменено что-нибудь в аккаунте',
+        auto_now_add=True
     )
         
     Active = models.BooleanField(
         verbose_name='Статус пользователя',
-        help_text='Активен / Не активен'
+        help_text='Активен / Не активен',
+        default=True
     )
 
     GroupID = models.ForeignKey(

@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="col-6 col-md-2">
         <h3 class="text-muted ">motor</h3>
@@ -41,6 +42,10 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Поиск</button>
         </form>
-        <button type="button" class="btn btn-outline-secondary text-uppercase" data-toggle="modal" data-target="#login-form">Вход</button>
+        {% if not user_login %}
+            <button type="button" class="btn btn-outline-secondary text-uppercase" data-toggle="modal" data-target="#login-form">Вход</button>
+        {% else %}
+            <p>{{ user_login }}</p>
+        {% endif %}
     </div>
 </nav>
