@@ -16,12 +16,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
-{##}
-{#    {% load static %}#}
-{#    <link rel="stylesheet" href="{% static 'styles.css' %}">#}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 
-<body>
+<body bgcolor="#FAFAFA" link="#212121">
 {% include "motor/navbar.html" %}
 {% if login_form %}
     {% include 'motor/registration/login.html' %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from .models import User
 from django.http import Http404
+from django import forms
 
 
 def index(request):
@@ -23,6 +24,9 @@ def index(request):
 def register(request):
     if request.method == 'POST':
         signup_form = SignUpForm(request.POST)
+        email = signup_form.data.get('email')
+        if email and User.objects.filter(Email=email).count() > 0:
+            raise forms.ValidationError(u'This email address is already registered.')
         user = User()
         user.Email = signup_form.data.get("email", None)
         user.Login = signup_form.data.get("username", None)
@@ -44,3 +48,9 @@ def login(request):
         else:
             raise Http404('Error 404')
     raise Http404('Error 404')
+
+
+def logout(request):
+    if 'user_id' in request.session.keys():
+        del request.session['user_id']
+    return redirect('index')

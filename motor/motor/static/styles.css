@@ -1,39 +1,24 @@
-/*body {*/
-    /*background: darkgray;*/
-    /*font-size: 15px;*/
-/*}*/
+body nav {
+    color: #FAFAFA;
+    margin: 0;
+}
 
-/*nav {*/
-    /*background: darkslategrey;*/
-    /*font-size: 30px;*/
-/*}*/
+nav div.header {
+    padding: 5px;
+    color: #F5F5F5;
+    left: 10px;
+    right: 5px;
+    top: 10px;
+}
 
-/*a:not([href]):not([tabindex]) {*/
-    /*color: aliceblue;*/
-    /*font-size: 15px;*/
-    /*text-decoration: none;*/
-/*}*/
+nav div.header h3 {
+    color: #212121;
+    padding: 10px;
+}
 
-/*h3 {*/
-    /*color: aliceblue;*/
-    /*font-size: 60px;*/
-
-/*}*/
-/*.text-muted {*/
-    /*color: aliceblue;*/
-/*}*/
-
-/*title {*/
-    /*color: gray;*/
-    /*font-weight: normal;*/
-    /*font-size: 30px;*/
-/*}*/
-
-/*div {*/
-    /*color: darkgray;*/
-    /*font-size: 12px;*/
-/*}*/
-/*footer {*/
-    /*background: darkslategrey ;*/
-    /*font-size: 15px;*/
-/*}*/
+nav div.button {
+    color: #F5F5F5;
+    left: 10px;
+    padding: 5px;
+    right: 5px;
+}
