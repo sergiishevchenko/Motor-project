@@ -1,13 +1,13 @@
 
 <nav>
 {#    class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"#}
-    <div class="header">
+    <ul class="header">
 {#        class="col-6 col-md-2"#}
         <h3>motor</h3>
 {#        class="text-muted "#}
         <a class="d-block mb-3 text-muted">vpmr.md</a>
-    </div>
-    <div class="button">
+    </ul>
+    <ul class="button">
 {#    class="collapse navbar-collapse" id="n<vbarsExampleDefault"#}
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -52,5 +52,5 @@
             <p>Вы вошли как {{ user_login }}</p>
             <a href="{% url 'logout' %}" role="button" class="btn btn-outline-secondary text-uppercase">Выход</a>
         {% endif %}
-    </div>
+    </ul>
 </nav>
