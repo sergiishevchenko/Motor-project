@@ -39,3 +39,9 @@
 {% include "motor/footer.html" %}
 
 </html>
+
+{% if signup_form.error %}
+    <script language="JavaScript">
+        $('#register-form').modal('show');
+    </script>
+{% endif %}

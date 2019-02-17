@@ -3,11 +3,20 @@ from .forms import SignUpForm, LoginForm
 from .models import User
 from django.http import Http404
 from django import forms
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class FormWrapper:
+    def __init__(self, form, error=False):
+        self.form = form
+        self.error = error
 
 
 def index(request):
-    signup_form = SignUpForm()
-    login_form = LoginForm()
+    signup_form = FormWrapper(SignUpForm())
+    login_form = FormWrapper(LoginForm())
     user_id = request.session.get('user_id', None)
     if user_id is not None:
         user = User.objects.filter(id=user_id).first()
@@ -22,8 +31,8 @@ def index(request):
 
 
 def user_page(request):
-    signup_form = SignUpForm()
-    login_form = LoginForm()
+    signup_form = FormWrapper(SignUpForm())
+    login_form = FormWrapper(LoginForm())
     user_id = request.session.get('user_id', None)
     if user_id is not None:
         user = User.objects.filter(id=user_id).first()
@@ -48,7 +57,8 @@ def register(request):
             user.save()
             return redirect('index')
         else:
-            login_form = LoginForm()
+            signup_form = FormWrapper(signup_form, True)
+            login_form = FormWrapper(LoginForm())
             return render(request, 'motor/index.html', {'signup_form': signup_form, 'login_form': login_form})
     return render(request, '/')
 
@@ -71,3 +81,12 @@ def logout(request):
     if 'user_id' in request.session.keys():
         del request.session['user_id']
     return redirect('index')
+
+
+def test_view(request):
+    if request.method == 'POST':
+        logger.debug('POST data: {}'.format(request.POST))
+    elif request.method == 'GET':
+        logger.debug('GET data: {}'.format(request.GET))
+    else:
+        raise RuntimeError('Invalid usage')
