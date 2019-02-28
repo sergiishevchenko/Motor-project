@@ -5,7 +5,8 @@ from .models import User
 # from django.contrib.auth.models import User
 
 CHOICES = (
-    ('man', 'woman'),
+    ('М', 'man'),
+    ('Ж', 'woman')
 )
 
 
@@ -35,11 +36,27 @@ class LoginForm(forms.Form):
 class UserpageForm(forms.Form):
     email = forms.EmailField(max_length=256)
     username = forms.CharField(label='Username', min_length=4, max_length=150)
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    first_name = forms.CharField(label='First name')
-    last_name = forms.CharField(label='Last name')
+    firstname = forms.CharField(label='First name')
+    lastname = forms.CharField(label='Last name')
     gender = forms.ChoiceField(choices=CHOICES)
-    address = forms.CharField(label='Address')
-    country = forms.CharField(label='Country')
-    city = forms.CharField(label='City')
-    mobile = forms.RegexField(label='Mobile', regex=r'^\+*\d{11}$')
+    phone = forms.RegexField(label='Phone', regex=r'^\+*\d{11}$')
+
+    def clean_password(self):
+        passed_password = self.cleaned_data.get('password', None)
+        passed_email = self.cleaned_data.get('email', None)
+        if User.objects.filter(Email=passed_email, Password=passed_password).count() == 0:
+            raise forms.ValidationError(u'Invalid email or password')
+        return passed_password
+
+
+class PasswordForm(forms.Form):
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    new_password = forms.CharField(label='New Password', widget=forms.PasswordInput)
+    new_password2 = forms.CharField(label='New Password2', widget=forms.PasswordInput)
+
+    # def clean_password(self):
+    #     passed_password = self.cleaned_data.get('password', None)
+    #     passed_email = self.cleaned_data.get('email', None)
+    #     if User.objects.filter(Email=passed_email, Password=passed_password).count() == 0:
+    #         raise forms.ValidationError(u'Invalid email or password')
+    #     return passed_password

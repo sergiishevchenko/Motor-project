@@ -21,22 +21,23 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 
-<body bgcolor="#FAFAFA" link="#212121">
+<body>
 {% include "motor/navbar.html" %}
+
+<main role="main">
+{% block content %}
+{% endblock %}
+</main>
+
 {% if login_form %}
     {% include 'motor/registration/login.html' %}
 {% endif %}
 {% if signup_form %}
     {% include 'motor/registration/register.html' %}
 {% endif %}
-</body>
-
-<main role="main">
-    {% block content %}
-    {% endblock %}
-</main>
 
 {% include "motor/footer.html" %}
+</body>
 
 </html>
 

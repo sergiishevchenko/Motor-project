@@ -3,101 +3,71 @@
 {% block title %} <title>Motor</title> {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>Добро пожаловать в личный кабинет</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 order-md-1">
-                <form class="needs-validation" novalidate method="POST" action="{% url 'test_view' %}">
-                    {% csrf_token %}
-
-                    <div class="mb-3">
-                        <label for="Login">Логин</label>
-                        <input type="text" class="form-control" name="login" id="Login" placeholder="" value="" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="FirstName">Имя</label>
-                        <input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="" value="" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="LastName">Фамилия</label>
-                        <input type="text" class="form-control" name="LastName" id="LastName" placeholder="" value="" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="mobile">Телефон</label>
-                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="" value="" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="Gender">Пол</label>
-                        <div class="custom-control custom-radio">
-                            <input id="men" name="men" type="radio" class="custom-control-input"
-                                   required>
-                            <label class="custom-control-label" for="men">Мужской</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input id="women" name="women" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="women">Женский</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="OldPassword">Старый пароль</label>
-                        <input type="text" class="form-control" name="OldPassword" id="OldPassword" placeholder="" value="" required>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="NewPassword">Новый пароль</label>
-                        <input type="text" class="form-control" name="NewPassword" id="NewPassword" placeholder="" value="" required>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="NewPassword2">Повторить пароль</label>
-                        <input type="text" class="form-control" name="NewPassword2" id="NewPassword2" placeholder="" value="" required>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="">
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-5 mb-3">
-                            <label for="country">Страна</label>
-                            <select class="custom-select d-block w-100" name="country" id="country" required>
-                                <option value="123">123</option>
-                                <option value="456">456</option>
-                                <option value="789">789</option>
-                            </select>
-                        </div>
-                        <div class="col-md-5 mb-3">
-                            <label for="city">Город</label>
-                            <select class="custom-select d-block w-100" name="city" id="city" required>
-                                <option value="987">987</option>
-                                <option value="654">654</option>
-                                <option value="321">321</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="address">Адрес</label>
-                        <input type="text" class="form-control" name="address" id="address" placeholder="" required>
-                    </div>
-
-                    <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Сохранить</button>
-                </form>
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>Добро пожаловать в личный кабинет</h2>
+    </div>
+    <div class="d-flex" id="wrapper">
+        <div class="bg-light border-right border col-md-2 order-md-1" id="sidebar-wrapper">
+            <div class="list-group list-group-flush">
+                <a href="user_page" class="list-group-item list-group-item-action bg-light">Личный кабинет</a>
+                <a href="change_password" class="list-group-item list-group-item-action bg-light">Сменить пароль</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"></a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"></a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"></a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"></a>
             </div>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <form class="needs-validation" novalidate method="POST" action="{% url 'user_page' %}">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="username">Логин</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Ваше имя"
+                           value="{{ user_login }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Ваш E-mail"
+                           value="{{ user_email }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="firstname">Имя</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Имя"
+                           value="{{ firstname }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="lastname">Фамилия</label>
+                    <input type="text" class="form-control" name="lastname" id="Lastfirstname"
+                           placeholder="Фамилия"
+                           value="{{ lastname }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone">Телефон</label>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Номер телефона"
+                           value="{{ user_phone }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gender">Пол</label>
+                    <div class="custom-control custom-radio">
+                        <input id="man" value="М" name="gender" type="radio" class="custom-control-input">
+                        <label class="custom-control-label" for="man">Мужской</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="woman" value="Ж" name="gender" type="radio" class="custom-control-input">
+                        <label class="custom-control-label" for="woman">Женский</label>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Сохранить</button>
+            </form>
         </div>
     </div>
 {% endblock %}
