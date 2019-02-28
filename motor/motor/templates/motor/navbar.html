@@ -37,14 +37,17 @@
                 </div>
             </li>
         </ul>
+        <a class="nav-link text-muted">Вы вошли как {{ user_login }}</a>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Поиск</button>
         </form>
         {% if not user_login %}
-            <button type="button" class="btn btn-outline-secondary text-uppercase" data-toggle="modal" data-target="#login-form">Вход</button>
+            <button type="button" class="btn btn-outline-secondary text-uppercase" data-toggle="modal"
+                    data-target="#login-form">Вход
+            </button>
         {% else %}
-            <p>Вы вошли как {{ user_login }}</p>
+            <a href="{% url 'user_page' %}" role="button" class="btn btn-outline-secondary text-uppercase">Кабинет</a>
             <a href="{% url 'logout' %}" role="button" class="btn btn-outline-secondary text-uppercase">Выход</a>
         {% endif %}
     </ul>
