@@ -106,7 +106,7 @@ def user_page(request):
             params = {'signup_form': signup_form, 'login_form': login_form}
         else:
             params = {'user_login': user.Login, 'user_email': user.Email, 'firstname': user.FirstName,
-                      'lastname': user.LastName, 'user_phone': user.Phone}
+                      'lastname': user.LastName, 'user_phone': user.Phone, 'gender': user.Gender}
         return render(request, 'motor/user_page.html', params)
 
 
