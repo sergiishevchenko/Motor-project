@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "top.css",
+	"sources": [
+		"../../sass/blocks/top.sass"
+	],
+	"sourcesContent": [
+		""
+	],
+	"names": [],
+	"mappings": ""
+}
