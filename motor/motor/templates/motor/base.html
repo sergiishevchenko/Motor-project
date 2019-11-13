@@ -18,16 +18,14 @@
             crossorigin="anonymous"></script>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
 {% include "motor/navbar.html" %}
 
-<main role="main">
 {% block content %}
 {% endblock %}
-</main>
 
 {% if login_form %}
     {% include 'motor/registration/login.html' %}
