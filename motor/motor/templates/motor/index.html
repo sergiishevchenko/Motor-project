@@ -3,13 +3,153 @@
 {% block title %} <title>Motor</title> {% endblock %}
 
 {% block content %}
-<div class="jumbotron p-3 p-md-5">
-    <div class="container-fluid col-5 col-md-6">
-        <div class="jumbotron p-3 p-md-5">
-            <h1 class="display-1">Какой-то текст</h1>
-            <h2>О том, как легко выбрать автомобиль</h2>
-            <p>У нас самый крутой сайт по выбору авто</p>
-        </div>
+<section class="top">
+    <div class="container">
+       <div class="top-block">
+          <div class="top-block__text-title">
+             КАКОЙ ТО ТЕКСТ
+          </div>
+          <div class="top-block__text-subtitle">
+             О ТОМ КАК ЛЕГКО ВЫБРАТЬ АВТОМОБИЛЬ
+          </div>
+          <div class="top-block__text-text">
+             у нас самый крутой сайт по выбору автомобилей, есть всякие новости и другая лабуда
+          </div>
+       </div>
+       <div class="top-rectangle"></div>
+       <div class="top-table">
+          <div class="top-table__items">
+             <div class="top-table__items-item">
+                <div class="top-table__form">
+                   <select class="top-table__form-select" name="user_select">
+                      <option value="">BMW</option>
+                      <option value="Mercedes">Mercedes</option>
+                      <option value="Lanos">Lanos</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Mazda">Mazda</option>
+                      <option value="Opel">Opel</option>
+                   </select>
+                </div>
+                <div class="top-table__double">
+                   <div class="top-table__form">
+                      <select class="top-table__form-year" name="user_select">
+                         <option value="">Год, от</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                      </select>
+                   </div>
+                   <div class="top-table__form">
+                      <select class="top-table__form-year" name="user_select">
+                         <option value="">Год, до</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                         <option value="1990">1990</option>
+                      </select>
+                   </div>
+                </div>
+                <div class="top-table__options">
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">1 серия</div>
+                        <div class="top-table__option-number">900</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">2 серия</div>
+                        <div class="top-table__option-number">4040</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">3 серия</div>
+                        <div class="top-table__option-number">25</div>
+                    </div>
+                </div>
+             </div>
+             <div class="top-table__items-item">
+                <div class="top-table__form">
+                   <select class="top-table__form-select" name="user_select">
+                      <option value="">Все модели</option>
+                      <option value="Mercedes">Все модели</option>
+                      <option value="Lanos">Все модели</option>
+                      <option value="Audi">Все модели</option>
+                      <option value="Mazda">Все модели</option>
+                      <option value="Opel">Все модели</option>
+                   </select>
+                </div>
+                <div class="top-table__double">
+                   <input type="text" name="Цена, от" class="top-table__double-input" placeholder="Цена, от">
+                   <input type="text" name="Цена, до" class="top-table__double-input" placeholder="Цена, до">
+                </div>
+                <div class="top-table__options">
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">5 серия</div>
+                        <div class="top-table__option-number">900</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">6 серия</div>
+                        <div class="top-table__option-number">4040</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">7 серия</div>
+                        <div class="top-table__option-number">25</div>
+                    </div>
+                </div>
+             </div>
+             <div class="top-table__items-item">
+                <div class="top-table__form">
+                   <select class="top-table__form-select" name="user_select">
+                      <option value="">Коробка</option>
+                      <option value="Автоматическая коробка">Автоматическая коробка</option>
+                      <option value="Механическая коробка">Механическая коробка</option>
+                   </select>
+                </div>
+                <div class="top-table__list">
+                   <select class="top-table__list-parametric" name="user_select">
+                      <option value="">Все параметры</option>
+                      <option value="параметры">параметры</option>
+                      <option value="параметры">параметры</option>
+                      <option value="параметры">параметры</option>
+                      <option value="параметры">параметры</option>
+                      <option value="параметры">параметры</option>
+                   </select>
+                </div>
+                <div class="top-table__options">
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">X1 серия</div>
+                        <div class="top-table__option-number">900</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">X3 серия</div>
+                        <div class="top-table__option-number">4040</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">X5 серия</div>
+                        <div class="top-table__option-number">25</div>
+                    </div>
+                </div>
+             </div>
+             <div class="top-table__items-item">
+                <button class="top-button" type="submit">Показать 10254 автомобилей</button>
+                <div class="top-cancel">Сбросить</div>
+                <div class="top-table__options">
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">X5 серия</div>
+                        <div class="top-table__option-number">900</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">X6 серия</div>
+                        <div class="top-table__option-number">4040</div>
+                    </div>
+                    <div class="top-table__options-option">
+                        <div class="top-table__option-seria">3 серия</div>
+                        <div class="top-table__option-number">25</div>
+                    </div>
+                </div>
+             </div>
+          </div>
+       </div>
     </div>
-</div>
+ </section>
 {% endblock %}
