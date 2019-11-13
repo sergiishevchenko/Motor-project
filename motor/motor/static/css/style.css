@@ -606,4 +606,84 @@ template {
   text-align: right;
 }
 
+/* line 2, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.product-link {
+  color: #2e393f;
+  font-family: "Open Sans";
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 8, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.product-link.after_click {
+  border-bottom: 2px solid red;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), color-stop(0%, #ebebeb), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(180deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* line 13, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-slider {
+  padding-top: 84px;
+  width: 814px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* line 20, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 23, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-items_item {
+  margin-top: 40px;
+  height: 359px;
+}
+
+/* line 26, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-items_item-title {
+  margin-top: 25px;
+  border-left: 2px solid #1c2931;
+  padding-left: 10px;
+  color: #1c2931;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Helvetica;
+  font-weight: 700;
+}
+
+/* line 35, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-items_item-lists {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* line 40, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-items_item-list {
+  padding-inline-start: 15px;
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* line 46, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
+.products-items_item-price {
+  width: 127px;
+  margin-top: 25px;
+  background-color: #1c2931;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Helvetica;
+  font-weight: 700;
+  padding: 10px 35px 5px 37px;
+}
+
 /*# sourceMappingURL=style.css.map */
