@@ -382,8 +382,73 @@ template {
   margin: auto;
 }
 
+/* line 6, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer {
+  background-color: #1c2931;
+}
+
+/* line 8, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 11, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info__logo {
+  margin-top: 20px;
+}
+
+/* line 13, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info__logo-name {
+  width: 108px;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  font-family: Helvetica;
+  font-weight: 400;
+}
+
+/* line 20, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info__logo-site {
+  width: 67px;
+  color: #ffffff;
+  margin-top: -20px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Helvetica;
+  font-weight: 700;
+}
+
+/* line 28, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info__social {
+  margin-top: 39px;
+}
+
+/* line 30, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info__item {
+  margin-top: 43px;
+}
+
+/* line 32, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.footer-info__item-link {
+  opacity: 0.65;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* line 38, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+.media {
+  background: url("../img/main/media.png") no-repeat;
+  position: relative;
+  background-size: contain;
+  height: 368px;
+  margin-top: 140px;
+}
+
 @media (min-width: 1200px) {
-  /* line 8, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+  /* line 46, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
   .container {
     max-width: 1230px;
   }
@@ -882,15 +947,6 @@ template {
   font-weight: 700;
   padding: 14px 45px 13px 45px;
   border-radius: 5px;
-}
-
-/* line 1, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_media-index.sass */
-.media {
-  background: url("../img/main/media.png") no-repeat;
-  position: relative;
-  background-size: contain;
-  height: 368px;
-  margin-top: 140px;
 }
 
 /*# sourceMappingURL=style.css.map */

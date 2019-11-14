@@ -1,20 +1,33 @@
-<footer class="pt-4 md-5 border-top navbar-dark bg-dark">
-    <div class="row">
-        <ul class="col-6 col-md-2 ml-5">
-            <h3 class="text-light">motor</h3>
-            <a class="d-block text-light">vpmr.md</a>
-        </ul>
-        <div class="col-4 col-md-2 mt-3">
-            <a class="text-muted" href="#">Разместить рекламу</a>
-        </div>
-        <div class="col-4 col-md-2 mt-3">
-            <a class="text-muted" href="#">Сотрудничество с нами</a>
-        </div>
-        <div class="col-4 col-md-2 mt-3">
-            <a class="text-muted" href="#">Разместить объявление</a>
-        </div>
-        <div class="col-4 col-md-2 mt-3">
-            <a class="text-muted" href="#">Помощь</a>
+<footer class="footer">
+    <div class="media"></div>
+    <div class="container">
+        <div class="footer-info">
+            <ul class="footer-info__logo">
+                <div class="footer-info__logo-name">motor</div>
+                <div class="footer-info__logo-site">vpmr.md</div>
+            </ul>
+            <div class="footer-info__item">
+                <a class="footer-info__item-link" href="#">Разместить рекламу</a>
+            </div>
+            <div class="footer-info__item">
+                <a class="footer-info__item-link" href="#">Сотрудничество с нами</a>
+            </div>
+            <div class="footer-info__item">
+                <a class="footer-info__item-link" href="#">Разместить объявление</a>
+            </div>
+            <div class="footer-info__item">
+                <a class="footer-info__item-link" href="#">Помощь</a>
+            </div>
+            <div class="footer-info__item">
+                <a class="footer-info__item-link" href="#">Обратная связь</a>
+            </div>
+            <div class='footer-info__social'>
+                {% load static %}
+                <a href='https://www.instagram.com/livingindiatv/'><img src="{% static "img/main/vk.png" %}" alt="vk"></a>
+                <a href='https://in.pinterest.com/livingindiatv/'><img src="{% static "img/main/facebook.png" %}" alt="facebook"></a>
+                <a href='https://plus.google.com/102689304172526656580'><img src="{% static "img/main/instagram.png" %}" alt="ok"></a>
+                <a href='https://twitter.com/livingindiatv'><img src="{% static "img/main/twitter.png" %}" alt="twitter"></a>
+            </div>
         </div>
     </div>
 </footer>

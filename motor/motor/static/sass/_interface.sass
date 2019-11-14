@@ -3,6 +3,44 @@
 .container
     width: 1230px
     margin: auto
+.footer
+    background-color: #1c2931
+    &-info
+        display: flex
+        justify-content: space-between
+        &__logo
+            margin-top: 20px
+            &-name
+                width: 108px
+                color: #ffffff
+                font-size: 42px
+                font-weight: 700
+                font-family: Helvetica
+                font-weight: 400
+            &-site
+                width: 67px
+                color: #ffffff
+                margin-top: -20px
+                font-size: 16px
+                font-weight: 700
+                font-family: Helvetica
+                font-weight: 700
+        &__social
+            margin-top: 39px
+        &__item
+            margin-top: 43px
+            &-link
+                opacity: 0.65
+                color: #ffffff
+                font-family: Arial
+                font-size: 12px
+                font-weight: 400
+.media
+    background: url('../img/main/media.png') no-repeat
+    position: relative
+    background-size: contain
+    height: 368px
+    margin-top: 140px
 
 @media (min-width: 1200px)
     .container
