@@ -884,4 +884,13 @@ template {
   border-radius: 5px;
 }
 
+/* line 1, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_media-index.sass */
+.media {
+  background: url("../img/main/media.png") no-repeat;
+  position: relative;
+  background-size: contain;
+  height: 368px;
+  margin-top: 140px;
+}
+
 /*# sourceMappingURL=style.css.map */
