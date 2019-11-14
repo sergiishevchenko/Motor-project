@@ -382,6 +382,13 @@ template {
   margin: auto;
 }
 
+@media (min-width: 1200px) {
+  /* line 8, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/_interface.sass */
+  .container {
+    max-width: 1230px;
+  }
+}
+
 /* line 1, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top {
   background: url("../img/main/fon_top.png") no-repeat;
@@ -684,6 +691,197 @@ template {
   font-family: Helvetica;
   font-weight: 700;
   padding: 10px 35px 5px 37px;
+}
+
+/* line 2, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-title {
+  border-left: 2px solid red;
+  padding-left: 10px;
+  color: #2e393f;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Helvetica;
+  font-weight: 700;
+  margin-top: 106px;
+}
+
+/* line 11, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 14, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__column {
+  width: 390px;
+  margin-top: 32px;
+}
+
+/* line 17, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__column-date {
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+/* line 23, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__column-title {
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-top: 10px;
+}
+
+/* line 30, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__column-text {
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-top: 14px;
+}
+
+/* line 37, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__lists {
+  width: 390px;
+  margin-top: 32px;
+}
+
+/* line 40, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__lists-items {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* line 44, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__lists-item {
+  width: 265px;
+}
+
+/* line 46, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__lists-date {
+  opacity: 0.85;
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* line 52, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__lists-title {
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* line 58, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv {
+  margin-top: 32px;
+  width: 390px;
+}
+
+/* line 61, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item1 {
+  padding: 21px 125px 33px 26px;
+  background: url("../img/main/news3.png") no-repeat;
+  position: relative;
+  background-size: cover;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 72, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item2 {
+  background: url("../img/main/news4.png") no-repeat;
+  position: relative;
+  background-size: cover;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+/* line 78, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item2_double {
+  display: flex;
+  justify-content: space-between;
+  width: 126px;
+  padding-left: 22px;
+  padding-top: 23px;
+  padding-bottom: 52px;
+}
+
+/* line 85, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item2_double1 {
+  width: 54px;
+  background-color: #ffaa00;
+  padding: 6px 2px 2px 6px;
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* line 94, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item2_double2 {
+  background-color: #ffffff;
+  padding: 6px 2px 5px 3px;
+  width: 72px;
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* line 103, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item2_phone {
+  background-color: #000000;
+  width: 207px;
+  opacity: 0.64;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 15px 2px 19px;
+  margin-left: 181px;
+}
+
+/* line 113, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-table__adv-item3 {
+  background: url("../img/main/news2.png") no-repeat;
+  position: relative;
+  background-size: cover;
+  padding: 21px 27px 33px 124px;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* line 123, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_news-index.sass */
+.news-button {
+  width: 228px;
+  margin-top: 46px;
+  background-color: #1c2931;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 45px 13px 45px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
