@@ -1,54 +1,68 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <ul class="col-6 col-md-2 header">
-        <h3 class="text-muted">motor</h3>
-        <a class="d-block text-muted">vpmr.md</a>
-    </ul>
-    <ul class="collapse navbar-collapse button" id="n<vbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link text-uppercase" href="index">Главная</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#">Выбрать авто</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-uppercase " href="https://example.com" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Автосервис</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown07">
-                    <a class="dropdown-item " href="#">Сервис</a>
-                    <a class="dropdown-item" href="#">Автомойка</a>
-                    <a class="dropdown-item" href="#">Автозапчасти</a>
-                    <a class="dropdown-item" href="#">Шины</a>
-                    <a class="dropdown-item" href="#">Аксессуары</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#">Новости</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-uppercase" href="https://example.com" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">О нас</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown07">
-                    <a class="dropdown-item" href="#">О проекте</a>
-                    <a class="dropdown-item" href="#">Помощь по сайту (FAQ)</a>
-                    <a class="dropdown-item" href="#">Разместить рекламу</a>
-                    <a class="dropdown-item" href="#">Сотрудничество с нами</a>
-                    <a class="dropdown-item" href="#">Обратная связь</a>
-                </div>
-            </li>
+<nav class="mb-1 navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <ul class="navbar-brand">
+            <div class="navbar-brand__name">motor</div>
+            <div class="navbar-brand__site">vpmr.md</div>
         </ul>
-        <a class="nav-link text-muted">Вы вошли как {{ user_login }}</a>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Поиск</button>
-        </form>
-        {% if not user_login %}
-            <button type="button" class="btn btn-outline-secondary text-uppercase" data-toggle="modal"
-                    data-target="#login-form">Вход
-            </button>
-        {% else %}
-            <a href="{% url 'user_page' %}" role="button" class="btn btn-outline-secondary text-uppercase">Кабинет</a>
-            <a href="{% url 'logout' %}" role="button" class="btn btn-outline-secondary text-uppercase">Выход</a>
-        {% endif %}
-    </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav col-sm-8">
+                <li class="nav-item active">
+                    <a class="nav-link text-uppercase" href="#">Главная
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-uppercase" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Всё для авто</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown07">
+                        <a class="dropdown-item" href="#">Сервис</a>
+                        <a class="dropdown-item" href="#">Автомойка</a>
+                        <a class="dropdown-item" href="#">Автозапчасти</a>
+                        <a class="dropdown-item" href="#">Шины</a>
+                        <a class="dropdown-item" href="#">Аксессуары</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-uppercase" id="dropdown07" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">База знаний</a>
+                    <div class="dropdown-menu dropdown-default" aria-labelledby="dropdown07">
+                        <a class="dropdown-item" href="#">Экзамен ГАИ</a>
+                        <a class="dropdown-item" href="#">Правила ПДД</a>
+                        <a class="dropdown-item" href="#">Проверить штрафы</a>
+                        <a class="dropdown-item" href="#">Документы</a>
+                    </div>
+                </li>
+                <a class="nav-link text-uppercase">Новости</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-uppercase" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">О нас</a>
+                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="#">О проекте</a>
+                        <a class="dropdown-item" href="#">Помощь по сайту (FAQ)</a>
+                        <a class="dropdown-item" href="#">Разместить рекламу</a>
+                        <a class="dropdown-item" href="#">Сотрудничество с нами</a>
+                        <a class="dropdown-item" href="#">Обратная связь</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav nav-flex-icons col-sm-8">
+                <li class="nav-item col-sm-1" style="padding-top: 8px">
+                    {% load static %}
+                    <img src="{% static "img/main/man.png" %}" alt="man">
+                </li>
+                <li class="nav-item col-sm-1" style="padding-top: 8px">
+                    {% load static %}
+                    <img src="{% static "img/main/flag.png" %}" alt="flag">
+                </li>
+                <li class="nav-item col-sm-1" style="padding-top: 8px">
+                    {% load static %}
+                    <img src="{% static "img/main/arrows.png" %}" alt="arrows">
+                </li>
+                <li class="nav-item col-sm-1" style="background-color: black; width: 43px; height: 43px; padding-top: 8px">
+                    {% load static %}
+                    <img src="{% static "img/main/plus.png" %}" alt="plus">
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
