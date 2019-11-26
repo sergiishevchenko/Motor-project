@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm
 from .models import User
 from django.http import Http404
-from django import forms
 import logging
+from django.db import connection
+
 
 logger = logging.getLogger(__name__)
 
@@ -18,15 +19,77 @@ def index(request):
     signup_form = FormWrapper(SignUpForm())
     login_form = FormWrapper(LoginForm())
     user_id = request.session.get('user_id', None)
+
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM public.car_characteristic")
+    car_characteristic = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_characteristic_value")
+    car_characteristic_value = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_equipment")
+    car_equipment = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_generation")
+    car_generation = cursor.fetchall()
+
+    cursor.execute("SELECT name_rus FROM public.car_mark")
+    car_mark = cursor.fetchall()
+    car_mark_new = []
+    for i in car_mark:
+        car_mark_new.append(i[0])
+
+    cursor.execute("SELECT * FROM public.car_model")
+    car_model = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_modification")
+    car_modification = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_option")
+    car_option = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_option_value")
+    car_option_value = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_serie")
+    car_serie = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM public.car_type")
+    car_type = cursor.fetchall()
+
     if user_id is not None:
         user = User.objects.filter(id=user_id).first()
         if user is None:
             raise Http404('Error 404')
     params = None
     if user_id is None:
-        params = {'signup_form': signup_form, 'login_form': login_form}
+        params = {'signup_form': signup_form,
+                    'login_form': login_form,
+                    'car_characteristic': car_characteristic,
+                    'car_characteristic_value': car_characteristic_value,
+                    'car_equipment': car_equipment,
+                    'car_generation': car_generation,
+                    'car_mark': car_mark_new,
+                    'car_model': car_model,
+                    'car_modification': car_modification,
+                    'car_option': car_option,
+                    'car_option_value': car_option_value,
+                    'car_serie': car_serie,
+                    'car_type': car_type}
     else:
-        params = {'user_login': user.Login}
+        params = {'user_login': user.Login,
+                    'car_characteristic': car_characteristic,
+                    'car_characteristic_value': car_characteristic_value,
+                    'car_equipment': car_equipment,
+                    'car_generation': car_generation,
+                    'car_mark': car_mark_new,
+                    'car_model': car_model,
+                    'car_modification': car_modification,
+                    'car_option': car_option,
+                    'car_option_value': car_option_value,
+                    'car_serie': car_serie,
+                    'car_type': car_type}
     return render(request, 'motor/index.html', params)
 
 
