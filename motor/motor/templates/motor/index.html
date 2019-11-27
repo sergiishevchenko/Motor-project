@@ -22,7 +22,7 @@
              <div class="top-table__items-item">
                 <div class="top-table__form">
                    <select class="top-table__form-select" name="user_select">
-                        {% for car in car_mark %}
+                        {% for car in cars %}
                         <option value="">{{ car }}</option>
                         {% endfor %}
                    </select>
@@ -30,12 +30,9 @@
                 <div class="top-table__double">
                    <div class="top-table__form">
                       <select class="top-table__form-year" name="user_select">
-                         <option value="">Год, от</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
+                        {% for model in models %}
+                         <option value="Год, от">{{ year }}</option>
+                        {% endfor %}
                       </select>
                    </div>
                    <div class="top-table__form">
@@ -67,12 +64,9 @@
              <div class="top-table__items-item">
                 <div class="top-table__form">
                    <select class="top-table__form-select" name="user_select">
-                      <option value="">Все модели</option>
-                      <option value="Mercedes">Все модели</option>
-                      <option value="Lanos">Все модели</option>
-                      <option value="Audi">Все модели</option>
-                      <option value="Mazda">Все модели</option>
-                      <option value="Opel">Все модели</option>
+                      {% for model in models_honda %}
+                      <option value="{{ model }}">{{ model }}</option>
+                      {% endfor %}
                    </select>
                 </div>
                 <div class="top-table__double">
