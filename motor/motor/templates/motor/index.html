@@ -21,28 +21,24 @@
           <div class="top-table__items">
              <div class="top-table__items-item">
                 <div class="top-table__form">
-                   <select class="top-table__form-select" name="user_select">
-                        {% for car in cars %}
-                        <option value="">{{ car }}</option>
-                        {% endfor %}
+                   <select class="top-table__form-select" id="cars" name="cars">
+                        <option value="models_honda" selected>Honda</option>
+                        <option value="models_infinity">Infinity</option>
                    </select>
                 </div>
                 <div class="top-table__double">
                    <div class="top-table__form">
-                      <select class="top-table__form-year" name="user_select">
+                      <select class="top-table__form-year" id="city" name="city">
                         {% for model in models %}
-                         <option value="Год, от">{{ year }}</option>
+                            <option value="Год, от">{{ model }}</option>
                         {% endfor %}
                       </select>
                    </div>
                    <div class="top-table__form">
                       <select class="top-table__form-year" name="user_select">
-                         <option value="">Год, до</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
-                         <option value="1990">1990</option>
+                        {% for model in models %}
+                            <option value="Год, до">{{ year }}</option>
+                        {% endfor %}
                       </select>
                    </div>
                 </div>
@@ -63,11 +59,7 @@
              </div>
              <div class="top-table__items-item">
                 <div class="top-table__form">
-                   <select class="top-table__form-select" name="user_select">
-                      {% for model in models_honda %}
-                      <option value="{{ model }}">{{ model }}</option>
-                      {% endfor %}
-                   </select>
+                   <select class="top-table__form-select" id="model" name="model"></select>
                 </div>
                 <div class="top-table__double">
                    <input type="text" name="Цена, от" class="top-table__double-input" placeholder="Цена, от">
@@ -318,4 +310,21 @@
         <div class="news-button">Читать все новости</div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</script>
+<script type="text/javascript">
+    var cars = document.getElementById("cars");
+    var model = document.querySelector("#model");
+    window.onload = selectCar;
+    cars.onchange = selectCar;
+
+    function selectCar(ev){
+        model.innerHTML = "";
+        var c = this.value || '{{ models_honda }}', o;
+        for(let i = 0; i < '{{ models_cars }}'[c].length; i++){
+            o = new Option('{{ models_cars }}'[c][i],i,false,false);
+            model.add(o);
+        };
+    }
+    </script>
 {% endblock %}

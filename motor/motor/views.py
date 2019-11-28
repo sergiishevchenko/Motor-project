@@ -22,72 +22,25 @@ def index(request):
 
     cursor = connection.cursor()
 
-    cursor.execute("SELECT * FROM public.car_characteristic")
-    car_characteristic = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_characteristic_value")
-    car_characteristic_value = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_equipment")
-    car_equipment = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_modification")
-    car_modification = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_option")
-    car_option = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_option_value")
-    car_option_value = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_serie")
-    car_serie = cursor.fetchall()
-
-    cursor.execute("SELECT * FROM public.car_type")
-    car_type = cursor.fetchall()
-
     cursor.execute("SELECT name_rus FROM public.car_mark")
     car_mark = cursor.fetchall()
     cars = []
     for i in car_mark:
         cars.append(i[0])
-    for car in cars:
-        if car == 'Хонда':
-            models_honda = []
-            cursor.execute("SELECT name_rus, id_car_model FROM public.car_model WHERE id_car_mark = '76'")
-            model_id_honda = cursor.fetchall()
-            for i in model_id_honda:
-                models_honda.append(i[0])
-            cursor.execute("SELECT id_car_model, year_begin, year_end FROM public.car_generation WHERE id_car_model = id_car_model")
-            id_begin_end = cursor.fetchall()
-            honda = []
-            for i in model_id_honda:
-                for j in id_begin_end:
-                    honda_set = []
-                    if i[1] == j[0]:
-                        honda_set.append(i[0])
-                        honda_set.append(j[1])
-                        honda_set.append(j[2])
-                        honda.append(honda_set)
-            models = honda
+    cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
+    name_model_mark = cursor.fetchall()
+
+    models_cars = {}
+    models_honda = []
+    models_infinity = []
+    for i in name_model_mark:
+        if i[2] == '76':
+            models_honda.append(i[0])
         else:
-            models_infinity = []
-            cursor.execute("SELECT name_rus, id_car_model FROM public.car_model WHERE id_car_mark = '80'")
-            model_id_infinity = cursor.fetchall()
-            for i in model_id_infinity:
-                models_infinity.append(i[0])
-            cursor.execute("SELECT id_car_model, year_begin, year_end FROM public.car_generation WHERE id_car_model = id_car_model")
-            id_begin_end = cursor.fetchall()
-            infinity = []
-            for i in model_id_infinity:
-                for j in id_begin_end:
-                    infinity_set = []
-                    if i[1] == j[0]:
-                        infinity_set.append(i[0])
-                        infinity_set.append(j[1])
-                        infinity_set.append(j[2])
-                        infinity.append(infinity_set)
-            models = infinity
+            models_infinity.append(i[0])
+    models_cars = {'models_honda': models_honda, 'models_infinity': models_infinity}
+    cursor.execute("SELECT name, id_car_model, year_begin, year_end FROM public.car_generation")
+    generation_model_begin_end = cursor.fetchall()
 
     if user_id is not None:
         user = User.objects.filter(id=user_id).first()
@@ -97,34 +50,16 @@ def index(request):
     if user_id is None:
         params = {'signup_form': signup_form,
                     'login_form': login_form,
-                    'car_characteristic': car_characteristic,
-                    'car_characteristic_value': car_characteristic_value,
-                    'car_equipment': car_equipment,
                     'cars': cars,
-                    'honda': honda,
-                    'models': models,
                     'models_honda': models_honda,
-                    'model_id_honda': model_id_honda,
-                    'car_modification': car_modification,
-                    'car_option': car_option,
-                    'car_option_value': car_option_value,
-                    'car_serie': car_serie,
-                    'car_type': car_type}
+                    'models_infinity': models_infinity,
+                    'models_cars': models_cars}
     else:
         params = {'user_login': user.Login,
-                    'car_characteristic': car_characteristic,
-                    'car_characteristic_value': car_characteristic_value,
-                    'car_equipment': car_equipment,
                     'cars': cars,
-                    'honda': honda,
-                    'models': models,
-                    'model_id_honda': model_id_honda,
                     'models_honda': models_honda,
-                    'car_modification': car_modification,
-                    'car_option': car_option,
-                    'car_option_value': car_option_value,
-                    'car_serie': car_serie,
-                    'car_type': car_type}
+                    'models_infinity': models_infinity,
+                    'models_cars': models_cars}
     return render(request, 'motor/index.html', params)
 
 
