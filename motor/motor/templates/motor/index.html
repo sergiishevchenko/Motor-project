@@ -320,10 +320,12 @@
 
     function selectCar(ev){
         model.innerHTML = "";
-        var di = {'models_honda': ['Accord', 'Airwave', 'Ascot', 'Avancier', 'Beat', 'Capa', 'City', 'Civic', 'Concerto', 'CR-V', 'CR-X', 'CR-Z', 'Crossroad', 'Crosstour', 'Domani', 'Edix', 'Element', 'Elysion', 'FCX Clarity', 'Fit Aria', 'Fit', 'FR-V', 'Freed', 'HR-V', 'Insight', 'Inspire', 'Integra', 'Integra SJ', 'Jazz', 'Legend', 'Life', 'Logo', 'MDX', 'Mobilio', 'NSX', 'Odyssey', 'Orthia', 'Partner', 'Passport', 'Pilot', 'Prelude', 'Quint', 'Rafaga', 'Ridgeline', 'S-MX', 'S2000', 'Saber', 'Shuttle', 'Stepwgn', 'Stream', 'That is', 'Today', 'Torneo', 'Vamos', 'Vigor', 'Z', 'Zest', 'Acty', 'Ascot Innova', '1300', '145', 'Amaze', 'Ballade', 'Brio', 'Ciimo', 'Crider', 'Fit Shuttle', 'Lagreat', 'Mobilio Spike', 'MR-V', 'N360', 'N600', 'N Box', 'N-One', 'Quintet', 'S500', 'S600', 'S800', 'Spirior'], 'models_infinity': ['EX-Series', 'FX-Series', 'G-Series', 'J30', 'JX-Series', 'M-Series', 'Q45', 'Q50', 'Q60', 'QX-Series', 'QX50', 'QX60', 'QX70', 'QX80', 'Q70', 'Q30', 'QX30', 'I-Series']};
-        var c = this.value || 'models_honda', o;
-        for(let i = 0; i < di[c].length; i++){
-            o = new Option(di[c][i],i,false,false);
+        var models_cars = {{ models_cars|safe }};
+        console.log(models_cars.models_honda);
+        console.log(models_cars.models_infinity);
+        var c = this.value || "models_honda", o;
+        for(let i = 0; i < models_cars[c].length; i++){
+            o = new Option(models_cars[c][i],i,false,false);
             model.add(o);
         };
     }
