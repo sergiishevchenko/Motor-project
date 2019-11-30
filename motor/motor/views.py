@@ -29,8 +29,10 @@ def index(request):
         cars.append(i[0])
     cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
     name_model_mark = cursor.fetchall()
+    # print(name_model_mark)
     cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
     generation_model_begin_end = cursor.fetchall()
+    # print(generation_model_begin_end)
     all_models_begin = {}
     all_models_end = {}
     for i in name_model_mark:
@@ -38,6 +40,19 @@ def index(request):
             if i[1] == j[0]:
                 all_models_begin[i[1]] = [j[2]]
                 all_models_end[i[1]] = j[3]
+    cursor.execute("SELECT id_car_model, name FROM public.car_modification")
+    model_gear = cursor.fetchall()
+    # print(model_gear)
+    gears = {}
+    for item in model_gear:
+        if item[0] not in gears.keys():
+            gears[item[0]] = [item[1]]
+        else:
+            if item[1] not in gears[item[0]]:
+                gears[item[0]].append(item[1])
+    # print(gears)
+    # print(all_models_begin)
+    # print(all_models_end)
 
     models_cars = {}
     models_honda = []
@@ -63,6 +78,7 @@ def index(request):
                     'all_models_begin': all_models_begin,
                     'all_models_end': all_models_end,
                     'models_infinity': models_infinity,
+                    'gears': gears,
                     'models_cars': models_cars}
     else:
         params = {'user_login': user.Login,
@@ -70,6 +86,7 @@ def index(request):
                     'models_honda': models_honda,
                     'all_models_begin': all_models_begin,
                     'all_models_end': all_models_end,
+                    'gears': gears,
                     'models_infinity': models_infinity,
                     'models_cars': models_cars}
     return render(request, 'motor/index.html', params)
