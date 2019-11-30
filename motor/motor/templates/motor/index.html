@@ -28,17 +28,13 @@
                 </div>
                 <div class="top-table__double">
                    <div class="top-table__form">
-                      <select class="top-table__form-year" id="city" name="city">
-                        {% for model in models %}
-                            <option value="Год, от">{{ model }}</option>
-                        {% endfor %}
+                      <select class="top-table__form-year" id="year_begin" name="year_begin">
+                        <option value="753" selected>1996</option>
                       </select>
                    </div>
                    <div class="top-table__form">
-                      <select class="top-table__form-year" name="user_select">
-                        {% for model in models %}
-                            <option value="Год, до">{{ year }}</option>
-                        {% endfor %}
+                      <select class="top-table__form-year" id="year_end" name="year_end">
+                            <option value="753" selected>1998</option>
                       </select>
                    </div>
                 </div>
@@ -82,11 +78,7 @@
              </div>
              <div class="top-table__items-item">
                 <div class="top-table__form">
-                   <select class="top-table__form-select" name="user_select">
-                      <option value="">Коробка</option>
-                      <option value="Автоматическая коробка">Автоматическая коробка</option>
-                      <option value="Механическая коробка">Механическая коробка</option>
-                   </select>
+                   <select class="top-table__form-select" id="gear" name="gear"></select>
                 </div>
                 <div class="top-table__list">
                    <select class="top-table__list-parametric" name="user_select">
@@ -313,21 +305,38 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </script>
 <script type="text/javascript">
-    var cars = document.getElementById("cars");
-    var model = document.querySelector("#model");
-    window.onload = selectCar;
-    cars.onchange = selectCar;
+var cars = document.getElementById("cars");
+var model = document.querySelector("#model");
+var gear = document.querySelector("#gear");
+var year_begin = document.querySelector("#year_begin");
+var year_end = document.querySelector("#year_end");
+window.onload = selectCar;
+cars.onchange = selectCar;
+model.onchange = selectYear;
 
-    function selectCar(ev){
-        model.innerHTML = "";
-        var models_cars = {{ models_cars|safe }};
-        console.log(models_cars.models_honda);
-        console.log(models_cars.models_infinity);
-        var c = this.value || "models_honda", o;
-        for(let i = 0; i < models_cars[c].length; i++){
-            o = new Option(models_cars[c][i],i,false,false);
-            model.add(o);
-        };
-    }
-    </script>
+function selectCar(ev){
+    model.innerHTML = "";
+    var models_cars = {{ models_cars|safe }};
+    var c = this.value || "models_honda", o;
+    for(let i = 0; i < models_cars[c].length; i++){
+        o = new Option(models_cars[c][i],i,false,false);
+        model.add(o);
+    };
+}
+
+function selectYear(ev){
+    year_begin.innerHTML = "";
+    year_end.innerHTML = "";
+    var all_models_begin = {{ all_models_begin|safe }};
+    var all_models_end = {{ all_models_end|safe }};
+    var k = this.value, l, n;
+    begin = Object.values(all_models_begin)[k];
+    end = Object.values(all_models_end)[k];
+    l = new Option(begin,k,false,false);
+    n = new Option(end,k,false,false);
+    year_begin.add(l);
+    year_end.add(n);
+}
+
+</script>
 {% endblock %}

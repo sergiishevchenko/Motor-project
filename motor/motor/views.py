@@ -29,6 +29,15 @@ def index(request):
         cars.append(i[0])
     cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
     name_model_mark = cursor.fetchall()
+    cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
+    generation_model_begin_end = cursor.fetchall()
+    all_models_begin = {}
+    all_models_end = {}
+    for i in name_model_mark:
+        for j in generation_model_begin_end:
+            if i[1] == j[0]:
+                all_models_begin[i[1]] = [j[2]]
+                all_models_end[i[1]] = j[3]
 
     models_cars = {}
     models_honda = []
@@ -39,8 +48,7 @@ def index(request):
         else:
             models_infinity.append(i[0])
     models_cars = {'models_honda': models_honda, 'models_infinity': models_infinity}
-    cursor.execute("SELECT name, id_car_model, year_begin, year_end FROM public.car_generation")
-    generation_model_begin_end = cursor.fetchall()
+    # print(models_cars)
 
     if user_id is not None:
         user = User.objects.filter(id=user_id).first()
@@ -52,12 +60,16 @@ def index(request):
                     'login_form': login_form,
                     'cars': cars,
                     'models_honda': models_honda,
+                    'all_models_begin': all_models_begin,
+                    'all_models_end': all_models_end,
                     'models_infinity': models_infinity,
                     'models_cars': models_cars}
     else:
         params = {'user_login': user.Login,
                     'cars': cars,
                     'models_honda': models_honda,
+                    'all_models_begin': all_models_begin,
+                    'all_models_end': all_models_end,
                     'models_infinity': models_infinity,
                     'models_cars': models_cars}
     return render(request, 'motor/index.html', params)
