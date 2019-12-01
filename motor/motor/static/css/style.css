@@ -632,45 +632,11 @@ template {
 }
 
 /* line 99, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
-.top-table__list::before {
-  content: '';
-  display: block;
-  position: absolute;
-  cursor: pointer;
-  width: 8px;
-  height: 2px;
-  background-color: #8ec740;
-  -webkit-transform: rotate(-27deg);
-  transform: rotate(-27deg);
-  top: 22px;
-  right: 20px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* line 113, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
-.top-table__list::after {
-  content: '';
-  display: block;
-  position: absolute;
-  cursor: pointer;
-  width: 8px;
-  height: 2px;
-  background-color: #8ec740;
-  -webkit-transform: rotate(-150deg);
-  transform: rotate(-150deg);
-  top: 22px;
-  right: 26px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* line 127, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__options {
   margin-top: 45px;
 }
 
-/* line 129, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 101, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__options-option {
   display: flex;
   flex-wrap: wrap;
@@ -678,7 +644,7 @@ template {
   margin-top: 15px;
 }
 
-/* line 134, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 106, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-button {
   width: 270px;
   height: 39px;
@@ -691,7 +657,7 @@ template {
   padding: 10px 10px 10px;
 }
 
-/* line 144, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 116, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-cancel {
   height: 16px;
   color: #b1b5b8;
