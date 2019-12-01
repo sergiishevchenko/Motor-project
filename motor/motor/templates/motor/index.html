@@ -29,12 +29,12 @@
                 <div class="top-table__double">
                    <div class="top-table__form">
                       <select class="top-table__form-year" id="year_begin" name="year_begin">
-                        <option value="753" selected>1996</option>
+                        <option value="753" selected>Год, от</option>
                       </select>
                    </div>
                    <div class="top-table__form">
                       <select class="top-table__form-year" id="year_end" name="year_end">
-                            <option value="753" selected>1998</option>
+                            <option value="753" selected>Год, до</option>
                       </select>
                    </div>
                 </div>
@@ -55,7 +55,9 @@
              </div>
              <div class="top-table__items-item">
                 <div class="top-table__form">
-                   <select class="top-table__form-select" id="model" name="model"></select>
+                   <select class="top-table__form-select" id="model" name="model">
+                        <option value="Модель" selected>Модель</option>
+                   </select>
                 </div>
                 <div class="top-table__double">
                    <input type="text" name="Цена, от" class="top-table__double-input" placeholder="Цена, от">
@@ -78,18 +80,13 @@
              </div>
              <div class="top-table__items-item">
                 <div class="top-table__form">
-                   <select class="top-table__form-select" id="gear" name="gear">
+                   <select class="top-table__form-select" id="gear" name="gear" style="margin-bottom: 15px;">
                         <option value="Тип двигателя" selected>Тип двигателя</option>
                    </select>
                 </div>
-                <div class="top-table__list">
-                   <select class="top-table__list-parametric" name="user_select">
-                      <option value="">Все параметры</option>
-                      <option value="параметры">параметры</option>
-                      <option value="параметры">параметры</option>
-                      <option value="параметры">параметры</option>
-                      <option value="параметры">параметры</option>
-                      <option value="параметры">параметры</option>
+                <div class="top-table__form">
+                   <select class="top-table__form-select" id="kuzov" name="kuzov">
+                      <option value="Тип кузова" selected>Тип кузова</option>
                    </select>
                 </div>
                 <div class="top-table__options">
@@ -312,6 +309,7 @@ var model = document.querySelector("#model");
 var gear = document.querySelector("#gear");
 var year_begin = document.querySelector("#year_begin");
 var year_end = document.querySelector("#year_end");
+
 window.onload = selectCar;
 cars.onchange = selectCar;
 model.onchange = selectYear;
@@ -330,10 +328,14 @@ function selectYear(ev){
     year_begin.innerHTML = "";
     year_end.innerHTML = "";
     gear.innerHTML = "";
+    kuzov.innerHTML = "";
+
     var all_models_begin = {{ all_models_begin|safe }};
     var all_models_end = {{ all_models_end|safe }};
     var gears = {{ gears|safe }};
-    var k = this.value, l, n, p;
+    var kuzovs = {{ kuzov|safe }};
+    var k = this.value, l, n, p, t;
+
     begin = Object.values(all_models_begin)[k];
     end = Object.values(all_models_end)[k];
     l = new Option(begin,k,false,false);
@@ -342,6 +344,11 @@ function selectYear(ev){
         obj = Object.values(gears)[k];
         p = new Option(obj[i],i,false,false);
         gear.add(p);
+    };
+    for(let i = 0; i < Object.values(kuzovs)[k].length; i++){
+        obj = Object.values(kuzovs)[k];
+        t = new Option(obj[i],i,false,false);
+        kuzov.add(t);
     };
     year_begin.add(l);
     year_end.add(n);
