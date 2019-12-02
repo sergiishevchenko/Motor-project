@@ -56,7 +56,25 @@ def index(request):
         else:
             if item[1] not in kuzov[item[0]]:
                 kuzov[item[0]].append(item[1])
+    series = {}
+    for item in model_name_generation:
+        if item[0] not in series.keys():
+            series[item[0]] = [item[1]]
+        else:
+            series[item[0]].append(item[1])
 
+    model_series_sum = {}
+    for key, values in sorted(series.items()):
+        q = 0
+        series_sum = {}
+        for i in values:
+            if i not in values:
+                q = 1
+                series_sum[i] = q
+            else:
+                q += 1
+                series_sum[i] = q
+        model_series_sum[key] = series_sum
     models_cars = {}
     models_honda = []
     models_infinity = []
@@ -82,6 +100,7 @@ def index(request):
                     'models_infinity': models_infinity,
                     'gears': gears,
                     'kuzov': kuzov,
+                    'model_series_sum': model_series_sum,
                     'models_cars': models_cars}
     else:
         params = {'user_login': user.Login,
@@ -91,6 +110,7 @@ def index(request):
                     'all_models_end': all_models_end,
                     'gears': gears,
                     'kuzov': kuzov,
+                    'model_series_sum': model_series_sum,
                     'models_infinity': models_infinity,
                     'models_cars': models_cars}
     return render(request, 'motor/index.html', params)

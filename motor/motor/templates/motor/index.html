@@ -38,19 +38,15 @@
                       </select>
                    </div>
                 </div>
-                <div class="top-table__options">
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">1 серия</div>
-                        <div class="top-table__option-number">900</div>
+                <div class="top-table__options" id="luz" name="luz">
+                    {% for i in key %}
+                    <div class="top-table__option-seria" id="seria" name="seria">
+                        <div value="753" selected></div>
                     </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">2 серия</div>
-                        <div class="top-table__option-number">4040</div>
+                    <div class="top-table__option-number" id="number" name="number">
+                        <div value="753" selected></div>
                     </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">3 серия</div>
-                        <div class="top-table__option-number">25</div>
-                    </div>
+                    {% endfor %}
                 </div>
              </div>
              <div class="top-table__items-item">
@@ -105,8 +101,8 @@
                 </div>
              </div>
              <div class="top-table__items-item">
-                <button class="top-button" type="submit">Показать 10254 автомобилей</button>
-                <div class="top-cancel">Сбросить</div>
+                <button class="top-button" type="submit" style="margin-bottom: 16px;">Показать 10254 автомобилей</button>
+                <button class="top-button" type="button" style="background-color: red;">Сбросить</button>
                 <div class="top-table__options">
                     <div class="top-table__options-option">
                         <div class="top-table__option-seria">X5 серия</div>
@@ -304,11 +300,11 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </script>
 <script type="text/javascript">
-var cars = document.getElementById("cars");
-var model = document.querySelector("#model");
-var gear = document.querySelector("#gear");
-var year_begin = document.querySelector("#year_begin");
-var year_end = document.querySelector("#year_end");
+// var cars = document.getElementById("cars");
+// var model = document.querySelector("#model");
+// var gear = document.querySelector("#gear");
+// var year_begin = document.querySelector("#year_begin");
+// var year_end = document.querySelector("#year_end");
 
 window.onload = selectCar;
 cars.onchange = selectCar;
@@ -334,12 +330,15 @@ function selectYear(ev){
     var all_models_end = {{ all_models_end|safe }};
     var gears = {{ gears|safe }};
     var kuzovs = {{ kuzov|safe }};
+    var series_sum = {{ model_series_sum|safe }};
     var k = this.value, l, n, p, t;
 
     begin = Object.values(all_models_begin)[k];
     end = Object.values(all_models_end)[k];
     l = new Option(begin,k,false,false);
     n = new Option(end,k,false,false);
+    year_begin.add(l);
+    year_end.add(n);
     for(let i = 0; i < Object.values(gears)[k].length; i++){
         obj = Object.values(gears)[k];
         p = new Option(obj[i],i,false,false);
@@ -350,8 +349,15 @@ function selectYear(ev){
         t = new Option(obj[i],i,false,false);
         kuzov.add(t);
     };
-    year_begin.add(l);
-    year_end.add(n);
+    var values = Object.values(series_sum)[k];
+    console.log(values);
+    var keys = Object.keys(series_sum)[k];
+    for(var key in values){
+        console.log(key);
+        console.log(values[key]);
+        document.getElementById("seria").innerHTML = key;
+        document.getElementById("number").innerHTML = values[key];
+    };
 }
 
 </script>
