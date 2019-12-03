@@ -35,9 +35,22 @@ def index(request):
     all_models_end = {}
     for i in name_model_mark:
         for j in generation_model_begin_end:
-            if i[1] == j[0]:
-                all_models_begin[i[1]] = [j[2]]
-                all_models_end[i[1]] = j[3]
+            if i[1] not in all_models_begin:
+                if i[1] == j[0]:
+                    all_models_begin[i[1]] = [j[2]]
+            else:
+                if j[2] not in all_models_begin[i[1]]:
+                    all_models_begin[i[1]].append(j[2])
+    for i in name_model_mark:
+        for j in generation_model_begin_end:
+            if i[1] not in all_models_end:
+                if i[1] == j[0]:
+                    all_models_end[i[1]] = [j[3]]
+            else:
+                if j[3] not in all_models_end[i[1]]:
+                    all_models_end[i[1]].append(j[3])
+    print(all_models_begin)
+    print(all_models_end)
     cursor.execute("SELECT id_car_model, name FROM public.car_modification")
     model_gear = cursor.fetchall()
     gears = {}

@@ -38,15 +38,9 @@
                       </select>
                    </div>
                 </div>
-                <div class="top-table__options" id="luz" name="luz">
-                    {% for i in key %}
-                    <div class="top-table__option-seria" id="seria" name="seria">
-                        <div value="753" selected></div>
-                    </div>
-                    <div class="top-table__option-number" id="number" name="number">
-                        <div value="753" selected></div>
-                    </div>
-                    {% endfor %}
+                <div class="top-table__options-option" id="luz" name="luz">
+                    <div class="top-table__option-seria" id="seria" name="seria" style="line-height: 30px;"></div>
+                    <div class="top-table__option-number" id="number" name="number" style="line-height: 30px;"></div>
                 </div>
              </div>
              <div class="top-table__items-item">
@@ -58,20 +52,6 @@
                 <div class="top-table__double">
                    <input type="text" name="Цена, от" class="top-table__double-input" placeholder="Цена, от">
                    <input type="text" name="Цена, до" class="top-table__double-input" placeholder="Цена, до">
-                </div>
-                <div class="top-table__options">
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">5 серия</div>
-                        <div class="top-table__option-number">900</div>
-                    </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">6 серия</div>
-                        <div class="top-table__option-number">4040</div>
-                    </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">7 серия</div>
-                        <div class="top-table__option-number">25</div>
-                    </div>
                 </div>
              </div>
              <div class="top-table__items-item">
@@ -85,36 +65,14 @@
                       <option value="Тип кузова" selected>Тип кузова</option>
                    </select>
                 </div>
-                <div class="top-table__options">
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">X1 серия</div>
-                        <div class="top-table__option-number">900</div>
-                    </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">X3 серия</div>
-                        <div class="top-table__option-number">4040</div>
-                    </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">X5 серия</div>
-                        <div class="top-table__option-number">25</div>
-                    </div>
-                </div>
              </div>
              <div class="top-table__items-item">
                 <button class="top-button" type="submit" style="margin-bottom: 16px;">Показать 10254 автомобилей</button>
                 <button class="top-button" type="button" style="background-color: red;">Сбросить</button>
                 <div class="top-table__options">
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">X5 серия</div>
-                        <div class="top-table__option-number">900</div>
-                    </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">X6 серия</div>
-                        <div class="top-table__option-number">4040</div>
-                    </div>
-                    <div class="top-table__options-option">
-                        <div class="top-table__option-seria">Всего</div>
-                        <div class="top-table__option-number">50</div>
+                    <div class="top-table__options-option" style="margin-top: 120px">
+                        <div class="top-table__option-seria">Всего серий:</div>
+                        <div class="top-table__option-number" id="summ" name="summ">0</div>
                     </div>
                 </div>
              </div>
@@ -300,12 +258,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </script>
 <script type="text/javascript">
-// var cars = document.getElementById("cars");
-// var model = document.querySelector("#model");
-// var gear = document.querySelector("#gear");
-// var year_begin = document.querySelector("#year_begin");
-// var year_end = document.querySelector("#year_end");
-
 window.onload = selectCar;
 cars.onchange = selectCar;
 model.onchange = selectYear;
@@ -331,14 +283,18 @@ function selectYear(ev){
     var gears = {{ gears|safe }};
     var kuzovs = {{ kuzov|safe }};
     var series_sum = {{ model_series_sum|safe }};
-    var k = this.value, l, n, p, t;
+    var k = this.value, l, n, p, t, g, z;
 
     begin = Object.values(all_models_begin)[k];
     end = Object.values(all_models_end)[k];
-    l = new Option(begin,k,false,false);
-    n = new Option(end,k,false,false);
-    year_begin.add(l);
-    year_end.add(n);
+    for(let i = 0; i < begin.length; i++){
+        g = new Option(begin[i],k,false,false);
+        year_begin.add(g);
+    };
+    for(let i = 0; i < end.length; i++){
+        z = new Option(end[i],k,false,false);
+        year_end.add(z);
+    };
     for(let i = 0; i < Object.values(gears)[k].length; i++){
         obj = Object.values(gears)[k];
         p = new Option(obj[i],i,false,false);
@@ -350,15 +306,20 @@ function selectYear(ev){
         kuzov.add(t);
     };
     var values = Object.values(series_sum)[k];
-    console.log(values);
     var keys = Object.keys(series_sum)[k];
-    for(var key in values){
-        console.log(key);
-        console.log(values[key]);
-        document.getElementById("seria").innerHTML = key;
-        document.getElementById("number").innerHTML = values[key];
+    document.getElementById("seria").innerHTML = "";
+    document.getElementById("number").innerHTML = "";
+    for(let i = 0; i < Object.keys(values).length; i++){
+        key = Object.keys(values)[i]
+        document.getElementById("seria").innerHTML += key + "<br>";
+        value = Object.values(values)[i]
+        document.getElementById("number").innerHTML += value + "<br>";
     };
+    var summ = parseInt('0');
+    for (let i = 0; i < Object.values(values).length; i++){
+        summ += Object.values(values)[i];
+    };
+    document.getElementById("summ").innerHTML = summ;
 }
-
 </script>
 {% endblock %}
