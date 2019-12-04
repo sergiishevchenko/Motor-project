@@ -49,8 +49,6 @@ def index(request):
             else:
                 if j[3] not in all_models_end[i[1]]:
                     all_models_end[i[1]].append(j[3])
-    print(all_models_begin)
-    print(all_models_end)
     cursor.execute("SELECT id_car_model, name FROM public.car_modification")
     model_gear = cursor.fetchall()
     gears = {}
@@ -102,6 +100,7 @@ def index(request):
         user = User.objects.filter(id=user_id).first()
         if user is None:
             raise Http404('Error 404')
+
     params = None
     if user_id is None:
         params = {'signup_form': signup_form,

@@ -38,10 +38,6 @@
                       </select>
                    </div>
                 </div>
-                <div class="top-table__options-option" id="luz" name="luz">
-                    <div class="top-table__option-seria" id="seria" name="seria" style="line-height: 30px;"></div>
-                    <div class="top-table__option-number" id="number" name="number" style="line-height: 30px;"></div>
-                </div>
              </div>
              <div class="top-table__items-item">
                 <div class="top-table__form">
@@ -69,13 +65,15 @@
              <div class="top-table__items-item">
                 <button class="top-button" type="submit" style="margin-bottom: 16px;">Показать 10254 автомобилей</button>
                 <button class="top-button" type="button" style="background-color: red;">Сбросить</button>
-                <div class="top-table__options">
-                    <div class="top-table__options-option" style="margin-top: 120px">
-                        <div class="top-table__option-seria">Всего серий:</div>
-                        <div class="top-table__option-number" id="summ" name="summ">0</div>
-                    </div>
-                </div>
              </div>
+          </div>
+          <div class="top-table__serias" id="luz" name="luz">
+          </div>
+          <div class="top-table__options">
+            <div class="top-table__options-option" style="margin-top: 120px">
+                <div class="top-table__option-seria" style="font-weight: bold">Всего серий:</div>
+                <div class="top-table__option-number" id="summ" name="summ" style="font-weight: bold">0</div>
+            </div>
           </div>
        </div>
     </div>
@@ -307,13 +305,26 @@ function selectYear(ev){
     };
     var values = Object.values(series_sum)[k];
     var keys = Object.keys(series_sum)[k];
-    document.getElementById("seria").innerHTML = "";
-    document.getElementById("number").innerHTML = "";
     for(let i = 0; i < Object.keys(values).length; i++){
-        key = Object.keys(values)[i]
-        document.getElementById("seria").innerHTML += key + "<br>";
-        value = Object.values(values)[i]
-        document.getElementById("number").innerHTML += value + "<br>";
+        key = Object.keys(values)[i];
+        value = Object.values(values)[i];
+
+        let div0 = document.createElement('div');
+        div0.className = "seria";
+        div0.setAttribute('id', 'seria');
+        luz.append(div0);
+
+        let div1 = document.createElement('div');
+        div1.className = "seria_name";
+        div1.innerHTML = key;
+        seria = document.querySelectorAll(".seria")[i];
+        seria.append(div1);
+
+        let div2 = document.createElement('div');
+        div2.className = "number";
+        div2.innerHTML = value;
+        seria = document.querySelectorAll(".seria")[i];
+        seria.append(div2);
     };
     var summ = parseInt('0');
     for (let i = 0; i < Object.values(values).length; i++){

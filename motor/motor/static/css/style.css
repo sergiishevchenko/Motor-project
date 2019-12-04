@@ -547,11 +547,21 @@ template {
 }
 
 /* line 41, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+.top-table__serias {
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 10px;
+  -moz-columns: 40px 5;
+  -webkit-columns: 40px 5;
+  columns: 50px 4;
+}
+
+/* line 48, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__form {
   position: relative;
 }
 
-/* line 43, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 50, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__form-select {
   width: 270px;
   padding: 10px 10px 10px;
@@ -559,7 +569,7 @@ template {
   -webkit-appearance: none;
 }
 
-/* line 48, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 55, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__form-year {
   width: 130px;
   padding: 10px 10px 10px;
@@ -567,7 +577,7 @@ template {
   -webkit-appearance: none;
 }
 
-/* line 53, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 60, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__form::before {
   content: '';
   display: block;
@@ -584,7 +594,7 @@ template {
   pointer-events: none;
 }
 
-/* line 67, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 74, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__form::after {
   content: '';
   display: block;
@@ -601,7 +611,7 @@ template {
   pointer-events: none;
 }
 
-/* line 81, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 88, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__double {
   display: flex;
   flex-wrap: wrap;
@@ -609,7 +619,7 @@ template {
   margin-top: 15px;
 }
 
-/* line 86, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 93, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__double-input {
   width: 130px;
   padding: 10px 10px 10px;
@@ -617,12 +627,12 @@ template {
   -webkit-appearance: none;
 }
 
-/* line 91, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 98, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__list {
   position: relative;
 }
 
-/* line 93, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 100, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__list-parametric {
   width: 270px;
   padding: 10px 77px 10px;
@@ -631,12 +641,15 @@ template {
   margin-top: 15px;
 }
 
-/* line 99, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 106, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__options {
-  margin-top: 45px;
+  bottom: 70px;
+  width: 275px;
+  position: absolute;
+  right: 120px;
 }
 
-/* line 101, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 111, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-table__options-option {
   display: flex;
   flex-wrap: wrap;
@@ -644,7 +657,7 @@ template {
   margin-top: 15px;
 }
 
-/* line 106, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 116, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-button {
   width: 270px;
   height: 39px;
@@ -657,7 +670,7 @@ template {
   padding: 10px 10px 10px;
 }
 
-/* line 116, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+/* line 126, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
 .top-cancel {
   height: 16px;
   color: #b1b5b8;
@@ -666,6 +679,15 @@ template {
   font-weight: 400;
   margin-top: 40px;
   text-align: right;
+}
+
+/* line 134, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_top-index.sass */
+.seria {
+  width: 275px;
+  margin-left: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* line 2, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/motor/static/sass/blocks/_products-index.sass */
