@@ -9,6 +9,8 @@ python3 -m venv venv
 source venv\bin\activate
 pip install -r requirements.txt
 ```
+## Deployed project
+https://motor-project.herokuapp.com/
 
 ## Database Schemas
 
