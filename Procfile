@@ -1,1 +1,1 @@
-web: gunicorn motor.wsgi:application
+web: gunicorn motor.wsgi --log-file -
