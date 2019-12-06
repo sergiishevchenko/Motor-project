@@ -26,12 +26,13 @@ SECRET_KEY = 'qox++ud@j*6m5s!pgq7!gp0f6k#bfn9bsjyq#hd8kcbklci_i%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
     'motor',
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -87,6 +88,9 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -124,9 +128,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
-
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
+#  location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#  location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'motor/static')]
