@@ -45,13 +45,13 @@ pip install -r requirements.txt
         # location where you will store your static files
         STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')]
     ```
-    5.12. Adding and configuring **Postgres**:\
+    5.12. Adding and configuring **Postgres**:
 
-        # The following commands create postgresql database on **Heroku** and fetch its url\
+        # The following commands create postgresql database on **Heroku** and fetch its url
         ```
             heroku addons:create heroku-postgresql:hobby-dev
             heroku config -s | grep DATABASE_URL
-        ```\
+        ```
 
         # Lets push local database to herokuDB\
         ```
