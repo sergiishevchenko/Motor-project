@@ -48,15 +48,12 @@ pip install -r requirements.txt
     5.12. Adding and configuring **Postgres**:
 
         # The following commands create postgresql database on **Heroku** and fetch its url
-        ```
-            heroku addons:create heroku-postgresql:hobby-dev
-            heroku config -s | grep DATABASE_URL
-        ```
-
+        heroku addons:create heroku-postgresql:hobby-dev
+        heroku config -s | grep DATABASE_URL
+        
         # Lets push local database to herokuDB
-        ```
-            push local database:PGUSER=postgres PGPASSWORD=password  heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
-        ```
+        push local database:PGUSER=postgres PGPASSWORD=password  heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
+        
 
 ## Deployed project
 https://motor-project.herokuapp.com/
