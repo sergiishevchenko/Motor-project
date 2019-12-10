@@ -14,7 +14,7 @@ pip install -r requirements.txt
 2. Connection **Django** project to **PostgreSQL**.\
     2.1. First, I change the engine so that it uses the postgresql_psycopg2 backend instead of the sqlite3 backend.\
         For the NAME, use the name of my  database (postgres in our example). We also need to add login credentials.\
-        We need the username, password, and host to connect to.\
+        We need the username, password, and host to connect to.
     ```
     DATABASES = {
         'default': {
@@ -26,17 +26,17 @@ pip install -r requirements.txt
             'PORT': '5432'
         }
     }
-    ```\
-    2.2. We can begin by creating and applying migrations to our database.\
+    ```
+    2.2. We can begin by creating and applying migrations to our database.
     ```
     cd Motor-website/
     python manage.py makemigrations
     python manage.py migrate
-    ```\
-    2.3. After creating the database structure, we can create an administrative account by typing:\
+    ```
+    2.3. After creating the database structure, we can create an administrative account by typing:
     ```
     python manage.py createsuperuser
-    ```\
+    ```
 3. Import data from **PostgreSQL** by **Python** to **JavaScript** and from **JavaScript** to **HTML**.
 4. Page's reload during selecting options in the dropdown lists.
 5. Deployment to **Heroku**.\
