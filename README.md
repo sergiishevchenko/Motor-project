@@ -21,7 +21,7 @@ pip install -r requirements.txt
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'postgres',
             'USER': 'postgres',
-            'PASSWORD': 'pythondeveloper2019',
+            'PASSWORD': 'password',
             'HOST': '127.0.0.1',
             'PORT': '5432'
         }
