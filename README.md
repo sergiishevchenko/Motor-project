@@ -14,7 +14,7 @@ pip install -r requirements.txt
 2. Connection **Django** project to **PostgreSQL**.
 3. Import data from **PostgreSQL** by **Python** to **JavaScript** and from **JavaScript** to **HTML**.
 4. Page's reload during selecting options in the dropdown lists.
-5. Deployment to **Heroku**.
+5. Deployment to **Heroku**.\
     5.1. Install the dependencies and these packages: 
     ```
         pip install django gunicorn whitenoise dj-database-url psycopg2
@@ -25,7 +25,7 @@ pip install -r requirements.txt
     ```
     5.3. Create runtime file **runtime.txt** and add the following **python-3.7.5**.\
     5.4. Login to Heroku terminal by heroku login and create heroku app by heroku create.\
-    5.5. Modify the **settings.py** file. Modify allowed hosts by adding '*'.\
+    5.5. Modify the **settings.py** file. Modify allowed hosts by adding **'*'**.\
     5.6. Modify **INSTALLED_APPS** by adding **whitenoise.runserver_nostatic**.\
     5.7. Modify **MIDDLEWARE** by adding **whitenoise.middleware.WhiteNoiseMiddleware**.\
     5.8. Add **STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'**.\
@@ -49,8 +49,8 @@ pip install -r requirements.txt
         # The following commands create postgresql database on **Heroku** and fetch its url\
         ```
             heroku addons:create heroku-postgresql:hobby-dev
-            heroku config -s | grep DATABASE_URL\
-        ```
+            heroku config -s | grep DATABASE_URL
+        ```\
         # lets push local database to herokuDB\
         ```
             push local database:PGUSER=postgres PGPASSWORD=password  heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
