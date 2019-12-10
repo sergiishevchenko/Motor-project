@@ -53,7 +53,7 @@ pip install -r requirements.txt
             heroku config -s | grep DATABASE_URL
         ```
 
-        # Lets push local database to herokuDB\
+        # Lets push local database to herokuDB
         ```
             push local database:PGUSER=postgres PGPASSWORD=password  heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
         ```
