@@ -19,17 +19,17 @@ pip install -r requirements.txt
     ```
         pip install django gunicorn whitenoise dj-database-url psycopg2
     ```
-    5.2 Create a Procfile Procfile and add the following line.
+    5.2 Create a Procfile and add the following line.
     ```
         web: gunicorn motor.wsgi --log-file -
     ```
-    5.3 Create runtime file **runtime.txt** and add the following **python-3.7.5**:
-    5.4 Login to Heroku terminal by heroku login and create heroku app by heroku create.
-    5.5 Modify the **settings.py** file. Modify allowed hosts by adding '*'.
-    5.6 Modify **INSTALLED_APPS** by adding **whitenoise.runserver_nostatic**.
-    5.7 Modify **MIDDLEWARE** by adding **whitenoise.middleware.WhiteNoiseMiddleware**.
-    5.8 Add **STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'**.
-    5.9 Add **import dj_database_url** at the top of **settings.py**.
+    5.3 Create runtime file **runtime.txt** and add the following **python-3.7.5**.\
+    5.4 Login to Heroku terminal by heroku login and create heroku app by heroku create.\
+    5.5 Modify the **settings.py** file. Modify allowed hosts by adding '*'.\
+    5.6 Modify **INSTALLED_APPS** by adding **whitenoise.runserver_nostatic**.\
+    5.7 Modify **MIDDLEWARE** by adding **whitenoise.middleware.WhiteNoiseMiddleware**.\
+    5.8 Add **STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'**.\
+    5.9 Add **import dj_database_url** at the top of **settings.py**.\
     5.10 After DATABASES add:
     ```
         db_from_env = dj_database_url.config(conn_max_age=600)
@@ -45,13 +45,13 @@ pip install -r requirements.txt
         # location where you will store your static files
         STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')]
     ```
-    5.12 Adding and configuring **Postgres**:
-        # The following commands create postgresql database on **Heroku** and fetch its url
+    5.12 Adding and configuring **Postgres**:\
+        # The following commands create postgresql database on **Heroku** and fetch its url\
         ```
             heroku addons:create heroku-postgresql:hobby-dev
             heroku config -s | grep DATABASE_URL
         ```
-        # lets push local database to herokuDB
+        # lets push local database to herokuDB\
         ```
             push local database:PGUSER=postgres PGPASSWORD=password  heroku pg:push postgres://name_of_host/name_of_local_database nameOfHerokuDB
         ```
