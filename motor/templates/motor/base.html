@@ -42,55 +42,54 @@
     aria-hidden="true">
     <div class="modal-dialog modal-full-height modal-right" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <p class="heading lead">Feedback request</p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="white-text">×</span>
-                </button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='width: 30px; margin-left:30px; margin-top: 30px'>
+                <span aria-hidden="true" class="white-text">×</span>
+            </button>
+            <div class="modal-content__head">
+                <div class="modal-content__head-name">motor</div>
+                <div class="modal-content__head-site">vpmr.md</div>
             </div>
-            <div class="modal-body">
-                <div class="text-center">
-                    <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
-                    <p>
-                        <strong>Your opinion matters</strong>
-                    </p>
-                    <p>Have some ideas how to improve our product?
-                        <strong>Give us your feedback.</strong>
-                    </p>
+            <div class="modal-content__body">
+                Добро пожаловать! <br>
+                Пожалуйста, авторизуйтесь, для входа в свой аккаунт!</strong>
+            </div>
+            <form class="form">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                <hr>
-                <p class="text-center">
-                    <strong>Your rating</strong>
-                </p>
-                <div class="form-check mb-4">
-                    <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
-                    <label class="form-check-label" for="radio-179">Very good</label>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
-                <div class="form-check mb-4">
-                    <input class="form-check-input" name="group1" type="radio" id="radio-279" value="option2">
-                    <label class="form-check-label" for="radio-279">Good</label>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <div class="form-check mb-4">
-                    <input class="form-check-input" name="group1" type="radio" id="radio-379" value="option3">
-                    <label class="form-check-label" for="radio-379">Mediocre</label>
+            </form>
+            <div class="socials">
+                <div class="socials-icons">
+                    <div class="socials-icons__item">
+                        {% load static %}
+                        <img src="{% static "img/modal/vkontakte.png" %}" alt="vkontakte">
+                    </div>
+                    <div class="socials-icons__item">
+                        {% load static %}
+                        <img src="{% static "img/modal/facebook.png" %}" alt="facebook">
+                    </div>
+                    <div class="socials-icons__item">
+                        {% load static %}
+                        <img src="{% static "img/modal/classmates.png" %}" alt="classmates">
+                    </div>
+                    <div class="socials-icons__item">
+                        {% load static %}
+                        <img src="{% static "img/modal/twitter.png" %}" alt="twitter">
+                    </div>
                 </div>
-                <div class="form-check mb-4">
-                    <input class="form-check-input" name="group1" type="radio" id="radio-479" value="option4">
-                    <label class="form-check-label" for="radio-479">Bad</label>
-                </div>
-                <p class="text-center">
-                    <strong>What could we improve?</strong>
-                </p>
-                <div class="md-form">
-                    <textarea type="text" id="form79textarea" class="md-textarea form-control" rows="3"></textarea>
-                    <label for="form79textarea">Your message</label>
-                </div>
+                <div class="socials-text">Забыли пароль?</div>
             </div>
             <div class="modal-footer justify-content-center">
-                <a type="button" class="btn btn-primary waves-effect waves-light">Send
-                    <i class="fa fa-paper-plane ml-1"></i>
-                </a>
-                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+                <button type="button" class="top-button" style="width: 195px">ВОЙТИ</button>
+                <button type="button" class="top-button" style="width: 195px; background-color: white; color: black">РЕГИСТРАЦИЯ</button>
             </div>
         </div>
     </div>
