@@ -447,13 +447,30 @@ template {
   margin-top: 140px;
 }
 
+/* line 44, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
+.modal {
+  left: auto;
+}
+
 /* line 46, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
+.modal-dialog {
+  margin-top: auto;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+/* line 50, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
+.modal-content {
+  height: 100%;
+}
+
+/* line 53, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
 .navbar-brand {
   margin-bottom: 0;
   margin-right: 150px;
 }
 
-/* line 49, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
+/* line 56, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
 .navbar-brand__name {
   color: #1c2931;
   font-size: 42px;
@@ -462,7 +479,7 @@ template {
   font-weight: 400;
 }
 
-/* line 55, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
+/* line 62, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
 .navbar-brand__site {
   color: #1c2931;
   margin-top: -20px;
@@ -473,7 +490,7 @@ template {
 }
 
 @media (min-width: 1200px) {
-  /* line 63, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
+  /* line 70, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
   .container {
     max-width: 1230px;
   }
