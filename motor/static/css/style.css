@@ -1199,4 +1199,58 @@ template {
   justifi-content: space-between;
 }
 
+/* line 1, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_404page.sass */
+.sos {
+  background: url("../img/404page/fon.png") center;
+  background-size: cover;
+  margin: auto;
+  height: 100vh;
+}
+
+/* line 6, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_404page.sass */
+.main-block {
+  margin: auto;
+  width: 670px;
+  padding-top: 200px;
+}
+
+/* line 10, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_404page.sass */
+.main-block__sos {
+  width: 195px;
+  border-radius: 5px;
+  background-color: #e30000;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 74px;
+  font-weight: 700;
+  padding-left: 25px;
+}
+
+/* line 19, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_404page.sass */
+.main-block__message {
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+/* line 25, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_404page.sass */
+.main-block__text {
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-top: 15px;
+}
+
+/* line 32, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_404page.sass */
+.main-block__social {
+  display: flex;
+  justify-content: space-between;
+  width: 127px;
+  margin-top: 15px;
+}
+
 /*# sourceMappingURL=style.css.map */
