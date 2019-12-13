@@ -125,7 +125,7 @@ def index(request):
                     'model_series_sum': model_series_sum,
                     'models_infinity': models_infinity,
                     'models_cars': models_cars}
-    return render(request, 'motor/index.html', params)
+    return render(request, 'motor/LK.html', params)
 
 
 def change_password(request):

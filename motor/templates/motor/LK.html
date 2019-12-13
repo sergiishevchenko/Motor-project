@@ -1,0 +1,270 @@
+{% extends "motor/base.html" %}
+
+{% block title %} <title>Motor</title> {% endblock %}
+
+{% block content %}
+
+<section class="my_cabinet">
+    <div class="container">
+        <div class="my_cabinet-header">Главная | Личный кабинет</div>
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                    aria-controls="v-pills-home" aria-selected="true">Мои объявления</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                    aria-controls="v-pills-profile" aria-selected="false">Блокнот</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                    aria-controls="v-pills-messages" aria-selected="false">Списки сравнения</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                    aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
+                    <a class="nav-link" id="v-pills-person-tab" data-toggle="pill" href="#v-pills-person" role="tab"
+                    aria-controls="v-pills-person" aria-selected="false">Персональные данные</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="pills-item">
+                        <div class="pills-item__header">
+                            <div class="pills-item__header-name">BMW 5 VI (F10/F11/F07) 520d</div>
+                            <div class="pills-item__header-price">$ 12 900</div>
+                        </div>
+                        <div class="pills-item__car">
+                            <div class="pills-item__car-photo">
+                                {% load static %}
+                                <img src="{% static "img/notebook/1.png" %}" alt="1">
+                            </div>
+                            <div class="pills-item__car-description">
+                                <div class="pills-item__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                <div class="pills-item__car-data">
+                                    <div>
+                                        <div class="pills-item__car-text">· 200 000 км</div>
+                                        <div class="pills-item__car-text">· 2007 г.</div>
+                                    </div>
+                                    <div>
+                                        <div class="pills-item__car-text">· Бензин, 2.8 л</div>
+                                        <div class="pills-item__car-text">· Механика</div>
+                                    </div>
+                                    <div>
+                                        <div class="pills-item__car-text">· 170 л.с.</div>
+                                        <div class="pills-item__car-text">· Цвет: чёрный</div>
+                                    </div>
+                                </div>
+                                <div class="pills-item__icons">
+                                    <div class="pills-item__icons-notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                        <div class="pills-item__icons-text">В блокнот</div>
+                                    </div>
+                                    <div class="pills-item__icons-notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                        <div class="pills-item__icons-text">В сравнение</div>
+                                    </div>
+                                    <div class="pills-item__icons-notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/settings.png" %}" style="width: 17px; height: 17px" alt="settings">
+                                        <div class="nav-item dropdown">
+                                            <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 13px; 
+                                            font-weight: 400; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;">Настройки объявления    <strong>v</strong></a>
+                                            <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 200px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
+                                                <a class="dropdown-item" href="#">Редактировать</a>
+                                                <a class="dropdown-item" href="#">В черновик</a>
+                                                <a class="dropdown-item" href="#">Удалить</a>
+                                                <a class="dropdown-item" href="#">Поднять объявление</a>
+                                                <a class="dropdown-item" href="#">Деактивировать отчёт</a>
+                                                <a class="dropdown-item" href="#">Заявка на проверку авто</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="pills-item">
+                            <div class="pills-item__header">
+                                <div class="pills-item__header-name">BMW 7 V (F01/F02/F04) 730d</div>
+                                <div class="pills-item__header-price">$ 14 340</div>
+                            </div>
+                            <div class="pills-item__car">
+                                <div class="pills-item__car-photo">
+                                    {% load static %}
+                                    <img src="{% static "img/notebook/2.png" %}" alt="1">
+                                </div>
+                                <div class="pills-item__car-description">
+                                    <div class="pills-item__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                    <div class="pills-item__car-data">
+                                        <div>
+                                            <div class="pills-item__car-text">· 200 000 км</div>
+                                            <div class="pills-item__car-text">· 2007 г.</div>
+                                        </div>
+                                        <div>
+                                            <div class="pills-item__car-text">· Бензин, 2.8 л</div>
+                                            <div class="pills-item__car-text">· Механика</div>
+                                        </div>
+                                        <div>
+                                            <div class="pills-item__car-text">· 170 л.с.</div>
+                                            <div class="pills-item__car-text">· Цвет: чёрный</div>
+                                        </div>
+                                    </div>
+                                    <div class="pills-item__icons">
+                                        <div class="pills-item__icons-notebook">
+                                            {% load static %}
+                                            <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                            <div class="pills-item__icons-text">В блокнот</div>
+                                        </div>
+                                        <div class="pills-item__icons-notebook">
+                                            {% load static %}
+                                            <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                            <div class="pills-item__icons-text">В сравнение</div>
+                                        </div>
+                                        <div class="pills-item__icons-notebook">
+                                            {% load static %}
+                                            <img src="{% static "img/settings.png" %}" style="width: 17px; height: 17px" alt="settings">
+                                            <div class="nav-item dropdown">
+                                                <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 13px; 
+                                                font-weight: 400; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;">Настройки объявления    <strong>v</strong></a>
+                                                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 200px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
+                                                    <a class="dropdown-item" href="#">Редактировать</a>
+                                                    <a class="dropdown-item" href="#">В черновик</a>
+                                                    <a class="dropdown-item" href="#">Удалить</a>
+                                                    <a class="dropdown-item" href="#">Поднять объявление</a>
+                                                    <a class="dropdown-item" href="#">Деактивировать отчёт</a>
+                                                    <a class="dropdown-item" href="#">Заявка на проверку авто</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pills-item">
+                            <div class="pills-item__header">
+                                <div class="pills-item__header-name">BMW 5  VI (F10/F11/F07) 523i</div>
+                                <div class="pills-item__header-price">$ 22 490</div>
+                            </div>
+                            <div class="pills-item__car">
+                                <div class="pills-item__car-photo">
+                                    {% load static %}
+                                    <img src="{% static "img/notebook/3.png" %}" alt="1">
+                                </div>
+                                <div class="pills-item__car-description">
+                                    <div class="pills-item__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                    <div class="pills-item__car-data">
+                                        <div>
+                                            <div class="pills-item__car-text">· 200 000 км</div>
+                                            <div class="pills-item__car-text">· 2007 г.</div>
+                                        </div>
+                                        <div>
+                                            <div class="pills-item__car-text">· Бензин, 2.8 л</div>
+                                            <div class="pills-item__car-text">· Механика</div>
+                                        </div>
+                                        <div>
+                                            <div class="pills-item__car-text">· 170 л.с.</div>
+                                            <div class="pills-item__car-text">· Цвет: чёрный</div>
+                                        </div>
+                                    </div>
+                                    <div class="pills-item__icons">
+                                        <div class="pills-item__icons-notebook">
+                                            {% load static %}
+                                            <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                            <div class="pills-item__icons-text">В блокнот</div>
+                                        </div>
+                                        <div class="pills-item__icons-notebook">
+                                            {% load static %}
+                                            <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                            <div class="pills-item__icons-text">В сравнение</div>
+                                        </div>
+                                        <div class="pills-item__icons-notebook">
+                                            {% load static %}
+                                            <img src="{% static "img/settings.png" %}" style="width: 17px; height: 17px" alt="settings">
+                                            <div class="nav-item dropdown">
+                                                <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 13px; 
+                                                font-weight: 400; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;">Настройки объявления    <strong>v</strong></a>
+                                                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 200px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
+                                                    <a class="dropdown-item" href="#">Редактировать</a>
+                                                    <a class="dropdown-item" href="#">В черновик</a>
+                                                    <a class="dropdown-item" href="#">Удалить</a>
+                                                    <a class="dropdown-item" href="#">Поднять объявление</a>
+                                                    <a class="dropdown-item" href="#">Деактивировать отчёт</a>
+                                                    <a class="dropdown-item" href="#">Заявка на проверку авто</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <div class="my_cabinet-items">
+                            <div class="my_cabinet-items_item">
+                                {% load static %}
+                                <img src="{% static "img/main/mazda.png" %}" alt="mazda" style="width: 265px">
+                                <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                                <div class="my_cabinet-items_item-lists">
+                                    <ul class="my_cabinet-items_item-list">
+                                        <li>200 000 км</li>
+                                        <li>2007 г.</li>
+                                        <li>Бензин, 2,8 л</li>
+                                    </ul>
+                                    <ul class="my_cabinet-items_item-list">
+                                        <li>Механика</li>
+                                        <li>170 л.с.</li>
+                                        <li>Цвет: чёрный</li>
+                                    </ul>
+                                </div>
+                                <div class="my_cabinet-items_item-price">$ 31 900</div>
+                            </div>
+                            <div class="my_cabinet-items_item">
+                                {% load static %}
+                                <img src="{% static "img/main/mazda1.png" %}" alt="mazda1" style="width: 265px">
+                                <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                                <div class="my_cabinet-items_item-lists">
+                                    <ul class="my_cabinet-items_item-list">
+                                        <li>200 000 км</li>
+                                        <li>2007 г.</li>
+                                        <li>Бензин, 2,8 л</li>
+                                    </ul>
+                                    <ul class="my_cabinet-items_item-list">
+                                        <li>Механика</li>
+                                        <li>170 л.с.</li>
+                                        <li>Цвет: чёрный</li>
+                                    </ul>
+                                </div>
+                                <div class="my_cabinet-items_item-price">$ 31 900</div>
+                            </div>
+                            <div class="my_cabinet-items_item">
+                                {% load static %}
+                                <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
+                                <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                                <div class="my_cabinet-items_item-lists">
+                                    <ul class="my_cabinet-items_item-list">
+                                        <li>200 000 км</li>
+                                        <li>2007 г.</li>
+                                        <li>Бензин, 2,8 л</li>
+                                    </ul>
+                                    <ul class="my_cabinet-items_item-list">
+                                        <li>Механика</li>
+                                        <li>170 л.с.</li>
+                                        <li>Цвет: чёрный</li>
+                                    </ul>
+                                </div>
+                                <div class="my_cabinet-items_item-price">$ 31 900</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
