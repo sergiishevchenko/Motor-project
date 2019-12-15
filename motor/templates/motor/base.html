@@ -327,3 +327,159 @@
         </div>
     </div>
 </div>
+<div class="modal" id="auto_up" tabindex="-1" role="dialog" style="top: 135px; left: 0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="height: auto">
+            <div class="modal-header" style="border-bottom: none">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding-bottom: 0px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h5 class="auto_up-title">Настройка автоподнятия</h5>
+            <div class="auto_up-subtitle">Дни недели:</div>
+            <div class="weekDays-selector">
+                <input type="checkbox" id="weekday-mon" class="weekday" />
+                    <label for="weekday-mon">Пн</label>
+                <input type="checkbox" id="weekday-tue" class="weekday" />
+                    <label for="weekday-tue">Вт</label>
+                <input type="checkbox" id="weekday-wed" class="weekday" />
+                    <label for="weekday-wed">Ср</label>
+                <input type="checkbox" id="weekday-thu" class="weekday" />
+                    <label for="weekday-thu">Чт</label>
+                <input type="checkbox" id="weekday-fri" class="weekday" />
+                    <label for="weekday-fri">Пт</label>
+                <input type="checkbox" id="weekday-sat" class="weekday" />
+                    <label for="weekday-sat">Сб</label>
+                <input type="checkbox" id="weekday-sun" class="weekday" />
+                    <label for="weekday-sun">Вс</label>
+            </div>
+            <div class="auto_up-start">Старт поднятия объявления:</div>
+            <div class="period">
+                <div class="period-countries">
+                    <select id="selectcountries"></select>
+                </div>
+                <div class="period-text">периодичность:</div>
+                <div class="period-continents">
+                    <select id="continents">
+                        <option value = 0>Все</option>
+                        <option value = 1>0.5ч</option>
+                        <option value = 2>Час</option>
+                        <option value = 3>День</option>
+                    </select> 
+                </div>
+            </div>
+            <div class="auto_up-price">Стоимость поднятий: 25 руб./нед.</div>
+            <div class="auto_up-buttons">
+                <button type="submit" class="auto_up-buttons__submit">Применить</button>
+                <button type="submit" class="auto_up-buttons__up">Разовое поднятие</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function initSelectors(){
+ MAIN.createRelatedSelector(); 
+ MAIN.createRelatedSelector(document.querySelector('#continents') );
+ 
+ //countries
+ MAIN.createRelatedSelector
+     ( document.querySelector('#continents')
+      ,document.querySelector('#selectcountries')
+      ,{
+        Полчаса: ['в 00:00','в 00:30','в 01:00','в 01:30','в 02:00','в 02:30','в 03:00','в 03:30','в 04:00','в 04:30','в 05:00','в 05:30','в 06:00','в 06:30','в 07:00','в 07:30','в 08:00','в 08:30','в 09:00','в 09:30','в 10:00','в 10:30','в 11:00','в 11:30','в 12:00','в 12:30','в 13:00','в 13:30','в 14:00','в 14:30','в 15:00','в 15:30','в 16:00','в 16:30','в 17:00','в 17:30','в 18:00','в 18:30','в 19:00','в 19:30','в 20:00','в 20:30','в 21:00','в 21:30','в 22:00','в 22:30','в 23:00','в 23:30'],
+        Час: ['в 00:00','в 01:00','в 02:00','в 03:00','в 04:00','в 05:00','в 06:00','в 07:00','в 08:00','в 09:00','в 10:00','в 11:00','в 12:00','в 13:00','в 14:00','в 15:00','в 16:00','в 17:00','в 18:00','в 19:00','в 20:00','в 21:00','в 22:00','в 23:00'],
+        День: ['в 00:00','в 01:00','в 02:00','в 03:00','в 04:00','в 05:00','в 06:00','в 07:00','в 08:00','в 09:00','в 10:00','в 11:00','в 12:00','в 13:00','в 14:00','в 15:00','в 16:00','в 17:00','в 18:00','в 19:00','в 20:00','в 21:00','в 22:00','в 23:00']
+      }
+      ,function(a,b){return a>b ? 1 : a<b ? -1 : 0;}   // sort method
+ );
+}
+
+//create MAIN namespace
+(function(ns){ // don't pollute the global namespace
+    
+ function create(from, to, obj, srt){
+  if (!from) {
+         throw CreationError('create: parameter selector [from] missing');
+  }
+  if (!to) {
+         throw CreationError('create: parameter related selector [to] missing');
+  }
+  if (!obj) {
+         throw CreationError('create: related filter definition object [obj] missing');
+  }
+  
+  //retrieve all options from obj and add it
+  obj.all = (function(o){
+     var a = [];
+     for (var l in o) {
+       a = /array/i.test (o[l].constructor) ? a.concat(o[l]) : a;
+     }
+     return a.sort(srt);
+  }(obj));
+ // initialize and populate to-selector with all
+  populator.call( from
+                  ,null
+                  ,to
+                  ,obj
+                  ,srt
+  );
+    
+  // assign handler    
+  from.onchange = populator;
+
+  function initStatics(fn,obj){
+   for (var l in obj) {
+       if (obj.hasOwnProperty(l)){
+           fn[l] = obj[l];
+       }
+   }
+   fn.initialized = true;
+  }
+     
+ function populator(e, relatedto, obj, srt){
+    // set pseudo statics
+    var self = populator;
+    if (!self.initialized) {
+        initStatics(self,{optselects:obj,optselectsall:obj.all,relatedTo:relatedto,sorter:srt || false});
+    }
+     
+    if (!self.relatedTo){
+        throw 'not related to a selector';
+    }
+    // populate to-selector from filter/all
+    var optsfilter = this.selectedIndex < 1
+                   ? self.optselectsall 
+                   : self.optselects[this.options[this.selectedIndex].firstChild.nodeValue]
+       ,cselect = self.relatedTo
+       ,opts = cselect.options;
+    if (self.sorter) optsfilter.sort(self.sorter);
+    opts.length = 0;
+    for (var i=0;i<optsfilter.length;i+=1){
+        opts[i] = new Option(optsfilter[i],i);
+    }
+  }
+ }
+    
+ // custom Error
+ function CreationError(mssg){
+     return {name:'CreationError',message:mssg};
+ }
+
+ // return the create method with some error handling   
+ window[ns] = { 
+     createRelatedSelector: function(from,to,obj,srt) {
+          try { 
+              if (arguments.length<1) {
+                 throw CreationError('no parameters');
+              } 
+              create.call(null,from,to,obj,srt); 
+          } 
+          catch(e) { console.log('createRelatedSelector ->',e.name,'\n'
+                                   + e.message +
+                                   '\ncheck parameters'); }
+        }
+ };    
+}('MAIN'));
+//initialize
+initSelectors();
+</script>
