@@ -1449,4 +1449,238 @@ template {
   justify-content: space-between;
 }
 
+/* line 123, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-title {
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 700;
+  margin: auto;
+}
+
+/* line 129, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-subtitle {
+  opacity: 0.8;
+  color: #3e4950;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  margin: auto;
+  width: 350px;
+  margin-top: 28px;
+  margin-bottom: 11px;
+}
+
+/* line 139, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-start {
+  opacity: 0.8;
+  color: #3e4950;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  margin: auto;
+  width: 350px;
+  margin-top: 30px;
+}
+
+/* line 148, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-price {
+  width: 303px;
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 700;
+  margin: auto;
+  padding-top: 36px;
+}
+
+/* line 156, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-buttons {
+  display: flex;
+  margin: auto;
+  width: 350px;
+  margin: auto;
+  justify-content: space-between;
+  margin-top: 47px;
+  margin-bottom: 67px;
+}
+
+/* line 164, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-buttons__submit {
+  width: 127px;
+  height: 30px;
+  background-color: #1c2931;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* line 172, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.auto_up-buttons__up {
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: 700;
+  width: 169px;
+  height: 30px;
+  background-color: #1c2931;
+}
+
+/* line 181, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.weekDays-selector {
+  width: 350px;
+  margin: auto;
+}
+
+/* line 185, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.weekDays-selector input {
+  display: none;
+}
+
+/* line 187, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #e6e6e6;
+  height: 43px;
+  width: 46px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* line 197, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: blue;
+  color: white;
+}
+
+/* line 200, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period {
+  display: flex;
+  width: 350px;
+  margin: auto;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* line 206, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-text {
+  margin-left: 23px;
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+/* line 213, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-countries {
+  position: relative;
+}
+
+/* line 215, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-countries::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  background-color: #8ec740;
+  -webkit-transform: rotate(-27deg);
+  transform: rotate(-45deg);
+  top: 20px;
+  right: 15px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 229, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-countries::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  background-color: #8ec740;
+  -webkit-transform: rotate(-140deg);
+  transform: rotate(-145deg);
+  top: 20px;
+  right: 21px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 243, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-continents {
+  position: relative;
+}
+
+/* line 245, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-continents::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  background-color: #8ec740;
+  -webkit-transform: rotate(-27deg);
+  transform: rotate(-45deg);
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 259, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+.period-continents::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  background-color: #8ec740;
+  -webkit-transform: rotate(-140deg);
+  transform: rotate(-145deg);
+  top: 20px;
+  right: 26px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 273, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+#continents {
+  width: 89px;
+  height: 39px;
+  padding-left: 15px;
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 32px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 285, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+#selectcountries {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-left: 15px;
+  width: 94px;
+  height: 39px;
+  color: #2e393f;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
 /*# sourceMappingURL=style.css.map */
