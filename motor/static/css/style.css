@@ -1683,4 +1683,86 @@ template {
   line-height: 32px;
 }
 
+/* line 2, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.add_auto-header {
+  width: 185px;
+  height: 14px;
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  margin-top: 18px;
+}
+
+/* line 12, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__header {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* line 16, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__text {
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+/* line 21, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__title {
+  width: 520px;
+  height: 26px;
+  color: #2e393f;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* line 29, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__subtitle {
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* line 34, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__question {
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 34px;
+}
+
+/* line 40, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__items {
+  display: flex;
+  height: 210px;
+  justify-content: space-between;
+}
+
+/* line 45, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.form-control {
+  padding-left: 20px;
+  width: 300px;
+  margin-top: 15px;
+}
+
+/* line 49, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
 /*# sourceMappingURL=style.css.map */
