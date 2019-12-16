@@ -128,6 +128,146 @@ def index(request):
     return render(request, 'motor/add_auto.html', params)
 
 
+def auto(request):
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT name_rus FROM public.car_mark")
+    car_mark = cursor.fetchall()
+    cars = []
+    for i in car_mark:
+        cars.append(i[0])
+    params = {'cars': cars}
+    return render(request, 'motor/auto.html', params)
+
+
+def add_model(request, car):
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
+    name_model_mark = cursor.fetchall()
+    cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
+    generation_model_begin_end = cursor.fetchall()
+
+    all_models_begin = {}
+    all_models_end = {}
+    for i in name_model_mark:
+        for j in generation_model_begin_end:
+            if i[1] not in all_models_begin:
+                if i[1] == j[0]:
+                    all_models_begin[i[1]] = [j[2]]
+            else:
+                if j[2] not in all_models_begin[i[1]]:
+                    all_models_begin[i[1]].append(j[2])
+    for i in name_model_mark:
+        for j in generation_model_begin_end:
+            if i[1] not in all_models_end:
+                if i[1] == j[0]:
+                    all_models_end[i[1]] = [j[3]]
+            else:
+                if j[3] not in all_models_end[i[1]]:
+                    all_models_end[i[1]].append(j[3])
+    models_cars = {}
+    models_honda = []
+    models_infinity = []
+    for i in name_model_mark:
+        if i[2] == '76':
+            models_honda.append(i[0])
+        else:
+            models_infinity.append(i[0])
+    models_cars = {'Хонда': models_honda, 'Инфинити': models_infinity}
+    for items in models_cars.keys():
+        if car == items:
+            models = models_cars[items]
+    params = {'car': car,
+                'models': models}
+    return render(request, 'motor/add_model.html', params)
+
+
+def add_seria(request, car, seria):
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT name_rus FROM public.car_mark")
+    car_mark = cursor.fetchall()
+    cars = []
+    for i in car_mark:
+        cars.append(i[0])
+    cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
+    name_model_mark = cursor.fetchall()
+    cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
+    generation_model_begin_end = cursor.fetchall()
+    all_models_begin = {}
+    all_models_end = {}
+    for i in name_model_mark:
+        for j in generation_model_begin_end:
+            if i[1] not in all_models_begin:
+                if i[1] == j[0]:
+                    all_models_begin[i[1]] = [j[2]]
+            else:
+                if j[2] not in all_models_begin[i[1]]:
+                    all_models_begin[i[1]].append(j[2])
+    for i in name_model_mark:
+        for j in generation_model_begin_end:
+            if i[1] not in all_models_end:
+                if i[1] == j[0]:
+                    all_models_end[i[1]] = [j[3]]
+            else:
+                if j[3] not in all_models_end[i[1]]:
+                    all_models_end[i[1]].append(j[3])
+    cursor.execute("SELECT id_car_model, name FROM public.car_modification")
+    model_gear = cursor.fetchall()
+    gears = {}
+    for item in model_gear:
+        if item[0] not in gears.keys():
+            gears[item[0]] = [item[1]]
+        else:
+            if item[1] not in gears[item[0]]:
+                gears[item[0]].append(item[1])
+    cursor.execute("SELECT id_car_model, name, id_car_generation FROM public.car_serie")
+    model_name_generation = cursor.fetchall()
+    kuzov = {}
+    for item in model_name_generation:
+        if item[0] not in kuzov.keys():
+            kuzov[item[0]] = [item[1]]
+        else:
+            if item[1] not in kuzov[item[0]]:
+                kuzov[item[0]].append(item[1])
+    series = {}
+    for item in model_name_generation:
+        if item[0] not in series.keys():
+            series[item[0]] = [item[1]]
+        else:
+            series[item[0]].append(item[1])
+
+    model_series_sum = {}
+    for key, values in sorted(series.items()):
+        q = 0
+        series_sum = {}
+        for i in values:
+            if i not in values:
+                q = 1
+                series_sum[i] = q
+            else:
+                q += 1
+                series_sum[i] = q
+        model_series_sum[key] = series_sum
+    models_honda = []
+    models_infinity = []
+    for i in name_model_mark:
+        if i[2] == '76':
+            models_honda.append(i[0])
+        else:
+            models_infinity.append(i[0])
+    params = {'car': car,
+                'models_honda': models_honda,
+                'all_models_begin': all_models_begin,
+                'all_models_end': all_models_end,
+                'gears': gears,
+                'kuzov': kuzov,
+                'model_series_sum': model_series_sum,
+                'models_infinity': models_infinity}
+    return render(request, 'motor/add_seria.html', params)
+
+
 def change_password(request):
     if request.method == 'POST':
         userpage_form = PasswordForm(request.POST)

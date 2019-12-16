@@ -37,39 +37,15 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ПОДАЧА ОБЪЯВЛЕНИЯ О ПРОДАЖЕ АВТОМОБИЛЯ</div>
                         <div class="nav-link__subtitle">Для заполнения потребуется около 5 минут</div>
-                        <div class="nav-link__question">Какой марки ваш автомобиль?</div>
+                        <div class="nav-link__question">{{ car }}/{{ seria }}</div>
                         <div class="form-group has-search">
                             <input type="text" class="form-control" placeholder="Найти марку">
                             <span class="fa fa-search form-control-feedback"></span>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 mb-2">Honda</div>
-                            <div class="col-md-4 mb-2">Infinity</div>
-                            <div class="col-md-4 mb-2">Audi</div>
-                            <div class="col-md-4 mb-2">BMW</div>
-                            <div class="col-md-4 mb-2">Chery</div>
-                            <div class="col-md-4 mb-2">Chevrolet</div>
-                            <div class="col-md-4 mb-2">Citroen</div>
-                            <div class="col-md-4 mb-2">Daewoo</div>
-                            <div class="col-md-4 mb-2">Fiat</div>
-                            <div class="col-md-4 mb-2">Ford</div>
-                            <div class="col-md-4 mb-2">Great Wall</div>
-                            <div class="col-md-4 mb-2">Hyundai</div>
-                            <div class="col-md-4 mb-2">Infinity</div>
-                            <div class="col-md-4 mb-2">Kia</div>
-                            <div class="col-md-4 mb-2">Land Rover</div>
-                            <div class="col-md-4 mb-2">Lexus</div>
-                            <div class="col-md-4 mb-2">Mazda</div>
-                            <div class="col-md-4 mb-2">Mersedes</div>
-                            <div class="col-md-4 mb-2">Nissan</div>
-                            <div class="col-md-4 mb-2">Opel</div>
-                            <div class="col-md-4 mb-2">Skoda</div>
-                            <div class="col-md-4 mb-2">Subaru</div>
-                            <div class="col-md-4 mb-2">Suzuki</div>
-                            <div class="col-md-4 mb-2">Toyota</div>
-                            <div class="col-md-4 mb-2">Suzuki</div>
-                            <div class="col-md-4 mb-2">Toyota</div>
-                            <div class="col-md-4 mb-2">Все марки</div>
+                            {% for seria in models %}
+                                <a class="cosdfsdsf" href="{% url 'add_year' seria %}">{{ seria }}</a> 
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
