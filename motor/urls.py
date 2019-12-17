@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from motor.views import index, register, login, logout, user_page, test_view, change_password, auto, add_model, add_seria
+from motor.views import index, register, login, logout, user_page, test_view, change_password, auto, add_model, add_seria, add_year
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,6 +23,7 @@ urlpatterns = [
     path('auto', auto, name='auto'),
     path('auto/<car>', add_model, name='add_model'),
     path('auto/<car>/<seria>', add_seria, name='add_seria'),
+    path('auto/<car>/<seria>/<year>', add_year, name='add_year'),
     path('register', register, name='register'),
     path('login', login, name='login'),
     path('logout', logout, name='logout'),
