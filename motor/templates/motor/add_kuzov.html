@@ -1,0 +1,105 @@
+{% extends "motor/base.html" %}
+
+{% block title %} <title>Motor</title> {% endblock %}
+
+{% block content %}
+
+<section class="add_auto">
+    <div class="container">
+        <div class="add_auto-header">Главная | Подать объявление</div>
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Добавить автомобиль</div>
+                        <div class="nav-link__text">Выберите марку и модель вашего автомобиля</div>
+                    </div>
+                    <div class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Выбрать сведения</div>
+                        <div class="nav-link__text">Выбрать технические характеристики автомобиля</div>
+                    </div>
+                    <div class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Фото</div>
+                        <div class="nav-link__text">Добавьте фото автомобиля</div>
+                    </div>
+                    <div class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Контактная информация</div>
+                        <div class="nav-link__text">Добавьте сведения о себе</div>
+                    </div>
+                    <div class="nav-link" id="v-pills-person-tab" data-toggle="pill" href="#v-pills-person" role="tab" aria-controls="v-pills-person" aria-selected="false">
+                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Опубликовать</div>
+                        <div class="nav-link__text">Завершить оформление объявления и разместить на сайте</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ПОДАЧА ОБЪЯВЛЕНИЯ О ПРОДАЖЕ АВТОМОБИЛЯ</div>
+                        <div class="nav-link__subtitle">Для заполнения потребуется около 5 минут</div>
+                        <div class="nav-link__question">{{ car }}/{{ seria }}/{{ year }}/{{  }}</div>
+                        <div class="nav-link__question" style="margin-bottom: 20px">Выберите тип кузова</div>
+                        <div class="row">
+                            <div class="image_kuzov" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/внедорожник.png" %}" alt="внедорожник">
+                                <div class="nav-link__kuzov">Внедорожник</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/кабриолет.png" %}" alt="кабриолет">
+                                <div class="nav-link__kuzov">Кабриолет</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/кроссовер.png" %}" alt="кроссовер">
+                                <div class="nav-link__kuzov">Кроссовер</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/купе.png" %}" alt="купе">
+                                <div class="nav-link__kuzov">Купе</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/лимузин.png" %}" alt="лимузин">
+                                <div class="nav-link__kuzov">Лимузин</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/минивэн.png" %}" alt="минивэн">
+                                <div class="nav-link__kuzov">Минивэн</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px"> 
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/пикап.png" %}" alt="пикап">
+                                <div class="nav-link__kuzov">Пикап</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/седан.png" %}" alt="седан">
+                                <div class="nav-link__kuzov">Седан</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/универсал.png" %}" alt="универсал">
+                                <div class="nav-link__kuzov">Универсал</div>
+                            </div>
+                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
+                                {% load static %}
+                                <img class="image_kuzov" src="{% static "img/auto/хатчбэк.png" %}" alt="хатчбэк">
+                                <div class="nav-link__kuzov">Хатчбэк</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

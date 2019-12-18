@@ -218,7 +218,12 @@ def add_year(request, car, seria, year):
     name_model_mark = cursor.fetchall()
     cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
     generation_model_begin_end = cursor.fetchall()
-
+    cursor.execute("SELECT name FROM public.car_serie")
+    serias = cursor.fetchall()
+    all_kuzov = []
+    for i in serias:
+        if i[0] not in all_kuzov:
+            all_kuzov.append(i[0])
     all_models_begin = {}
     all_models_end = {}
     for i in name_model_mark:
@@ -250,8 +255,23 @@ def add_year(request, car, seria, year):
         if car == items:
             models = models_cars[items]
     params = {'car': car,
+                'seria': seria,
+                'year': year,
+                'all_kuzov': all_kuzov,
                 'models': models}
     return render(request, 'motor/add_year.html', params)
+
+
+def add_kuzov(request, car, seria, year, kuzov):
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT name_rus FROM public.car_mark")
+    car_mark = cursor.fetchall()
+    cars = []
+    for i in car_mark:
+        cars.append(i[0])
+    params = {'cars': cars}
+    return render(request, 'motor/add_kuzov.html', params)
 
 
 def change_password(request):
