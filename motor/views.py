@@ -214,63 +214,65 @@ def add_seria(request, car, seria):
 def add_year(request, car, seria, year):
     cursor = connection.cursor()
 
-    cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
-    name_model_mark = cursor.fetchall()
-    cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
-    generation_model_begin_end = cursor.fetchall()
     cursor.execute("SELECT name FROM public.car_serie")
     serias = cursor.fetchall()
     all_kuzov = []
     for i in serias:
         if i[0] not in all_kuzov:
             all_kuzov.append(i[0])
-    all_models_begin = {}
-    all_models_end = {}
-    for i in name_model_mark:
-        for j in generation_model_begin_end:
-            if i[1] not in all_models_begin:
-                if i[1] == j[0]:
-                    all_models_begin[i[1]] = [j[2]]
-            else:
-                if j[2] not in all_models_begin[i[1]]:
-                    all_models_begin[i[1]].append(j[2])
-    for i in name_model_mark:
-        for j in generation_model_begin_end:
-            if i[1] not in all_models_end:
-                if i[1] == j[0]:
-                    all_models_end[i[1]] = [j[3]]
-            else:
-                if j[3] not in all_models_end[i[1]]:
-                    all_models_end[i[1]].append(j[3])
-    models_cars = {}
-    models_honda = []
-    models_infinity = []
-    for i in name_model_mark:
-        if i[2] == '76':
-            models_honda.append(i[0])
-        else:
-            models_infinity.append(i[0])
-    models_cars = {'Хонда': models_honda, 'Инфинити': models_infinity}
-    for items in models_cars.keys():
-        if car == items:
-            models = models_cars[items]
     params = {'car': car,
                 'seria': seria,
                 'year': year,
-                'all_kuzov': all_kuzov,
-                'models': models}
+                'all_kuzov': all_kuzov}
     return render(request, 'motor/add_year.html', params)
 
 
 def add_kuzov(request, car, seria, year, kuzov):
     cursor = connection.cursor()
 
-    cursor.execute("SELECT name_rus FROM public.car_mark")
-    car_mark = cursor.fetchall()
-    cars = []
-    for i in car_mark:
-        cars.append(i[0])
-    params = {'cars': cars}
+    cursor.execute("SELECT name, id_car_model, id_car_mark FROM public.car_model")
+    name_model_mark = cursor.fetchall()
+    cursor.execute("SELECT name FROM public.car_serie")
+    serias = cursor.fetchall()
+    cursor.execute("SELECT id_car_model, name, year_begin, year_end FROM public.car_generation")
+    generation_model_begin_end = cursor.fetchall()
+    generations = {}
+    for i in name_model_mark:
+        if seria == i[0]:
+            for j in generation_model_begin_end:
+                if i[1] == j[0]:
+                    if seria not in generations.keys():
+                        generations[seria] = [j[1:]]
+                    else:
+                        generations[seria].append(j[1:])
+    all_generations = []
+    for i in generations[seria]:
+        all_generations.append(("{}, {} - {}".format(i[0], i[1], i[2])))
+    all_kuzov = []
+    for i in serias:
+        if i[0] not in all_kuzov:
+            all_kuzov.append(i[0])
+    cursor.execute("SELECT id_car_model, name FROM public.car_modification")
+    model_gear = cursor.fetchall()
+    gears = {}
+    for item in model_gear:
+        if item[0] not in gears.keys():
+            gears[item[0]] = [item[1]]
+        else:
+            if item[1] not in gears[item[0]]:
+                gears[item[0]].append(item[1])
+    for i in name_model_mark:
+        if seria == i[0]:
+            for j in gears:
+                if int(i[1]) == int(j):
+                    modifications = gears[j]
+    params = {'car': car,
+                'seria': seria,
+                'year': year,
+                'all_kuzov': all_kuzov,
+                'kuzov': kuzov,
+                'modifications': modifications,
+                'generations': all_generations}
     return render(request, 'motor/add_kuzov.html', params)
 
 

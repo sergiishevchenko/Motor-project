@@ -37,60 +37,50 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ПОДАЧА ОБЪЯВЛЕНИЯ О ПРОДАЖЕ АВТОМОБИЛЯ</div>
                         <div class="nav-link__subtitle">Для заполнения потребуется около 5 минут</div>
-                        <div class="nav-link__question">{{ car }}/{{ seria }}/{{ year }}/{{  }}</div>
+                        <div class="nav-link__question">{{ car }}/{{ seria }}/{{ year }}/{{ kuzov }}</div>
                         <div class="nav-link__question" style="margin-bottom: 20px">Выберите тип кузова</div>
                         <div class="row">
-                            <div class="image_kuzov" style="display: flex; margin-right: 25px">
+                            {% for kuzov in all_kuzov %}
+                            <div class="col-md-4 mb-2" style="display: flex; margin-right: 120px; width: 300px; padding-right: 0">
                                 {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/внедорожник.png" %}" alt="внедорожник">
-                                <div class="nav-link__kuzov">Внедорожник</div>
+                                <a class="col-md-3 mb-2">
+                                    <img class="image_kuzov" src="/static/img/auto/{{ kuzov }}.png" alt="{{ kuzov }}">
+                                </a> 
+                                <div class="nav-link__kuzov">{{ kuzov }}</div>
                             </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/кабриолет.png" %}" alt="кабриолет">
-                                <div class="nav-link__kuzov">Кабриолет</div>
+                            {% endfor %}
+                        </div>
+                        <div class="nav-link__choose" id="choose">
+                            <div class="nav-link__question" style="margin-bottom: 20px">Поколение</div>
+                            {% for generation in generations %}
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">{{ car }} | {{ seria }} | {{ kuzov }} | {{ generation }} <br>
+                            {% endfor %}
+                        </div>
+                        <div class="nav-link__checkbox">
+                            <div class="nav-link__choose" id="choose">
+                                <div class="nav-link__question" style="margin-bottom: 15px">Коробка</div>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Автомат<br>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Механика<br>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Вариатор<br>
                             </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/кроссовер.png" %}" alt="кроссовер">
-                                <div class="nav-link__kuzov">Кроссовер</div>
+                            <div class="nav-link__choose" id="choose">
+                                <div class="nav-link__question" style="margin-bottom: 15px">Привод</div>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Задний<br>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Полный<br>
                             </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/купе.png" %}" alt="купе">
-                                <div class="nav-link__kuzov">Купе</div>
+                            <div class="nav-link__choose" id="choose">
+                                <div class="nav-link__question" style="margin-bottom: 15px">Двигатель</div>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Бензин<br>
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Дизель<br>
                             </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/лимузин.png" %}" alt="лимузин">
-                                <div class="nav-link__kuzov">Лимузин</div>
-                            </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/минивэн.png" %}" alt="минивэн">
-                                <div class="nav-link__kuzov">Минивэн</div>
-                            </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px"> 
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/пикап.png" %}" alt="пикап">
-                                <div class="nav-link__kuzov">Пикап</div>
-                            </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/седан.png" %}" alt="седан">
-                                <div class="nav-link__kuzov">Седан</div>
-                            </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/универсал.png" %}" alt="универсал">
-                                <div class="nav-link__kuzov">Универсал</div>
-                            </div>
-                            <div class="col-md-2 mb-3" style="display: flex; margin-right: 25px">
-                                {% load static %}
-                                <img class="image_kuzov" src="{% static "img/auto/хатчбэк.png" %}" alt="хатчбэк">
-                                <div class="nav-link__kuzov">Хатчбэк</div>
+                            <div class="nav-link__choose" id="choose">
+                                <div class="nav-link__question" style="margin-bottom: 15px">Модификация</div>
+                                {% for modification in modifications %}
+                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">{{ modification }}<br>
+                                {% endfor %}
                             </div>
                         </div>
+                        <button type="button" class="nav-link__button">СОХРАНИТЬ И ПРОДОЛЖИТЬ</button>
                     </div>
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
@@ -103,3 +93,10 @@
 </section>
 
 {% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+</script>
+<script>
+$('.image_kuzov').click(function(){
+  $(".nav-link__choose").fadeToggle(100);
+});  
+</script>
