@@ -37,11 +37,17 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ПОДАЧА ОБЪЯВЛЕНИЯ О ПРОДАЖЕ АВТОМОБИЛЯ</div>
                         <div class="nav-link__subtitle">Для заполнения потребуется около 5 минут</div>
-                        <div class="nav-link__question">{{ car }}/{{ seria }}</div>
-                        <div class="nav-link__question" style="margin-bottom: 20px">Укажите год выпуска</div>
+                        <div class="nav-link__question">{{ car }}/{{ seria }}/{{ year }}</div>
+                        <div class="nav-link__question" style="margin-bottom: 20px">Выберите тип кузова</div>
                         <div class="row">
-                            {% for year in years %}
-                                <a class="col-md-1 mb-2" href="{% url 'add_year' car seria year %}">{{ year }}</a> 
+                            {% for kuzov in all_kuzov %}
+                            <div class="col-md-4 mb-2" style="display: flex; margin-right: 120px; width: 300px; padding-right: 0">
+                                {% load static %}
+                                <a class="col-md-3 mb-2" href="{% url 'add_kuzov' car seria year kuzov %}">
+                                    <img class="image_kuzov" src="/static/img/auto/{{ kuzov }}.png" alt="{{ kuzov }}">
+                                </a> 
+                                <div class="nav-link__kuzov">{{ kuzov }}</div>
+                            </div>
                             {% endfor %}
                         </div>
                     </div>

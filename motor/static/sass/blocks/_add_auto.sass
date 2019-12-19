@@ -41,7 +41,28 @@
         display: flex
         height: 210px
         justify-content: space-between
-
+    &__kuzov
+        color: #3e4950
+        font-family: Arial
+        font-size: 14px
+        font-weight: 400
+        margin-left: 18px
+    &__button
+        width: 342px
+        height: 43px
+        background-color: #1c2931
+        color: #ffffff
+        font-family: "Open Sans"
+        font-size: 14px
+        font-weight: 700
+        position: absolute
+        right: 0
+        margin-top: 40px
+        &:hover
+            background-color: red
+    &__checkbox
+        display: flex
+        justify-content: space-between
 .form-control
     padding-left: 20px
     width: 300px
@@ -56,3 +77,11 @@
         text-align: center
         pointer-events: none
         color: #aaa
+.image_kuzov
+    cursor: pointer
+    user-select: none
+    border: none
+    &:hover
+        filter: invert(1)
+    &:active
+        filter: invert(1)
