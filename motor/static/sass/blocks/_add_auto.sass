@@ -85,3 +85,141 @@
         filter: invert(1)
     &:active
         filter: invert(1)
+
+.custom-radio-button
+	div 
+		display: inline-block 
+	input[type="radio"] 
+		display: none 
+		& + label 
+			color: #333 
+			font-family: Arial, sans-serif 
+			font-size: 14px 
+			span 
+				display: inline-block 
+				width: 40px 
+				height: 40px 
+				margin: -1px 4px 0 0 
+				vertical-align: middle 
+				cursor: pointer 
+				border-radius: 50% 
+				border: 2px solid #ffffff 
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33) 
+				background-repeat: no-repeat 
+				background-position: center 
+				text-align: center 
+				line-height: 44px 
+				img 
+					opacity: 0 
+					transition: all 0.3s ease 
+	input[type="radio"]#color-red
+		& + label 
+			span 
+				background-color: red
+                background-repeat: no-repeat
+				background-position: center
+	input[type="radio"]#color-blue
+		& + label 
+			span 
+				background-color: blue
+                background-repeat: no-repeat
+				background-position: center
+	input[type="radio"]#color-orange
+		& + label 
+			span 
+				background-color: orange
+                background-repeat: no-repeat
+				background-position: center
+	input[type="radio"]#color-pink
+		& + label 
+			span 
+				background-color: pink
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-green
+		& + label 
+			span 
+				background-color: green
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-grey
+		& + label 
+			span 
+				background-color: grey
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-aqua
+		& + label 
+			span 
+				background-color: aqua
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-orange
+		& + label 
+			span 
+				background-color: orange
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-yellow
+		& + label 
+			span 
+				background-color: yellow
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-coral
+		& + label 
+			span 
+				background-color: coral
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-info
+		& + label 
+			span 
+				background-color: info
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-dark
+		& + label 
+			span 
+				background-color: dark
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-indigo
+		& + label 
+			span 
+				background-color: indigo
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-purple
+		& + label 
+			span 
+				background-color: purple
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-secondary
+		& + label 
+			span 
+				background-color: secondary
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-success
+		& + label 
+			span 
+				background-color: success
+                background-repeat: no-repeat
+				background-position: center
+    input[type="radio"]#color-black
+		& + label 
+			span 
+				background-color: black
+                background-repeat: no-repeat
+				background-position: center
+	input[type="radio"]:checked 
+		& + label 
+			span 
+				opacity: 1 
+				background: url("/static/img/auto/tick.png")
+    center center no-repeat 
+				width: 40px 
+				height: 40px 
+				display: inline-block 
