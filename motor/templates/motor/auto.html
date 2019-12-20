@@ -15,8 +15,8 @@
                         <div class="nav-link__text">Выберите марку и модель вашего автомобиля</div>
                     </div>
                     <div class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Выбрать сведения</div>
-                        <div class="nav-link__text">Выбрать технические характеристики автомобиля</div>
+                        <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Внешний вид</div>
+                        <div class="nav-link__text">Добавьте фото и цвет автомобиля</div>
                     </div>
                     <div class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                         <div class="nav-link__header" style="border-left: 2px solid; padding-left: 15px">Фото</div>
@@ -48,14 +48,127 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ДОБАВЬТЕ ФОТО И ЦВЕТ АВТОМОБИЛЯ</div>
+                        <div class="nav-link__subtitle">Объявления с фото увеличивают шансы продажи автомобиля</div>
+                        <div class="nav-link__question">Выберите наиболее близкий цвет автомобиля</div>
+                        <div class="row">
+                            <div class="custom-radio-button" style="margin-top: 25px; margin-left: 15px">
+                                <div>
+                                    <input type="radio" id="color-green" name="color" value="color-green">
+                                    <label for="color-green"><span style="background-color: green; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-grey" name="color" value="color-grey">
+                                    <label for="color-grey"><span style="background-color: grey; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-aqua" name="color" value="color-aqua">
+                                    <label for="color-aqua"><span style="background-color: aqua; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-pink" name="color" value="color-pink">
+                                    <label for="color-pink"><span style="background-color: pink; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-red" name="color" value="color-red" checked>
+                                    <label for="color-red"><span style="background-color: red; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-blue" name="color" value="color-blue">
+                                    <label for="color-blue"><span style="background-color: blue; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-orange" name="color" value="color-orange">
+                                    <label for="color-orange"><span style="background-color: orange; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-yellow" name="color" value="color-yellow">
+                                    <label for="color-yellow"><span style="background-color: yellow; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-coral" name="color" value="color-coral">
+                                    <label for="color-primary"><span style="background-color: coral; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-info" name="color" value="color-info">
+                                    <label for="color-info"><span style="background-color: darkgoldenrod; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-gray-darkcyan" name="color" value="color-gray-dark">
+                                    <label for="color-gray-darkcyan"><span style="background-color: darkcyan; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-indigo" name="color" value="color-indigo">
+                                    <label for="color-indigo"><span style="background-color: indigo; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-purple" name="color" value="color-purple">
+                                    <label for="color-purple"><span style="background-color: purple; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-secondary" name="color" value="color-secondary">
+                                    <label for="color-secondary"><span style="background-color: sienna; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-success" name="color" value="color-success">
+                                    <label for="color-success"><span style="background-color: darkblue; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="color-black" name="color" value="color-black">
+                                    <label for="color-black"><span style="background-color: black; background-repeat: no-repeat; background-position: center"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-link__question">Для добавления фото, нажмите на "+", и выберите файлы на компьютере, или перетащите сюда</div>
+                        <div class="nav-link__subtitle" style="margin-top: 15px">Вы можете добавить до 10 фотографий вашего автомобиля</div>
+                        <input id="tudu" type="file" style="margin-top: 20px" multiple>
+                        <div id="zir" style="justify-content: space-between; width: 400px; margin-top: 20px"></div>
+                        <button type="button" class="nav-link__button">СОХРАНИТЬ И ПРОДОЛЖИТЬ</button>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                        
+                    </div>
                     <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-public" role="tabpanel" aria-labelledby="v-pills-public-tab">...</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+function previewImages() {
+
+    var preview = document.querySelector('#zir');
+
+    if (this.files) {
+        [].forEach.call(this.files, readAndPreview);
+    }
+
+    function readAndPreview(file) {
+
+        if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+            return alert(file.name + " is not an image");
+        }
+        
+        var reader = new FileReader();
+        
+        reader.addEventListener("load", function() {
+            var image = new Image();
+            image.height = 100;
+            image.title = file.name;
+            image.src = this.result;
+            preview.appendChild(image);
+        });
+        
+        reader.readAsDataURL(file);
+        
+    }
+
+}
+
+document.querySelector('#tudu').addEventListener("change", previewImages);
+</script>
 {% endblock %}
