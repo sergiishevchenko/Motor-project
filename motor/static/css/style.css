@@ -1779,14 +1779,19 @@ template {
   justify-content: space-between;
 }
 
-/* line 66, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 67, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+.nav-link__block-item {
+  display: flex;
+}
+
+/* line 69, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .form-control {
   padding-left: 20px;
   width: 300px;
   margin-top: 15px;
 }
 
-/* line 70, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 73, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .form-control-feedback {
   position: absolute;
   z-index: 2;
@@ -1799,41 +1804,41 @@ template {
   color: #aaa;
 }
 
-/* line 80, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 83, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .image_kuzov {
   cursor: pointer;
   user-select: none;
   border: none;
 }
 
-/* line 84, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 87, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .image_kuzov:hover {
   filter: invert(1);
 }
 
-/* line 86, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 89, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .image_kuzov:active {
   filter: invert(1);
 }
 
-/* line 90, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 93, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button div {
   display: inline-block;
 }
 
-/* line 92, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 95, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"] {
   display: none;
 }
 
-/* line 94, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 97, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"] + label {
   color: #333;
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
 
-/* line 98, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 101, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"] + label span {
   display: inline-block;
   width: 40px;
@@ -1850,132 +1855,132 @@ template {
   line-height: 44px;
 }
 
-/* line 112, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 115, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"] + label span img {
   opacity: 0;
   transition: all 0.3s ease;
 }
 
-/* line 117, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 120, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-red + label span {
   background-color: red;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 123, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 126, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-blue + label span {
   background-color: blue;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 129, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 132, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-orange + label span {
   background-color: orange;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 135, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 138, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: pink;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 141, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 144, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: green;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 147, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 150, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: grey;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 153, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 156, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: aqua;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 159, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 162, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: orange;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 165, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 168, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: yellow;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 171, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 174, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: coral;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 177, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 180, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: info;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 183, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 186, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: dark;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 189, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 192, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: indigo;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 195, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 198, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: purple;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 201, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 204, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: secondary;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 207, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 210, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: success;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 213, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 216, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]#color-pink + label span {
   background-color: black;
   background-color-background-repeat: no-repeat;
   background-position: center;
 }
 
-/* line 219, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
+/* line 222, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_add_auto.sass */
 .custom-radio-button input[type="radio"]:checked + label span {
   opacity: 1;
   background: url("/static/img/auto/tick.png");
