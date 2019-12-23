@@ -1,0 +1,414 @@
+{% extends "motor/base.html" %}
+
+{% block title %} <title>Motor</title> {% endblock %}
+
+{% block content %}
+<section class="auto_cabinet">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <div class="auto_cabinet-rectangle"></div>
+                <div class="auto_cabinet-table">
+                    <div class="auto_cabinet-table__items">
+                        <div class="auto_cabinet-table__items-item">
+                            <div class="auto_cabinet-table__form">
+                            <select class="auto_cabinet-table__form-select" id="cars" name="cars">
+                                <option value="models_honda" selected>Honda</option>
+                                <option value="models_infinity">Infinity</option>
+                            </select>
+                            </div>
+                            <div class="auto_cabinet-table__double">
+                            <div class="auto_cabinet-table__form">
+                                <select class="auto_cabinet-table__form-year" id="year_begin" name="year_begin">
+                                    <option value="753" selected>Год, от</option>
+                                </select>
+                            </div>
+                            <div class="auto_cabinet-table__form">
+                                <select class="auto_cabinet-table__form-year" id="year_end" name="year_end">
+                                    <option value="753" selected>Год, до</option>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="auto_cabinet-table__items-item">
+                            <div class="auto_cabinet-table__form">
+                            <select class="auto_cabinet-table__form-select" id="model" name="model">
+                                <option value="Модель" selected>Модель</option>
+                            </select>
+                            </div>
+                            <div class="auto_cabinet-table__double">
+                            <input type="text" name="Цена, от" class="auto_cabinet-table__double-input" placeholder="Цена, от">
+                            <input type="text" name="Цена, до" class="auto_cabinet-table__double-input" placeholder="Цена, до">
+                            </div>
+                        </div>
+                        <div class="auto_cabinet-table__items-item">
+                            <div class="auto_cabinet-table__form">
+                            <select class="auto_cabinet-table__form-select" id="gear" name="gear" style="margin-bottom: 15px;">
+                                <option value="Тип двигателя" selected>Тип двигателя</option>
+                            </select>
+                            </div>
+                            <div class="auto_cabinet-table__form">
+                            <select class="auto_cabinet-table__form-select" id="kuzov" name="kuzov">
+                                <option value="Тип кузова" selected>Тип кузова</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="auto_cabinet-table__items-buttons">
+                            <button class="auto_cabinet-button" type="button" style="background-color: red;">Сбросить</button>
+                            <button class="auto_cabinet-button" type="submit" style="margin-bottom: 16px;">Показать 10254 автомобилей</button>
+                        </div>
+                    </div>
+                    <div class="auto_cabinet-table__serias" id="luz" name="luz">
+                    </div>
+                    <div class="auto_cabinet-table__options">
+                        <div class="auto_cabinet-table__options-option" style="margin-top: 120px">
+                            <div class="auto_cabinet-table__option-seria" style="font-weight: bold">Всего серий:</div>
+                            <div class="auto_cabinet-table__option-number" id="summ" name="summ" style="font-weight: bold">0</div>
+                        </div>
+                    </div>
+                    <div class="auto_cabinet-list">
+                        <div class="auto_cabinet-list_name">Сортировать:</div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 180px; height: 37px; background-color: #ffffff;
+                            font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; margin-left: 30px; border-radius: 4px; border: 1px solid grey;">По актуальность    <strong>v</strong></a>
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 180px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 180px; height: 37px; background-color: #ffffff;
+                            font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; margin-left: 30px; border-radius: 4px; border: 1px solid grey;">За всё время    <strong>v</strong></a>
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 180px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 180px; height: 37px; background-color: #ffffff;
+                            font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; margin-left: 30px; border-radius: 4px; border: 1px solid grey;">Проверенное авто    <strong>v</strong></a>
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 180px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                                <a class="dropdown-item" href="#">Указать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="allcars">
+                    <div class="allcars-block">
+                        <div class="allcars-block__header">
+                            <div class="allcars-block__header-name">BMW 5 VI (F10/F11/F07) 520d</div>
+                            <div class="allcars-block__header-price">$ 12 900</div>
+                        </div>
+                        <div class="allcars-block__car">
+                            <div class="allcars-block__car-photo">
+                                {% load static %}
+                                <img src="{% static "img/notebook/1.png" %}" alt="1">
+                            </div>
+                            <div class="allcars-block__car-description">
+                                <div class="allcars-block__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                <div class="allcars-block__car-data">
+                                    <div>
+                                        <div class="allcars-block__car-text">· 200 000 км</div>
+                                        <div class="allcars-block__car-text">· 2007 г.</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· Бензин, 2.8 л</div>
+                                        <div class="allcars-block__car-text">· Механика</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· 170 л.с.</div>
+                                        <div class="allcars-block__car-text">· Цвет: чёрный</div>
+                                    </div>
+                                </div>
+                                <div class="allcars-block__car-icons">
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                        <div class="allcars-block__car-text">В блокнот</div>
+                                    </div>
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                        <div class="allcars-block__car-text">В сравнение</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="allcars-block">
+                        <div class="allcars-block__header">
+                            <div class="allcars-block__header-name">BMW 5 VI (F10/F11/F07) 520d</div>
+                            <div class="allcars-block__header-price">$ 12 900</div>
+                        </div>
+                        <div class="allcars-block__car">
+                            <div class="allcars-block__car-photo">
+                                {% load static %}
+                                <img src="{% static "img/notebook/2.png" %}" alt="1">
+                            </div>
+                            <div class="allcars-block__car-description">
+                                <div class="allcars-block__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                <div class="allcars-block__car-data">
+                                    <div>
+                                        <div class="allcars-block__car-text">· 200 000 км</div>
+                                        <div class="allcars-block__car-text">· 2007 г.</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· Бензин, 2.8 л</div>
+                                        <div class="allcars-block__car-text">· Механика</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· 170 л.с.</div>
+                                        <div class="allcars-block__car-text">· Цвет: чёрный</div>
+                                    </div>
+                                </div>
+                                <div class="allcars-block__car-icons">
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                        <div class="allcars-block__car-text">В блокнот</div>
+                                    </div>
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                        <div class="allcars-block__car-text">В сравнение</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="allcars-block">
+                        <div class="allcars-block__header">
+                            <div class="allcars-block__header-name">BMW 5 VI (F10/F11/F07) 520d</div>
+                            <div class="allcars-block__header-price">$ 12 900</div>
+                        </div>
+                        <div class="allcars-block__car">
+                            <div class="allcars-block__car-photo">
+                                {% load static %}
+                                <img src="{% static "img/notebook/3.png" %}" alt="1">
+                            </div>
+                            <div class="allcars-block__car-description">
+                                <div class="allcars-block__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                <div class="allcars-block__car-data">
+                                    <div>
+                                        <div class="allcars-block__car-text">· 200 000 км</div>
+                                        <div class="allcars-block__car-text">· 2007 г.</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· Бензин, 2.8 л</div>
+                                        <div class="allcars-block__car-text">· Механика</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· 170 л.с.</div>
+                                        <div class="allcars-block__car-text">· Цвет: чёрный</div>
+                                    </div>
+                                </div>
+                                <div class="allcars-block__car-icons">
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                        <div class="allcars-block__car-text">В блокнот</div>
+                                    </div>
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                        <div class="allcars-block__car-text">В сравнение</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="allcars-block">
+                        <div class="allcars-block__header">
+                            <div class="allcars-block__header-name">BMW 5 VI (F10/F11/F07) 520d</div>
+                            <div class="allcars-block__header-price">$ 12 900</div>
+                        </div>
+                        <div class="allcars-block__car">
+                            <div class="allcars-block__car-photo">
+                                {% load static %}
+                                <img src="{% static "img/notebook/4.png" %}" alt="1">
+                            </div>
+                            <div class="allcars-block__car-description">
+                                <div class="allcars-block__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                <div class="allcars-block__car-data">
+                                    <div>
+                                        <div class="allcars-block__car-text">· 200 000 км</div>
+                                        <div class="allcars-block__car-text">· 2007 г.</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· Бензин, 2.8 л</div>
+                                        <div class="allcars-block__car-text">· Механика</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· 170 л.с.</div>
+                                        <div class="allcars-block__car-text">· Цвет: чёрный</div>
+                                    </div>
+                                </div>
+                                <div class="allcars-block__car-icons">
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                        <div class="allcars-block__car-text">В блокнот</div>
+                                    </div>
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                        <div class="allcars-block__car-text">В сравнение</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="allcars-block">
+                        <div class="allcars-block__header">
+                            <div class="allcars-block__header-name">BMW 5 VI (F10/F11/F07) 520d</div>
+                            <div class="allcars-block__header-price">$ 12 900</div>
+                        </div>
+                        <div class="allcars-block__car">
+                            <div class="allcars-block__car-photo">
+                                {% load static %}
+                                <img src="{% static "img/notebook/1.png" %}" alt="1">
+                            </div>
+                            <div class="allcars-block__car-description">
+                                <div class="allcars-block__car-header">Тирасполь, добавлено : 13.12.2017</div>
+                                <div class="allcars-block__car-data">
+                                    <div>
+                                        <div class="allcars-block__car-text">· 200 000 км</div>
+                                        <div class="allcars-block__car-text">· 2007 г.</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· Бензин, 2.8 л</div>
+                                        <div class="allcars-block__car-text">· Механика</div>
+                                    </div>
+                                    <div>
+                                        <div class="allcars-block__car-text">· 170 л.с.</div>
+                                        <div class="allcars-block__car-text">· Цвет: чёрный</div>
+                                    </div>
+                                </div>
+                                <div class="allcars-block__car-icons">
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                        <div class="allcars-block__car-text">В блокнот</div>
+                                    </div>
+                                    <div class="allcars-block__car-icons__notebook">
+                                        {% load static %}
+                                        <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                        <div class="allcars-block__car-text">В сравнение</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                {% load static %}
+                <img src="{% static "img/cabinet/1_cab.png" %}" alt="mazda" style="margin-bottom: 10px;">
+                <img src="{% static "img/cabinet/2_cab.png" %}" alt="mazda" style="margin-bottom: 10px;">
+                <img src="{% static "img/cabinet/3_cab.png" %}" alt="mazda" style="margin-bottom: 10px;">
+            </div>
+        </div>  
+    </div>
+ </section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</script>
+<script type="text/javascript">
+window.onload = selectCar;
+cars.onchange = selectCar;
+model.onchange = selectYear;
+
+function selectCar(ev){
+    model.innerHTML = "";
+    var models_cars = {{ models_cars|safe }};
+    var c = this.value || "models_honda", o;
+    for(let i = 0; i < models_cars[c].length; i++){
+        o = new Option(models_cars[c][i],i,false,false);
+        model.add(o);
+    };
+}
+
+function selectYear(ev){
+    year_begin.innerHTML = "";
+    year_end.innerHTML = "";
+    gear.innerHTML = "";
+    kuzov.innerHTML = "";
+
+    var all_models_begin = {{ all_models_begin|safe }};
+    var all_models_end = {{ all_models_end|safe }};
+    var gears = {{ gears|safe }};
+    var kuzovs = {{ kuzov|safe }};
+    var series_sum = {{ model_series_sum|safe }};
+    var k = this.value, l, n, p, t, g, z;
+
+    begin = Object.values(all_models_begin)[k];
+    end = Object.values(all_models_end)[k];
+    for(let i = 0; i < begin.length; i++){
+        g = new Option(begin[i],k,false,false);
+        year_begin.add(g);
+    };
+    for(let i = 0; i < end.length; i++){
+        z = new Option(end[i],k,false,false);
+        year_end.add(z);
+    };
+    for(let i = 0; i < Object.values(gears)[k].length; i++){
+        obj = Object.values(gears)[k];
+        p = new Option(obj[i],i,false,false);
+        gear.add(p);
+    };
+    for(let i = 0; i < Object.values(kuzovs)[k].length; i++){
+        obj = Object.values(kuzovs)[k];
+        t = new Option(obj[i],i,false,false);
+        kuzov.add(t);
+    };
+    var values = Object.values(series_sum)[k];
+    var keys = Object.keys(series_sum)[k];
+    
+    if ($('#luz').find('*').length > 0) {
+        for (i = 0; i <= document.querySelectorAll(".seria").length; i++){
+            let luz = $('#luz').find('*');
+            luz.remove(document.querySelectorAll(".seria")[i]);
+        };
+    };
+    for(let i = 0; i < Object.keys(values).length; i++){
+        key = Object.keys(values)[i];
+        value = Object.values(values)[i];
+
+        var div0 = document.createElement('div');
+        div0.className = "seria";
+        div0.setAttribute('id', 'seria');
+        luz.append(div0);
+
+        let div1 = document.createElement('div');
+        div1.className = "seria_name";
+        div1.innerHTML = key;
+        seria = document.querySelectorAll(".seria")[i];
+        seria.append(div1);
+
+        let div2 = document.createElement('div');
+        div2.className = "number";
+        div2.innerHTML = value;
+        seria = document.querySelectorAll(".seria")[i];
+        seria.append(div2);
+    };
+    var summ = parseInt('0');
+    for (let i = 0; i < Object.values(values).length; i++){
+        summ += Object.values(values)[i];
+    };
+    document.getElementById("summ").innerHTML = summ;
+}
+</script>
+{% endblock %}
