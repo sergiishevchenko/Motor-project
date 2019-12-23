@@ -980,6 +980,11 @@ template {
   border-radius: 5px;
 }
 
+/* line 133, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_news-index.sass */
+.news-button:hover {
+  background-color: red;
+}
+
 /* line 1, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_login.sass */
 .modal {
   left: auto;
@@ -2017,6 +2022,347 @@ template {
   width: 40px;
   height: 40px;
   display: inline-block;
+}
+
+/* line 2, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-block {
+  width: 744px;
+  margin-left: 0;
+  padding-top: 87px;
+}
+
+/* line 6, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-block__text-title {
+  font-family: Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* line 11, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-block__text-subtitle {
+  font-family: Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* line 16, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-block__text-text {
+  font-family: Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* line 20, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-rectangle {
+  height: 8px;
+  background-color: #1c2931;
+  margin-left: 0;
+}
+
+/* line 24, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table {
+  height: 325px;
+  background-color: #ffffff;
+}
+
+/* line 27, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 30, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__items-buttons {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 160px;
+}
+
+/* line 35, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__items-item {
+  width: 270px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+/* line 39, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__serias {
+  position: absolute;
+  top: 230px;
+  width: 95%;
+  -moz-columns: 40px 5;
+  -webkit-columns: 40px 5;
+  columns: 50px 4;
+}
+
+/* line 46, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__form {
+  position: relative;
+}
+
+/* line 48, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__form-select {
+  width: 270px;
+  padding: 10px 10px 10px;
+  color: #363636;
+  -webkit-appearance: none;
+}
+
+/* line 53, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__form-year {
+  width: 130px;
+  padding: 10px 10px 10px;
+  color: #363636;
+  -webkit-appearance: none;
+}
+
+/* line 58, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__form::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  background-color: #8ec740;
+  -webkit-transform: rotate(-27deg);
+  transform: rotate(-27deg);
+  top: 22px;
+  right: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 72, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__form::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  background-color: #8ec740;
+  -webkit-transform: rotate(-150deg);
+  transform: rotate(-150deg);
+  top: 22px;
+  right: 26px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 86, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__double {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* line 91, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__double-input {
+  width: 130px;
+  padding: 10px 10px 10px;
+  color: #363636;
+  -webkit-appearance: none;
+}
+
+/* line 96, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__list {
+  position: relative;
+}
+
+/* line 98, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__list-parametric {
+  width: 270px;
+  padding: 10px 77px 10px;
+  color: #363636;
+  -webkit-appearance: none;
+  margin-top: 15px;
+}
+
+/* line 104, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__options {
+  width: 200px;
+  position: absolute;
+  right: 12px;
+  top: 230px;
+}
+
+/* line 109, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-table__options-option {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* line 114, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-button {
+  width: 270px;
+  height: 39px;
+  background-color: #1c2931;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 10px 10px 10px;
+}
+
+/* line 124, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-cancel {
+  height: 16px;
+  color: #b1b5b8;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 40px;
+  text-align: right;
+}
+
+/* line 132, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-list {
+  display: flex;
+  align-items: center;
+  width: 880px;
+  height: 82px;
+  margin-left: 20px;
+  background-color: #2196f3;
+  border-radius: 4px;
+  margin-top: 260px;
+}
+
+/* line 141, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.auto_cabinet-list_name {
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 30px;
+}
+
+/* line 147, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.seria {
+  width: 200px;
+  margin-left: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* line 154, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars {
+  margin-top: 180px;
+  margin-left: 30px;
+}
+
+/* line 157, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block {
+  width: 850px;
+  margin: auto;
+}
+
+/* line 160, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__header {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 47px;
+}
+
+/* line 165, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__header-name {
+  margin-right: auto;
+  color: #1c2931;
+  font-family: "Open Sans";
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* line 171, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__header-price {
+  color: #1c2931;
+  font-family: "Open Sans";
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* line 176, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car {
+  width: 850px;
+  margin: auto;
+  margin-top: 15px;
+  display: flex;
+}
+
+/* line 181, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-remont {
+  width: 350px;
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* line 188, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-description {
+  margin-left: 50px;
+  margin-right: auto;
+}
+
+/* line 191, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-header {
+  opacity: 0.8;
+  color: #3e4950;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* line 197, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-data {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* line 202, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-text {
+  color: #1c2931;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+/* line 208, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-icons {
+  display: flex;
+  width: 270px;
+  align-items: flex-end;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+/* line 214, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-icons-text {
+  color: #656d73;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 10px;
+}
+
+/* line 221, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_cabinet.sass */
+.allcars-block__car-icons__notebook {
+  display: flex;
+  justifi-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */
