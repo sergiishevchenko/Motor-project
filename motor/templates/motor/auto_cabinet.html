@@ -379,9 +379,9 @@ function selectYear(ev){
     var keys = Object.keys(series_sum)[k];
     
     if ($('#luz').find('*').length > 0) {
-        for (i = 0; i <= document.querySelectorAll(".seria").length; i++){
+        for (i = 0; i <= document.querySelectorAll(".seria_1").length; i++){
             let luz = $('#luz').find('*');
-            luz.remove(document.querySelectorAll(".seria")[i]);
+            luz.remove(document.querySelectorAll(".seria_1")[i]);
         };
     };
     for(let i = 0; i < Object.keys(values).length; i++){
@@ -389,20 +389,20 @@ function selectYear(ev){
         value = Object.values(values)[i];
 
         var div0 = document.createElement('div');
-        div0.className = "seria";
-        div0.setAttribute('id', 'seria');
+        div0.className = "seria_1";
+        div0.setAttribute('id', 'seria_1');
         luz.append(div0);
 
         let div1 = document.createElement('div');
         div1.className = "seria_name";
         div1.innerHTML = key;
-        seria = document.querySelectorAll(".seria")[i];
+        seria = document.querySelectorAll(".seria_1")[i];
         seria.append(div1);
 
         let div2 = document.createElement('div');
         div2.className = "number";
         div2.innerHTML = value;
-        seria = document.querySelectorAll(".seria")[i];
+        seria = document.querySelectorAll(".seria_1")[i];
         seria.append(div2);
     };
     var summ = parseInt('0');
