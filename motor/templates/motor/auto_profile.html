@@ -1,0 +1,136 @@
+{% extends "motor/base.html" %}
+
+{% block title %} <title>Motor</title> {% endblock %}
+
+{% block content %}
+<section class="auto_profile">
+    <div class="container">
+        <div class="auto_profile-header">Главная | Главная | BMW | 3 серия | Продажа BMW 5 серия 523 F07/F10/F11, седан 4 дв.</div>
+        <div class="row">
+            <div class="col-9">
+                <div class="auto_profile-block">
+                    <div class="auto_profile-block__subblock">
+                        <div class="auto_profile-title">Продажа BMW 5 серия 523 F07/F10/F11, седан 4 дв.</div>
+                        <div class="auto_profile-subtitle">
+                            <div class="auto_profile-subtitle__header">Добавлено : 13.12.2017</div>
+                            <div class="auto_profile-subtitle__notebook">
+                                {% load static %}
+                                <img src="{% static "img/cabinet/glass.png" %}" style="width: 20px; height: 14px" alt="glass">
+                                <div class="auto_profile-subtitle__text">285 (18 сегодня)</div>
+                            </div>
+                            <div class="auto_profile-subtitle__notebook">
+                                {% load static %}
+                                <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 14px" alt="notebook">
+                                <div class="auto_profile-subtitle__text">В блокнот</div>
+                            </div>
+                            <div class="auto_profile-subtitle__notebook">
+                                {% load static %}
+                                <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 14px" alt="compare">
+                                <div class="auto_profile-subtitle__text">В сравнение</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auto_profile-block__price">$ 31 900</div>
+                </div>
+                <div class="auto_profile-description">
+                    <div class="carousel">
+                        <ul class="slides">
+                            <input type="radio" name="radio-buttons" id="img-1" checked />
+                            <li class="slide-container">
+                                <div class="slide-image">
+                                    <img src="/static/img/notebook/big1.png">
+                                </div>
+                                <div class="carousel-controls">
+                                    <label for="img-3" class="prev-slide">
+                                        <span>&lsaquo;</span>
+                                    </label>
+                                    <label for="img-2" class="next-slide">
+                                        <span>&rsaquo;</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <input type="radio" name="radio-buttons" id="img-2" />
+                            <li class="slide-container">
+                                <div class="slide-image">
+                                    <img src="/static/img/notebook/2.png">
+                                </div>
+                                <div class="carousel-controls">
+                                    <label for="img-1" class="prev-slide">
+                                        <span>&lsaquo;</span>
+                                    </label>
+                                    <label for="img-3" class="next-slide">
+                                        <span>&rsaquo;</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <input type="radio" name="radio-buttons" id="img-3" />
+                            <li class="slide-container">
+                                <div class="slide-image">
+                                    <img src="/static/img/notebook/3.png">
+                                </div>
+                                <div class="carousel-controls">
+                                    <label for="img-2" class="prev-slide">
+                                        <span>&lsaquo;</span>
+                                    </label>
+                                    <label for="img-1" class="next-slide">
+                                        <span>&rsaquo;</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <div class="carousel-dots">
+                                <label for="img-1" class="carousel-dot" id="img-dot-1"></label>
+                                <label for="img-2" class="carousel-dot" id="img-dot-2"></label>
+                                <label for="img-3" class="carousel-dot" id="img-dot-3"></label>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="auto_profile-description__block">
+                        <div class="auto_profile-description__subblock">
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Год выпуска</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Пробег</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Кузов</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Цвет</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Двигатель</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Коробка</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Привод</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Руль</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Состояние</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Владельцы</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">ПТС</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Владение</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Таможня</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Обмен</div>
+                        </div>
+                        <div class="auto_profile-description__subblock">
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">1986</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">100 000 км</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Седан</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Чёрный</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">1.8 л/90 л.с./бензин</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Механическая</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Задний</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Левый</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Не требует ремонта</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">2 владельца</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Оригинал</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">2 года и 5 месяцев</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Растаможен</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Рассмотрю варианты</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="auto_profile-author">
+                    {% load static %}
+                    <img src="{% static "img/cabinet/author.png" %}" style="border-radius: 30px; width: 60px; height: 60px; background-color: #64b5f6;" alt="glass">
+                    <div class="auto_profile-author__block">
+                        <div class="auto_profile-author__name">Анатолий</div>
+                        <div class="auto_profile-author__text">частное лицо</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
