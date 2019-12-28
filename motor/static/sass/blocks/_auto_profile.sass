@@ -1,4 +1,10 @@
 .auto_profile
+    &-field
+      background-color: #e9f2f7
+      margin-top: 0
+      width: 285px
+      padding-top: 10px
+      padding-bottom: 60px
     &-header
         margin-bottom: 30px
         margin-top: 20px
@@ -58,15 +64,75 @@
         display: flex
         height: 97px
         background-color: #c1d1da
+        align-items: center
+        &__block
+          margin-left: 15px
         &__name
-            color: #404040
-            font-family: Arial
-            font-size: 16px
-            font-weight: 700
+          color: #404040
+          font-family: Arial
+          font-size: 16px
+          font-weight: 700
         &__text
-            color: #404040
-            font-family: Arial
-            font-size: 12px
+          color: #404040
+          font-family: Arial
+          font-size: 12px
+          font-weight: 400
+    &-info
+        display: flex
+        margin-left: 15px
+        width: 285px
+        margin-top: 5px
+        margin-right: 0
+        padding-bottom: 10px
+        &__text
+          margin-left: 10px
+    &-button
+        background-color: black
+        color: white
+        font-family: Arial
+        font-size: 12px
+        font-weight: 700
+        padding: 10px 40px 10px 40px
+        margin-top: 15px
+        width: 285px
+        border-radius: 4px
+        &:hover
+          background-color: red
+    &-check
+        display: flex
+        background-color: #70de70
+        height: 100px
+        justify-content: space-around
+        align-items: center
+        margin-top: 30px
+        &__photo
+          width: 50px
+          height: 50px
+          background-color: white
+          padding-top: 10px 
+          padding-left: 10px 
+          padding-right: 10px 
+          padding-bottom: 10px 
+        &__block
+          margin-left: 15px
+        &__head
+          color: white
+        &__text
+          color: white
+        &__button
+          font-size: 16px
+          font-weight: 700
+          padding-top: 10px 
+          padding-left: 40px 
+          padding-right: 40px 
+          padding-bottom: 10px
+    &-rating
+        &__item
+            display: flex
+            justify-content: space-between
+            align-items: center
+        &__text
+            font-size: 13px
             font-weight: 400
 .carousel
     width: 600px
@@ -177,3 +243,76 @@ input
 
   &:checked + .slide-container .nav label
     display: block
+
+.rate
+  float: left
+  height: 46px
+  padding: 0 10px
+
+  &:not(:checked)
+    >
+      input
+        position: absolute
+        top: -9999px
+
+      label
+        float: right
+        width: 1em
+        overflow: hidden
+        white-space: nowrap
+        cursor: pointer
+        font-size: 30px
+        color: #ccc
+
+        &:before
+          content: '★ '
+
+    > label:hover
+      color: #deb217
+
+      ~ label
+        color: #deb217
+
+  > input:checked ~ label
+    color: #ffc700
+
+  >
+    input:checked
+      + label:hover, ~ label:hover
+        color: #c59b08
+
+        ~ label
+          color: #c59b08
+
+    label:hover ~ input:checked ~ label
+      color: #c59b08
+.circle-chart__circle
+  animation: circle-chart-fill 2s reverse
+
+  transform: rotate(-90deg)
+
+  transform-origin: center
+
+.circle-chart__circle--negative
+  transform: rotate(-90deg) scale(1, -1)
+
+
+.circle-chart__info
+  animation: circle-chart-appear 2s forwards
+  opacity: 0
+  transform: translateY(0.3em)
+
+@keyframes circle-chart-fill
+  to
+    stroke-dasharray: 0 100
+
+@keyframes circle-chart-appear
+  to
+    opacity: 1
+    transform: translateY(0)
+
+.grid
+  display: grid
+  grid-column-gap: 1em
+  grid-row-gap: 1em
+  grid-template-columns: repeat(1, 1fr)
