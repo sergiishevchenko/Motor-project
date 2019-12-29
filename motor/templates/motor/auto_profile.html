@@ -1,0 +1,445 @@
+{% extends "motor/base.html" %}
+
+{% block title %} <title>Motor</title> {% endblock %}
+
+{% block content %}
+<section class="auto_profile">
+    <div class="container">
+        <div class="auto_profile-header">Главная | Главная | BMW | 3 серия | Продажа BMW 5 серия 523 F07/F10/F11, седан 4 дв.</div>
+        <div class="row">
+            <div class="col-9">
+                <div class="auto_profile-block">
+                    <div class="auto_profile-block__subblock">
+                        <div class="auto_profile-title">Продажа BMW 5 серия 523 F07/F10/F11, седан 4 дв.</div>
+                        <div class="auto_profile-subtitle">
+                            <div class="auto_profile-subtitle__header">Добавлено : 13.12.2017</div>
+                            <div class="auto_profile-subtitle__notebook">
+                                {% load static %}
+                                <img src="{% static "img/cabinet/glass.png" %}" style="width: 20px; height: 14px" alt="glass">
+                                <div class="auto_profile-subtitle__text">285 (18 сегодня)</div>
+                            </div>
+                            <div class="auto_profile-subtitle__notebook">
+                                {% load static %}
+                                <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 14px" alt="notebook">
+                                <div class="auto_profile-subtitle__text">В блокнот</div>
+                            </div>
+                            <div class="auto_profile-subtitle__notebook">
+                                {% load static %}
+                                <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 14px" alt="compare">
+                                <div class="auto_profile-subtitle__text">В сравнение</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auto_profile-block__price">$ 31 900</div>
+                </div>
+                <div class="auto_profile-description">
+                    <div class="carousel">
+                        <ul class="slides">
+                            <input type="radio" name="radio-buttons" id="img-1" checked />
+                            <li class="slide-container">
+                                <div class="slide-image">
+                                    <img src="/static/img/notebook/big1.png">
+                                </div>
+                                <div class="carousel-controls">
+                                    <label for="img-3" class="prev-slide">
+                                        <span>&lsaquo;</span>
+                                    </label>
+                                    <label for="img-2" class="next-slide">
+                                        <span>&rsaquo;</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <input type="radio" name="radio-buttons" id="img-2" />
+                            <li class="slide-container">
+                                <div class="slide-image">
+                                    <img src="/static/img/notebook/2.png">
+                                </div>
+                                <div class="carousel-controls">
+                                    <label for="img-1" class="prev-slide">
+                                        <span>&lsaquo;</span>
+                                    </label>
+                                    <label for="img-3" class="next-slide">
+                                        <span>&rsaquo;</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <input type="radio" name="radio-buttons" id="img-3" />
+                            <li class="slide-container">
+                                <div class="slide-image">
+                                    <img src="/static/img/notebook/3.png">
+                                </div>
+                                <div class="carousel-controls">
+                                    <label for="img-2" class="prev-slide">
+                                        <span>&lsaquo;</span>
+                                    </label>
+                                    <label for="img-1" class="next-slide">
+                                        <span>&rsaquo;</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <div class="carousel-dots">
+                                <label for="img-1" class="carousel-dot" id="img-dot-1"></label>
+                                <label for="img-2" class="carousel-dot" id="img-dot-2"></label>
+                                <label for="img-3" class="carousel-dot" id="img-dot-3"></label>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="auto_profile-description__block">
+                        <div class="auto_profile-description__subblock">
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Год выпуска</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Пробег</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Кузов</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Цвет</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Двигатель</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Коробка</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Привод</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Руль</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Состояние</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Владельцы</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">ПТС</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Владение</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Таможня</div>
+                            <div class="auto_profile-description__item" style="font-size: 14px; font-weight: 700; line-height: 24px;">Обмен</div>
+                        </div>
+                        <div class="auto_profile-description__subblock">
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">1986</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">100 000 км</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Седан</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Чёрный</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">1.8 л/90 л.с./бензин</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Механическая</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Задний</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Левый</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Не требует ремонта</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">2 владельца</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Оригинал</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">2 года и 5 месяцев</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Растаможен</div>
+                            <div class="auto_profile-description__item" style="text-align: right; color: #3e4950; font-family: Arial; font-size: 14px; font-weight: 400; line-height: 24px;">Рассмотрю варианты</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auto_profile-check">
+                    <div class="auto_profile-check__photo">
+                        {% load static %}
+                        <img src="{% static "img/tick.png" %}">
+                    </div>
+                    <div class="auto_profile-check__block">
+                        <div class="auto_profile-check__head">Автомобиль прошёл проверку в нашем сервис-центре</div>
+                        <div class="auto_profile-check__text">Дата проверки: 28 января 2019</div>
+                    </div>
+                    <button type="button" class="auto_profile-check__button">ПОСМОТРЕТЬ ОТЧЁТ</button>
+                </div>
+                <div class="row" style="margin-left: 10px; margin-top: 20px">
+                    <div class="col-4.5">
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Целостность кузова</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Лакокрасочное покрытие</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Салон и интерьер</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">+1 пункт по экстерьеру</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4.5" style="margin-left: 10px">
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Электрооборудование</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Ходовая часть</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Двигатель</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                        <div class="auto_profile-rating__item">
+                            <div class="auto_profile-rating__text">Коробка передач</div>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+                    </div>
+                    <svg class="circle-chart" style='margin-top: 45px; margin-left: 80px;' viewbox="0 0 33.83098862 33.83098862" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                          <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8">30%</text>
+                          <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Yay 30% progress!</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="nav nav-tabs" id="myTab" role="tablist" style="margin-right: auto; margin-top: 20px">
+                    <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">ОПИСАНИЕ АВТО</a>
+                    <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">КОМПЛЕКТАЦИЯ</a>
+                    <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">КОММЕНТАРИИ</a>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+                        <div style="color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400; text-align: justify; margin-top: 15px">
+                            <p>Пожалуй лучшее предложение в данном сегменте! Обратите внимание на салон супер-эффектная отделка, Вы точно будите отличаться от всех других пятёрок в лучшую сторону! Цвет кузова отдельная история!</p> 
+                            <p>По документам тёмно-серый, в реальности после мойки отдаёт синевой и перламутровым блеском, очень эффектно смотрится! По техническому состоянию нет никаких замечаний! Шикарный атмосферный движок 2500 стартует как настоящий БМВ и этим всё сказано, кто в теме тот меня поймёт!</p> 
+                            <p>Автомат работает как часы 5000 км назад поменял в автомате технические жидкости. Расход топлива по городу 12-13 литров на сотню, по трассе меньше десятки (95 бензин). Вся техническая история, с момента покупки, лежит в бардачке можно всё проследить и убедиться, что машину аккуратно эксплуатировали и вовремя обслуживали применяя самые лучшие расходники! В подарок диски на 18 и летняя резина! Стоит охранная система заключён договор с охранным предприятием. Машину не угонят!</p>
+                            Комплект летних шин в подарок. Своевременное обслуживание. Пройдены все ТО. Куплена не в кредит. Не прокуренный салон. Сервисная книжка. Не участвовала в ДТП.
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="auto_profile-tabs__title">Безопасность</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Антиблокировочная система (ABS)</br>
+                                    Антипробуксовочная система</br>
+                                    Система стабилизации</br>
+                                    Крепление для детского кресла</br>
+                                    Парктроник</br>
+                                    Блокировка замков задних дверей
+                                </div>
+                                <div class="auto_profile-tabs__title">Защита от угона</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Штатная сигнализация</br>
+                                    Штатный иммобилайзер</br>
+                                    Центральный замок</br>
+                                    Датчик проникновения в салон (датчик объема)
+                                </div>
+                                <div class="auto_profile-tabs__title">Обзор</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Электроскладывание зеркал</br>
+                                    Автоматический корректор фар</br>
+                                    Электропривод зеркал</br>
+                                    Электрообогрев форсунок стеклоомывателей</br>
+                                    Система управления дальним светом</br>
+                                    Омыватель фар</br>
+                                    Датчик света</br>
+                                    Обогрев зеркал</br>
+                                    Противотуманные фары</br>
+                                    Датчик дождя</br>
+                                    Ксеноновые/Биксеноновые фары
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="auto_profile-tabs__title">Комфорт</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Климат-контроль 2-зонный</br>
+                                    Бортовой компьютер</br>
+                                    Охлаждаемый перчаточный ящик</br>
+                                    Сиденье водителя: с памятью положения</br>
+                                    Регулировка сидений водителя по высоте</br>
+                                    Электростеклоподъемники все</br>
+                                    Парктроник передний</br>
+                                    Парктроник задний</br>
+                                    Сиденье пассажира: электрорегулировка</br>
+                                    Регулировка сидений пассажира по высоте</br>
+                                    Обогрев сидений</br>
+                                    Активный усилитель руля</br>
+                                    Запуск двигателя с кнопки</br>
+                                    Тонированные стекла</br>
+                                    Датчик давления в шинах</br>
+                                    Регулировка руля по высоте и вылету</br>
+                                    Усилитель руля
+                                </div>
+                                <div class="auto_profile-tabs__title">Мультимедиа</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Штатная аудиосистема Hi-Fi</br>
+                                    Штатная навигационная система
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="auto_profile-tabs__title">Салон</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Кожаный салон</br>
+                                    Отделка потолка чёрной тканью</br>
+                                    Светлый салон</br>
+                                    Электрорегулировка сидений</br>
+                                    Передний центральный подлокотник</br>
+                                    Подогрев передних сидений</br>
+                                    Отделка кожей рычага КПП</br>
+                                    Мультифункциональное рулевое колесо</br>
+                                    Обогрев сидений</br>
+                                    Складывающееся заднее сидение</br>
+                                    Алюминиевые накладки на педали</br>
+                                    Спортивные передние сидения</br>
+                                    Подрулевые лепестки переключения передач</br>
+                                    Отделка кожей рулевого колеса
+                                </div>
+                                <div class="auto_profile-tabs__title">Экстерьер</div>
+                                <div class="auto_profile-tabs__subtitle">
+                                    Легкосплавные диски 18</br>
+                                    Лакокрасочное покрытие металлик
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
+                        <div class="auto_profile-comment">
+                            {% load static %}
+                            <img src="{% static "img/label.png" %}" style="width: 40px; height: 40px;">
+                            <div class="auto_profile-comment__block">
+                                <div class="auto_profile-comment__title">Павел В.</div>
+                                <div class="auto_profile-comment__subtitle">24 сентября 2019 16:45</div>
+                                <div class="auto_profile-comment__text">Красавица , лимитед эдишен на 339 стиле , по сравнению с ф30 просто сказка , в новой трешке все какое то уже не такое как тут, похоже что с 90-м кузовом эпоха тех трешек оборвалась , лучший вариант за свои деньги , меня поражает этот дизайн , который такой крутой и актуальный уже более 10 лет.</div>
+                            </div>
+                        </div>
+                        <div class="auto_profile-comment">
+                            {% load static %}
+                            <img src="{% static "img/label.png" %}" style="width: 40px; height: 40px;">
+                            <div class="auto_profile-comment__block">
+                                <div class="auto_profile-comment__title">Павел В.</div>
+                                <div class="auto_profile-comment__subtitle">24 сентября 2019 16:45</div>
+                                <div class="auto_profile-comment__text">Красавица , лимитед эдишен на 339 стиле , по сравнению с ф30 просто сказка , в новой трешке все какое то уже не такое как тут, похоже что с 90-м кузовом эпоха тех трешек оборвалась , лучший вариант за свои деньги , меня поражает этот дизайн , который такой крутой и актуальный уже более 10 лет.</div>
+                            </div>
+                        </div>
+                        <div class="auto_profile-comment">
+                            {% load static %}
+                            <img src="{% static "img/label.png" %}" style="width: 40px; height: 40px;">
+                            <div class="auto_profile-comment__block">
+                                <div class="auto_profile-comment__title">Павел В.</div>
+                                <div class="auto_profile-comment__subtitle">24 сентября 2019 16:45</div>
+                                <div class="auto_profile-comment__text">Красавица , лимитед эдишен на 339 стиле , по сравнению с ф30 просто сказка , в новой трешке все какое то уже не такое как тут, похоже что с 90-м кузовом эпоха тех трешек оборвалась , лучший вариант за свои деньги , меня поражает этот дизайн , который такой крутой и актуальный уже более 10 лет.</div>
+                            </div>
+                        </div>
+                        <div class="auto_profile-comment__form">
+                            <form style="margin-top: 30px">
+                                <div class="auto_profile-comment__header">ДОБАВИТЬ КОММЕНТАРИЙ</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Ваше имя" style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Ваш e-mail" style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Ваш комментарий" style="width: 860px; height: 114px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                <button type="button" class="auto_profile-button">ОТПРАВИТЬ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="auto_profile-author">
+                    {% load static %}
+                    <img src="{% static "img/cabinet/author.png" %}" style="border-radius: 30px; width: 60px; height: 60px; background-color: #64b5f6; margin-left: 15px" alt="glass">
+                    <div class="auto_profile-author__block">
+                        <div class="auto_profile-author__name">Анатолий</div>
+                        <div class="auto_profile-author__text">частное лицо</div>
+                    </div>
+                </div>
+                <div class="auto_profile-field">
+                    <div class="auto_profile-info">
+                        {% load static %}
+                        <img src="{% static "img/phone.png" %}">
+                        <div class="auto_profile-info__text"><strong>Телефон:</strong> Показать</div>
+                    </div>
+                    <div class="auto_profile-info">
+                        {% load static %}
+                        <img src="{% static "img/envelope.png" %}">
+                        <div class="auto_profile-info__text"><strong>E-mail:</strong> mail@mail.ru</div>
+                    </div>
+                    <div class="auto_profile-info">
+                        {% load static %}
+                        <img src="{% static "img/location.png" %}">
+                        <div class="auto_profile-info__text"><strong>Расположение:</strong> Тирасполь</div>
+                    </div>
+                </div>
+                <button type="button" class="auto_profile-button">НАПИСАТЬ ПРОДАВЦУ</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
