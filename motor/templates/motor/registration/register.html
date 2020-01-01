@@ -1,39 +1,36 @@
-<div id="register-form" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-     aria-labelledby="myLargeModalLabel"
-     aria-hidden="true">
+{% block title %} <title>Motor</title> {% endblock %}
+
+<div id="register-form" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content modal-lg">
+        <div class="modal-content modal-lg" style='width: 700px; margin: auto; margin-top: 100px'>
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 40px; height: 40px; font-size: 30px; ">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <h1 class="h3 mb-3 font-weight-normal">motor</h1>
+            <h2 class="h3 mb-3 mt-3 font-weight-normal">Регистрация</h2>
             <div class="modal-body">
                 <form method="POST" action="{% url 'register' %}">
                     {% csrf_token %}
 
                     <div class="form-group">
-                        <input type="text" class="form-control is-invalid" id="id_username" name="username" placeholder="Ваше имя" required>
+                        <input type="text" class="form-control is-invalid" id="id_username" name="username" placeholder="Your name" required style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px">
                         <div class="invalid-feedback">
                             <p>{{ signup_form.form.errors.username }}</p>
                         </div>
-                        <input type="email" class="form-control is-invalid" id="2" name="email" placeholder="Ваш E-mail" required>
+                        <input type="email" class="form-control is-invalid" id="2" name="email" placeholder="Your E-mail" required style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px">
                         <div class="invalid-feedback">
                             <p>{{ signup_form.form.errors.email }}</p>
                         </div>
-                        <input type="password" class="form-control is-invalid" name="password" id="Password"
-                               placeholder="Пароль">
+                        <input type="password" class="form-control is-invalid" name="password" id="Password" placeholder="Password" style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px">
                     </div>
-{#                    <div class="checkbox mb-3">#}
-{#                        <label>#}
-{#                            <input type="checkbox" value="remember-me">Я владелец компании</label>#}
-{#                    </div>#}
+                    <div class="checkbox mb-3" style="margin-top: 30px">
+                        <label><input type="checkbox" value="remember-me" style="font-size: 12px; font-family: Open Sans; ">   Я владелец компании</label>
+                    </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-secondary">Зарегистрироваться</button>
+                        <button type="submit" class="btn btn-outline-secondary" style="width: 400px; height: 40px; background-color: black; color: white; font-size: 14px; border-radius: 4px; margin-top: 30px">Зарегистрироваться</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
