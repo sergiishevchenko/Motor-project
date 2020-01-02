@@ -559,7 +559,7 @@ def change_password(request):
             user.save()
             return redirect('change_password')
         else:
-            raise Http404('Я в чем-то ошиблась')
+            raise Http404('Я в чем-то ошибся')
     else:
         signup_form = FormWrapper(SignUpForm())
         login_form = FormWrapper(LoginForm())

@@ -41,7 +41,7 @@
 <div class="modal fade right" id="cabinet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="true">
     <div class="modal-dialog modal-full-height modal-right" role="document">
         <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='width: 30px; margin-left:30px; margin-top: 30px'>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='width: 30px; margin-left:30px; margin-top: 30px;'>
                 <span aria-hidden="true" class="white-text">×</span>
             </button>
             <div class="modal-content__head">
@@ -52,7 +52,8 @@
                 Добро пожаловать! <br>
                 Пожалуйста, авторизуйтесь, для входа в свой аккаунт!</strong>
             </div>
-            <form class="form">
+            <form class="form" method="POST" action="{% url 'user_page' %}">
+                {% csrf_token %}
                 <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -87,8 +88,8 @@
                 <div class="socials-text">Забыли пароль?</div>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="top-button" style="width: 195px">ВОЙТИ</button>
-                <button type="button" class="top-button" style="width: 195px; background-color: white; color: black">РЕГИСТРАЦИЯ</button>
+                <button type="button" class="top-button" style="width: 195px" onclick="window.location.href='user_page'">ВОЙТИ</button>
+                <button type="button" class="top-button" onclick="window.location.href='register'" style="width: 195px; background-color: white; color: black">РЕГИСТРАЦИЯ</button>
             </div>
         </div>
     </div>
