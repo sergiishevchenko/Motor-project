@@ -515,7 +515,7 @@ def register(request):
         else:
             signup_form = FormWrapper(signup_form, True)
             login_form = FormWrapper(LoginForm())
-            return render(request, 'motor/index.html', {'signup_form': signup_form, 'login_form': login_form})
+            return render(request, 'motor/registration/register.html', {'signup_form': signup_form, 'login_form': login_form})
     return render(request, 'motor/registration/register.html')
 
 
