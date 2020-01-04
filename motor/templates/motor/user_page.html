@@ -16,53 +16,55 @@
         <div class="col-md-8 order-md-1">
             <form class="needs-validation" novalidate method="POST" action="{% url 'user_page' %}">
                 {% csrf_token %}
-
-                <div class="mb-3">
-                    <label for="username">Логин</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Ваше имя"
-                           value="{{ user_login }}" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Ваш E-mail"
-                           value="{{ user_email }}">
-                </div>
-
-                <div class="mb-3">
-                    <label for="firstname">Имя</label>
-                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Имя"
-                           value="{{ firstname }}" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="lastname">Фамилия</label>
-                    <input type="text" class="form-control" name="lastname" id="Lastfirstname"
-                           placeholder="Фамилия"
-                           value="{{ lastname }}" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="phone">Телефон</label>
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Номер телефона"
-                           value="{{ user_phone }}" required>
-                    <small id="phoneHelp" class="form-text text-muted">Введите номер телефона вида 199999999 или +19999999999</small>
-                </div>
-
-                <div class="mb-3">
-                    <label for="gender">Пол</label>
-                    <div class="custom-control custom-radio">
-                        <input id="man" value="М" name="gender" type="radio" class="custom-control-input" {% if gender == 'М'%} checked {% endif %}>
-                        <label class="custom-control-label" for="man">Мужской</label>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mt-1 mb-2">
+                            <label for="username">Логин</label>
+                            <input type="text" class="form-control" name="username" style="margin-top: 0;" id="username" placeholder="Ваше имя"
+                                   value="{{ user_login }}" required>
+                        </div>
+        
+                        <div class="mt-1 mb-2">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" style="margin-top: 0;" id="email" placeholder="Ваш E-mail"
+                                   value="{{ user_email }}">
+                        </div>
+        
+                        <div class="mt-1 mb-2">
+                            <label for="firstname">Имя</label>
+                            <input type="text" class="form-control" name="firstname" style="margin-top: 0;" id="firstname" placeholder="Имя"
+                                   value="{{ firstname }}" required>
+                        </div>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input id="woman" value="Ж" name="gender" type="radio" class="custom-control-input" {% if gender == 'Ж' %} checked {% endif %}>
-                        <label class="custom-control-label" for="woman">Женский</label>
+                    <div class="col-6">
+                        <div class="mt-1 mb-2">
+                            <label for="lastname">Фамилия</label>
+                            <input type="text" class="form-control" name="lastname" style="margin-top: 0;" id="Lastfirstname"
+                                   placeholder="Фамилия"
+                                   value="{{ lastname }}" required>
+                        </div>
+        
+                        <div class="mt-1 mb-2">
+                            <label for="phone">Телефон</label>
+                            <input type="text" class="form-control" name="phone" style="margin-top: 0;" id="phone" placeholder="Номер телефона"
+                                   value="{{ user_phone }}" required>
+                            <small id="phoneHelp" class="form-text text-muted">Введите номер телефона вида 199999999 или +19999999999</small>
+                        </div>
+        
+                        <div class="mt-4 mb-2" style="display: flex;">
+                            <label for="gender">Пол</label>
+                            <div class="custom-control custom-radio" style="margin-left: 15px;">
+                                <input id="man" value="М" name="gender" type="radio" class="custom-control-input" {% if gender == 'М'%} checked {% endif %}>
+                                <label class="custom-control-label" for="man">Мужской</label>
+                            </div>
+                            <div class="custom-control custom-radio" style="margin-left: 15px;"> 
+                                <input id="woman" value="Ж" name="gender" type="radio" class="custom-control-input" {% if gender == 'Ж' %} checked {% endif %}>
+                                <label class="custom-control-label" for="woman">Женский</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <hr class="mb-4">
-                <button class="btn btn-outline-secondary" type="submit">Сохранить</button>
+                <button class="btn btn-outline-secondary" type="submit" style="width: 100%; margin-top: 25px">Сохранить</button>
             </form>
         </div>
     </div>
