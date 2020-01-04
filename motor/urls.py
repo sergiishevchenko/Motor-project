@@ -4,7 +4,7 @@ from motor.views import index, register, login, logout, user_page, test_view, ch
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index', index, name='index'),
+    path('', index, name='index'),
     path('auto', auto, name='auto'),
     path('auto/<car>', add_model, name='add_model'),
     path('auto/<car>/<seria>', add_seria, name='add_seria'),

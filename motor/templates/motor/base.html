@@ -52,45 +52,46 @@
                 Добро пожаловать! <br>
                 Пожалуйста, авторизуйтесь, для входа в свой аккаунт!</strong>
             </div>
-            <form class="form" method="POST" action="{% url 'user_page' %}">
+            <form class="form" method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" class="form-control" required id="123" name="email" aria-describedby="emailHelp" placeholder="Ваш E-mail" style="width: 390px">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" required name="password" id="password" placeholder="Пароль" style="width: 390px">
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                {#<div class="checkbox mb-3">#}
+                    {#<label>#}
+                        <input type="checkbox" value="remember-me" >   Запомнить меня
+                    {#</label>#}
+                {#</div>#}
+                <div class="socials" style="margin-top: 35px">
+                    <div class="socials-icons">
+                        <div class="socials-icons__item">
+                            {% load static %}
+                            <img src="{% static "img/modal/vkontakte.png" %}" alt="vkontakte">
+                        </div>
+                        <div class="socials-icons__item">
+                            {% load static %}
+                            <img src="{% static "img/modal/facebook.png" %}" alt="facebook">
+                        </div>
+                        <div class="socials-icons__item">
+                            {% load static %}
+                            <img src="{% static "img/modal/classmates.png" %}" alt="classmates">
+                        </div>
+                        <div class="socials-icons__item">
+                            {% load static %}
+                            <img src="{% static "img/modal/twitter.png" %}" alt="twitter">
+                        </div>
+                    </div>
+                    <a class="socials-text">Забыли пароль?</a>
+                </div>
+                <div class="modal-footer" style='padding-left: 0; padding-right: 0'>
+                    <button type="submit" class="btn btn-outline-secondary" style="width: 220px">ВОЙТИ</button>
+                    <button type="submit" class="btn btn-outline-secondary" onclick="window.location.href='register'" style="width: 220px;">РЕГИСТРАЦИЯ</button>
                 </div>
             </form>
-            <div class="socials">
-                <div class="socials-icons">
-                    <div class="socials-icons__item">
-                        {% load static %}
-                        <img src="{% static "img/modal/vkontakte.png" %}" alt="vkontakte">
-                    </div>
-                    <div class="socials-icons__item">
-                        {% load static %}
-                        <img src="{% static "img/modal/facebook.png" %}" alt="facebook">
-                    </div>
-                    <div class="socials-icons__item">
-                        {% load static %}
-                        <img src="{% static "img/modal/classmates.png" %}" alt="classmates">
-                    </div>
-                    <div class="socials-icons__item">
-                        {% load static %}
-                        <img src="{% static "img/modal/twitter.png" %}" alt="twitter">
-                    </div>
-                </div>
-                <div class="socials-text">Забыли пароль?</div>
-            </div>
-            <div class="modal-footer justify-content-center">
-                <button type="button" class="top-button" style="width: 195px" onclick="window.location.href='user_page'">ВОЙТИ</button>
-                <button type="button" class="top-button" onclick="window.location.href='register'" style="width: 195px; background-color: white; color: black">РЕГИСТРАЦИЯ</button>
-            </div>
         </div>
     </div>
 </div>

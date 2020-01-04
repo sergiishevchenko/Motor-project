@@ -522,12 +522,13 @@ def register(request):
 def login(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
-        email = login_form.data.get("email", None)
-        password = login_form.data.get("password", None)
-        user = User.objects.filter(Email=email, Password=password).first()
-        if user is not None:
-            request.session['user_id'] = user.id
-            return redirect('user_page')
+        if login_form.is_valid():
+            email = login_form.data.get("email", None)
+            password = login_form.data.get("password", None)
+            user = User.objects.filter(Email=email, Password=password).first()
+            if user is not None:
+                request.session['user_id'] = user.id
+                return redirect('user_page')
         else:
             raise Http404('Error 404')
     raise Http404('Error 404')
