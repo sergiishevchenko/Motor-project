@@ -502,6 +502,44 @@ def auto_profile(request):
     return render(request, 'motor/auto_profile.html', params)
 
 
+def register(request):
+    if request.method == 'POST':
+        signup_form = SignUpForm(request.POST)
+        if signup_form.is_valid():
+            user = User()
+            user.Email = signup_form.data.get("email", None)
+            user.Login = signup_form.data.get("username", None)
+            user.Password = signup_form.data.get('password', None)
+            user.save()
+            return redirect('user_page')
+        else:
+            signup_form = FormWrapper(signup_form, True)
+            login_form = FormWrapper(LoginForm())
+            return render(request, 'motor/registration/register.html', {'signup_form': signup_form, 'login_form': login_form})
+    return render(request, 'motor/registration/register.html')
+
+
+def login(request):
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+        if login_form.is_valid():
+            email = login_form.data.get("email", None)
+            password = login_form.data.get("password", None)
+            user = User.objects.filter(Email=email, Password=password).first()
+            if user is not None:
+                request.session['user_id'] = user.id
+                return redirect('user_page')
+        else:
+            raise Http404('Error 404')
+    raise Http404('Error 404')
+
+
+def logout(request):
+    if 'user_id' in request.session.keys():
+        del request.session['user_id']
+    return redirect('index')
+
+
 def change_password(request):
     if request.method == 'POST':
         userpage_form = PasswordForm(request.POST)
@@ -522,7 +560,7 @@ def change_password(request):
             user.save()
             return redirect('change_password')
         else:
-            raise Http404('Я в чем-то ошиблась')
+            raise Http404('Я в чем-то ошибся')
     else:
         signup_form = FormWrapper(SignUpForm())
         login_form = FormWrapper(LoginForm())
@@ -564,7 +602,7 @@ def user_page(request):
             user.save()
             return redirect('user_page')
         else:
-            raise Http404('Я в чем-то ошиблась')
+            raise Http404('Я в чем-то ошибся')
     else:
         signup_form = FormWrapper(SignUpForm())
         login_form = FormWrapper(LoginForm())
@@ -580,43 +618,6 @@ def user_page(request):
             params = {'user_login': user.Login, 'user_email': user.Email, 'firstname': user.FirstName,
                       'lastname': user.LastName, 'user_phone': user.Phone, 'gender': user.Gender}
         return render(request, 'motor/user_page.html', params)
-
-
-def register(request):
-    if request.method == 'POST':
-        signup_form = SignUpForm(request.POST)
-        if signup_form.is_valid():
-            user = User()
-            user.Email = signup_form.data.get("email", None)
-            user.Login = signup_form.data.get("username", None)
-            user.Password = signup_form.data.get('password', None)
-            user.save()
-            return redirect('user_page')
-        else:
-            signup_form = FormWrapper(signup_form, True)
-            login_form = FormWrapper(LoginForm())
-            return render(request, 'motor/index.html', {'signup_form': signup_form, 'login_form': login_form})
-    return render(request, '/')
-
-
-def login(request):
-    if request.method == 'POST':
-        login_form = LoginForm(request.POST)
-        email = login_form.data.get("email", None)
-        password = login_form.data.get("password", None)
-        user = User.objects.filter(Email=email, Password=password).first()
-        if user is not None:
-            request.session['user_id'] = user.id
-            return redirect('user_page')
-        else:
-            raise Http404('Error 404')
-    raise Http404('Error 404')
-
-
-def logout(request):
-    if 'user_id' in request.session.keys():
-        del request.session['user_id']
-    return redirect('index')
 
 
 def test_view(request):
