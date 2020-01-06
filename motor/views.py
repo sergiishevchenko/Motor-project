@@ -530,8 +530,8 @@ def login(request):
                 request.session['user_id'] = user.id
                 return redirect('user_page')
         else:
-            raise Http404('Error 404')
-    raise Http404('Error 404')
+            return render(request, 'motor/404page.html')
+    return render(request, 'motor/registration/login.html')
 
 
 def logout(request):
@@ -560,7 +560,7 @@ def change_password(request):
             user.save()
             return redirect('change_password')
         else:
-            raise Http404('Что-то пошло не так!')
+            return render(request, 'motor/404page.html')
     else:
         signup_form = FormWrapper(SignUpForm())
         login_form = FormWrapper(LoginForm())
@@ -568,7 +568,7 @@ def change_password(request):
         if user_id is not None:
             user = User.objects.filter(id=user_id).first()
             if user is None:
-                raise Http404('Error 404')
+                return render(request, 'motor/404page.html')
         params = None
         if user_id is None:
             params = {'signup_form': signup_form, 'login_form': login_form}
@@ -602,7 +602,7 @@ def user_page(request):
             user.save()
             return redirect('user_page')
         else:
-            raise Http404('Что-то пошло не так!')
+            return render(request, 'motor/404page.html')
     else:
         signup_form = FormWrapper(SignUpForm())
         login_form = FormWrapper(LoginForm())
@@ -610,7 +610,7 @@ def user_page(request):
         if user_id is not None:
             user = User.objects.filter(id=user_id).first()
             if user is None:
-                raise Http404('Error 404')
+                return render(request, 'motor/404page.html')
         params = None
         if user_id is None:
             params = {'signup_form': signup_form, 'login_form': login_form}
