@@ -1,33 +1,28 @@
+{% block title %} <title>Motor</title> {% endblock %}
+
 <div id="login-form" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content modal-lg">
+        <div class="modal-content modal-lg" style='width: 400px; margin: auto; margin-top: 100px'>
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="window.location.href='/'" style="width: 40px; height: 40px; font-size: 30px; background-color: black; color: white;">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <h1 class="h3 mb-3 font-weight-normal">motor</h1>
+            <h2 class="h3 mb-3 mt-3 font-weight-normal">Войти в аккаунт</h2>
             <div class="modal-body">
                 <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <div class="form-group">
-                        <input type="email" class="form-control is-invalid" required id="123" name="email" aria-describedby="emailHelp" placeholder="Ваш E-mail">
+                    <input type="email" class="form-control is-invalid" required id="456" name="email" aria-describedby="emailHelp" placeholder="Ваш E-mail" style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px; margin-bottom: 20px;">
+                    
+                    <input type="password" class="form-control is-invalid" name="password" id="password_login" placeholder="Пароль" style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px">
+                    
+                    <div class="checkbox mb-3" style="margin-top: 30px">
+                        <label><input type="checkbox" value="remember-me" style="font-size: 12px; font-family: Open Sans; ">   Запомнить меня</label>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control is-invalid" name="password" id="password" placeholder="Пароль">
-                    </div>
-                    {#<div class="checkbox mb-3">#}
-                        {#<label>#}
-                            {#<input type="checkbox" value="remember-me">Запомнить меня
-                        </label>#}
-                    {#</div>#}
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-secondary">Вход</button>
-                        <button type="button" class="btn btn-outline-secondary" onclick="{$('#login-form').modal('hide'); $('#register-form').modal('show'); }">
-                            Регистрация
-                        </button>
+                        <button type="submit" class="btn btn-outline-secondary" style="width: 400px; height: 40px; background-color: black; color: white; font-size: 14px; border-radius: 4px; margin-top: 30px">Вход</button>
                     </div>
                 </form>
             </div>
