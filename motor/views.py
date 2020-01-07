@@ -585,6 +585,7 @@ def user_page(request):
             return redirect('index')
         if userpage_form.is_valid():
             user = User.objects.filter(id=user_id)[0]
+            print('wr')
             if user is None:
                 raise Http404('User {} not found'.format(user_id))
             if 'email' in userpage_form.data:

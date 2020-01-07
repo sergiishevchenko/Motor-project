@@ -14,14 +14,10 @@
             <div class="modal-body">
                 <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <input type="email" class="form-control is-invalid" required id="456" name="email" aria-describedby="emailHelp" placeholder="Ваш E-mail" style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px">
-                    <div class="invalid-feedback">
-                        <p>{{ signup_form.form.errors.username }}</p>
-                    </div>
+                    <input type="email" class="form-control is-invalid" required id="456" name="email" aria-describedby="emailHelp" placeholder="Ваш E-mail" style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px; margin-bottom: 20px;">
+                    
                     <input type="password" class="form-control is-invalid" name="password" id="password_login" placeholder="Пароль" style="width: 400px; height: 40px; border-radius: 4px; font-size: 14px">
-                    <div class="invalid-feedback">
-                        <p>{{ signup_form.form.errors.email }}</p>
-                    </div>
+                    
                     <div class="checkbox mb-3" style="margin-top: 30px">
                         <label><input type="checkbox" value="remember-me" style="font-size: 12px; font-family: Open Sans; ">   Запомнить меня</label>
                     </div>
