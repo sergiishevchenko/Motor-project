@@ -511,7 +511,7 @@ def register(request):
             user.Login = signup_form.data.get("username", None)
             user.Password = signup_form.data.get('password', None)
             user.save()
-            return redirect('user_page')
+            return redirect('login')
         else:
             signup_form = FormWrapper(signup_form, True)
             login_form = FormWrapper(LoginForm())
