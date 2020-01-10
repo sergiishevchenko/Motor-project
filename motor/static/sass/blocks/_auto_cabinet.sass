@@ -1,4 +1,8 @@
 .auto_cabinet
+    &-header
+        margin-bottom: 30px
+        margin-top: 20px
+        margin-left: 25px
     &-block
         width: 744px
         margin-left: 0
@@ -17,12 +21,7 @@
             font-family: Helvetica
             font-weight: 400
             color: #ffffff
-    &-rectangle
-        height: 8px
-        background-color: #1c2931
-        margin-left: 0
     &-table
-        height: 325px
         background-color: #ffffff
         &__items
             display: flex
@@ -135,11 +134,10 @@
         width: 880px
         height: 82px
         margin-left: 20px
-        background-color: #2196f3
+        background-color: #333
         border-radius: 4px
-        margin-top: 260px
         &_name
-            color: #1c2931
+            color: white
             font-family: Arial
             font-size: 14px
             font-weight: 700
@@ -158,7 +156,6 @@
     justify-content: space-between
 
 .allcars
-    margin-top: 180px
     margin-left: 30px
     &-block
         width: 850px
@@ -227,3 +224,109 @@
                 &__notebook
                     display: flex
                     justifi-content: space-between
+@keyframes cdp-in
+  from
+    transform: scale(1.5)
+    opacity: 0
+
+  to
+    transform: scale(1)
+    opacity: 1
+.cdp
+  background: #333
+  position: relative
+  text-align: center
+  padding: 10px 0
+  font-size: 0
+  z-index: 6
+  margin-top: 70px
+  
+  animation: cdp-in 500ms ease both
+  animation-timeout: 200ms
+
+  &_i
+    font-size: 14px
+    text-decoration: none
+    
+    transition: background 250ms
+    
+    display: inline-block
+    text-transform: uppercase
+    margin: 0 3px 6px
+    height: 38px
+    min-width: 38px
+    border-radius: 38px
+    border: 2px solid #fff
+    line-height: 38px
+    padding: 0
+    color: #fff
+    font-weight: 700
+    letter-spacing: .03em
+    display: none
+
+    &:first-child
+      padding: 0 16px
+      margin: 0 12px 6px
+    &:last-child
+      padding: 0 16px
+      margin: 0 12px 6px
+
+    &:last-child
+        display: inline-block
+    &:nth-child(2)
+        display: inline-block
+    &:nth-last-child(2)
+        display: inline-block
+
+  &_i:hover
+    background-color: #000
+    color: #fff
+
+  &:not([actpage="1"]) &_i:nth-child(1)
+    display: inline-block
+@for $i from 1 through 80
+  .cdp[actpage="#{$i}"]
+    // 3 before
+    .cdp_i:nth-child(#{$i - 2}):not(:first-child):not(:nth-child(2))
+      display: inline-block
+      pointer-events: none
+      color: transparent
+      border-color: transparent
+      width: 50px
+      &:after
+        content: '...'
+        color: #fff
+        font-size: 32px
+        margin-left: -6px
+    // 2 before
+    .cdp_i:nth-child(#{$i - 1}):not(:first-child)
+      display: inline-block
+    // before
+    .cdp_i:nth-child(#{$i}):not(:first-child)
+      display: inline-block
+    // active
+    .cdp_i:nth-child(#{$i + 1})
+      background-color: #000
+      color: #fff
+      display: inline-block
+
+      &.cdp_i:last-child
+        display: none !important
+    // next
+    .cdp_i:nth-child(#{$i + 2}):not(:last-child)
+      display: inline-block
+    // 2 next
+    .cdp_i:nth-child(#{$i + 3}):not(:last-child)
+      display: inline-block
+    // 3 next
+    .cdp_i:nth-child(#{$i + 4}):not(:last-child):not(:nth-last-child(2))
+      display: inline-block
+      pointer-events: none
+      color: transparent
+      border-color: transparent
+      width: 50px
+      &:after
+        content: '...'
+        color: #fff
+        font-size: 32px
+        margin-left: -6px
