@@ -1,4 +1,9 @@
 from django.db import models
+import os
+
+
+def get_image_path(instance, filename):
+    return os.path.join('photos', str(instance.id), filename)
 
 
 class User(models.Model):
@@ -35,6 +40,38 @@ class UserGroup(models.Model):
 
     GroupType = models.CharField(max_length=15, verbose_name='Группа пользователя')
     Active = models.BooleanField(verbose_name='Статус группы', help_text='Активена / Не активена')
+
+
+class AdvertiseCar(models.Model):
+    class Meta:
+        verbose_name_plural = 'Объявления'
+
+    def __str__(self):
+        return f'Объявление {self.NameCar}'
+
+    NameCar = models.CharField(max_length=15, verbose_name='Марка автомобиля')
+    SeriaCar = models.CharField(max_length=25, verbose_name='Серия автомобиля')
+    YearCar = models.CharField(max_length=15, verbose_name='Год выпуска автомобиля')
+    KuzovCar = models.CharField(max_length=25, verbose_name='Кузов автомобиля')
+    GenerationCar = models.CharField(max_length=30, verbose_name='Поколение автомобиля')
+    GearCar = models.CharField(max_length=15, verbose_name='Коробка автомобиля')
+    DriveCar = models.CharField(max_length=25, verbose_name='Привод автомобиля')
+    MotorCar = models.CharField(max_length=25, verbose_name='Двигатель автомобиля')
+    ModificationCar = models.CharField(max_length=35, verbose_name='Модификация автомобиля')
+    ColorCar = models.CharField(max_length=15, verbose_name='Название автомобиля')
+    ImageCar = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    MediaCar = models.CharField(max_length=25, verbose_name='Мультмедиа автомобиля')
+    ComfortCar = models.CharField(max_length=25, verbose_name='Комфорт автомобиля')
+    BuyYearCar = models.CharField(max_length=25, verbose_name='Год покупки автомобиля')
+    BuyMonthCar = models.CharField(max_length=25, verbose_name='Месяц покупки автомобиля')
+    RunCar = models.CharField(max_length=25, verbose_name='Пробег автомобиля')
+    PriceCar = models.CharField(max_length=25, verbose_name='Цена автомобиля')
+    OwnerCar = models.CharField(max_length=25, verbose_name='Владелец автомобиля')
+    DopCar = models.CharField(max_length=25, verbose_name='Дополнительное описание автомобиля')
+    YourName = models.CharField(max_length=25, verbose_name='Ваше имя', default='None')
+    YourPhone = models.CharField(max_length=25, verbose_name='Ваш телефон', default='None')
+    YourMail = models.CharField(max_length=25, verbose_name='Ваша почта', unique=True, default='None')
+    YourCity = models.CharField(max_length=25, verbose_name='Город продажи', default='None')
 
 
 """
