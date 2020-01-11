@@ -60,3 +60,24 @@ class PasswordForm(forms.Form):
     #     if User.objects.filter(Email=passed_email, Password=passed_password).count() == 0:
     #         raise forms.ValidationError(u'Invalid email or password')
     #     return passed_password
+
+
+class SaveFormFirst(forms.Form):
+    BOX = (
+        ('Автомат', 'Автомат'),
+        ('Механика', 'Механика'),
+        ('Вариатор', 'Вариатор'),
+    )
+    DRIVE = (
+        ('Задний', 'Задний'),
+        ('Полный', 'Полный'),
+    )
+    MOTOR = (
+        ('Бензин', 'Бензин'),
+        ('Дизель', 'Дизель'),
+    )
+    generation = forms.CharField(max_length=150)
+    box = forms.ChoiceField(choices=BOX)
+    drive = forms.ChoiceField(choices=DRIVE)
+    motor = forms.ChoiceField(choices=MOTOR)
+    modification = forms.CharField(max_length=150)

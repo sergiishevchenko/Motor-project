@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm
-from .models import User
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst
+from .models import User, AdvertiseCar
 from django.http import Http404
 import logging
 from django.db import connection
@@ -266,6 +266,18 @@ def add_kuzov(request, car, seria, year, kuzov):
             for j in gears:
                 if int(i[1]) == int(j):
                     modifications = gears[j]
+    if request.method == 'POST':
+        save_form = SaveFormFirst(request.POST)
+        print(save_form)
+        if save_form.is_valid():
+            adv = AdvertiseCar()
+            adv.GenerationCar = save_form.data.get("generation", None)
+            adv.GearCar = save_form.data.get("box", None)
+            adv.DriveCar = save_form.data.get('drive', None)
+            adv.MotorCar = save_form.data.get('motor', None)
+            adv.ModificationCar = save_form.data.get('modification', None)
+            adv.save()
+            return redirect('auto')
     params = {'car': car,
                 'seria': seria,
                 'year': year,
