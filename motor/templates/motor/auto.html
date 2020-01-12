@@ -122,8 +122,8 @@
                         </div>
                         <div class="nav-link__question">Для добавления фото, нажмите на "+", и выберите файлы на компьютере, или перетащите сюда</div>
                         <div class="nav-link__subtitle" style="margin-top: 15px">Вы можете добавить до 10 фотографий вашего автомобиля</div>
-                        <input id="tudu" type="file" style="margin-top: 20px" multiple>
-                        <div id="zir" style="justify-content: space-between; width: 400px; margin-top: 20px"></div>
+                        <input id="file-input" type="file" multiple>
+                        <div id="preview" style="justify-content: space-between; width: 1000px; margin-top: 20px"></div>
                         <button type="button" class="nav-link__button">СОХРАНИТЬ И ПРОДОЛЖИТЬ</button>
                     </div>
                     <form class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -402,34 +402,36 @@
 <script type="text/javascript">
 function previewImages() {
 
-    var preview = document.querySelector('#zir');
+    var preview = document.querySelector('#preview');
 
     if (this.files) {
-        [].forEach.call(this.files, readAndPreview);
+    [].forEach.call(this.files, readAndPreview);
     }
 
     function readAndPreview(file) {
 
-        if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
-            return alert(file.name + " is not an image");
-        }
-        
-        var reader = new FileReader();
-        
-        reader.addEventListener("load", function() {
-            var image = new Image();
-            image.height = 100;
-            image.title = file.name;
-            image.src = this.result;
-            preview.appendChild(image);
-        });
-        
-        reader.readAsDataURL(file);
-        
+    // Make sure `file.name` matches our extensions criteria
+    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+        return alert(file.name + " is not an image");
+    } // else...
+    
+    var reader = new FileReader();
+    
+    reader.addEventListener("load", function() {
+        var image = new Image();
+        image.height = 120;
+        image.width = 180;
+        image.title  = file.name;
+        image.src    = this.result;
+        preview.appendChild(image);
+    });
+    
+    reader.readAsDataURL(file);
+    
     }
 
 }
 
-document.querySelector('#tudu').addEventListener("change", previewImages);
+document.querySelector('#file-input').addEventListener("change", previewImages);
 </script>
 {% endblock %}

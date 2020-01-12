@@ -81,3 +81,8 @@ class SaveFormFirst(forms.Form):
     drive = forms.ChoiceField(choices=DRIVE)
     motor = forms.ChoiceField(choices=MOTOR)
     modification = forms.CharField(max_length=150)
+
+
+class SaveFormSecond(forms.Form):
+    color = forms.CharField(max_length=150)
+    image = forms.CharField(max_length=150)

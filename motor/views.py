@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormSecond
 from .models import User, AdvertiseCar
 from django.http import Http404
 import logging
@@ -267,17 +267,26 @@ def add_kuzov(request, car, seria, year, kuzov):
                 if int(i[1]) == int(j):
                     modifications = gears[j]
     if request.method == 'POST':
-        save_form = SaveFormFirst(request.POST)
-        print(save_form)
-        if save_form.is_valid():
+        save_form1 = SaveFormFirst(request.POST)
+        save_form2 = SaveFormSecond(request.POST)
+        if save_form1.is_valid():
             adv = AdvertiseCar()
-            adv.GenerationCar = save_form.data.get("generation", None)
-            adv.GearCar = save_form.data.get("box", None)
-            adv.DriveCar = save_form.data.get('drive', None)
-            adv.MotorCar = save_form.data.get('motor', None)
-            adv.ModificationCar = save_form.data.get('modification', None)
+            adv.GenerationCar = save_form1.data.get("generation", None)
+            adv.GearCar = save_form1.data.get("box", None)
+            adv.DriveCar = save_form1.data.get('drive', None)
+            adv.MotorCar = save_form1.data.get('motor', None)
+            adv.ModificationCar = save_form1.data.get('modification', None)
             adv.save()
-            return redirect('auto')
+            adv_id = AdvertiseCar.id
+        elif save_form2.is_valid():
+            adv = AdvertiseCar.objects.filter(id=adv_id)
+            print(adv)
+            adv.GenerationCar = save_form2.data.get("generation", None)
+            adv.GearCar = save_form2.data.get("box", None)
+            adv.DriveCar = save_form2.data.get('drive', None)
+            adv.MotorCar = save_form2.data.get('motor', None)
+            adv.ModificationCar = save_form2.data.get('modification', None)
+            adv.save()
     params = {'car': car,
                 'seria': seria,
                 'year': year,
