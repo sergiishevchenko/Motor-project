@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormSecond
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst
 from .models import User, AdvertiseCar
 from django.http import Http404
 import logging
@@ -267,25 +267,40 @@ def add_kuzov(request, car, seria, year, kuzov):
                 if int(i[1]) == int(j):
                     modifications = gears[j]
     if request.method == 'POST':
-        save_form1 = SaveFormFirst(request.POST)
-        save_form2 = SaveFormSecond(request.POST)
-        if save_form1.is_valid():
+        save_form = SaveFormFirst(request.POST)
+        print(save_form)
+        if save_form.is_valid():
             adv = AdvertiseCar()
-            adv.GenerationCar = save_form1.data.get("generation", None)
-            adv.GearCar = save_form1.data.get("box", None)
-            adv.DriveCar = save_form1.data.get('drive', None)
-            adv.MotorCar = save_form1.data.get('motor', None)
-            adv.ModificationCar = save_form1.data.get('modification', None)
-            adv.save()
-            adv_id = AdvertiseCar.id
-        elif save_form2.is_valid():
-            adv = AdvertiseCar.objects.filter(id=adv_id)
-            print(adv)
-            adv.GenerationCar = save_form2.data.get("generation", None)
-            adv.GearCar = save_form2.data.get("box", None)
-            adv.DriveCar = save_form2.data.get('drive', None)
-            adv.MotorCar = save_form2.data.get('motor', None)
-            adv.ModificationCar = save_form2.data.get('modification', None)
+            adv.NameCar = car
+            adv.SeriaCar = seria
+            adv.YearCar = year
+            adv.KuzovCar = kuzov
+            adv.GenerationCar = save_form.data.get("generation", None)
+            adv.GearCar = save_form.data.get("box", None)
+            adv.DriveCar = save_form.data.get('drive', None)
+            adv.MotorCar = save_form.data.get('motor', None)
+            adv.ModificationCar = save_form.data.get('modification', None)
+            adv.ColorCar = save_form.data.get("color", None)
+            adv.ImageCar = save_form.data.get('image', None)
+            adv.MediaCar = save_form.data.get('media', None)
+            adv.MediaSystemCar = save_form.data.get('media_system', None)
+            adv.MediaAudioSystemCar = save_form.data.get('media_audio_system', None)
+            adv.ComfortCar1 = save_form.data.get('comfort1', None)
+            adv.ComfortCar2 = save_form.data.get('comfort2', None)
+            adv.ComfortCar3 = save_form.data.get('comfort3', None)
+            adv.SecurityCar1 = save_form.data.get('security1', None)
+            adv.SecurityCar2 = save_form.data.get('security2', None)
+            adv.SecurityCar3 = save_form.data.get('security3', None)
+            adv.BuyYearCar = save_form.data.get('year_buy', None)
+            adv.BuyMonthCar = save_form.data.get('month', None)
+            adv.RunCar = save_form.data.get('run', None)
+            adv.PriceCar = save_form.data.get('price', None)
+            adv.OwnerCar = save_form.data.get('owner', None)
+            adv.DopCar = save_form.data.get('dop', None)
+            adv.YourName = save_form.data.get('name', None)
+            adv.YourPhone = save_form.data.get('phone', None)
+            adv.YourMail = save_form.data.get('mail', None)
+            adv.YourCity = save_form.data.get('city', None)
             adv.save()
     params = {'car': car,
                 'seria': seria,
