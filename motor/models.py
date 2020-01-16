@@ -17,7 +17,6 @@ class User(models.Model):
         ('М', 'Мужской'),
         ('Ж', 'Женский')
     ]
-
     Login = models.CharField(max_length=30, verbose_name='Логин пользователя')
     FirstName = models.CharField(max_length=30, verbose_name='Имя пользователя')
     LastName = models.CharField(max_length=30, verbose_name='Фамилия пользователя')
