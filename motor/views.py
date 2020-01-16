@@ -268,7 +268,6 @@ def add_kuzov(request, car, seria, year, kuzov):
                     modifications = gears[j]
     if request.method == 'POST':
         save_form = SaveFormFirst(request.POST)
-        print(save_form)
         if save_form.is_valid():
             adv = AdvertiseCar()
             adv.NameCar = car
@@ -302,6 +301,7 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourMail = save_form.data.get('mail', None)
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
+            return redirect('LK')
     params = {'car': car,
                 'seria': seria,
                 'year': year,
@@ -310,6 +310,10 @@ def add_kuzov(request, car, seria, year, kuzov):
                 'modifications': modifications,
                 'generations': all_generations}
     return render(request, 'motor/add_kuzov.html', params)
+
+
+def LK(request):
+    return render(request, 'motor/LK.html')
 
 
 def add_cabinet(request):
