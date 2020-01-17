@@ -78,6 +78,8 @@ class AdvertiseCar(models.Model):
     YourPhone = models.CharField(max_length=55, verbose_name='Ваш телефон')
     YourMail = models.CharField(max_length=55, verbose_name='Ваша почта')
     YourCity = models.CharField(max_length=55, verbose_name='Город продажи')
+    Time = models.DateTimeField(auto_now_add=True, blank=True)
+    ID = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 """

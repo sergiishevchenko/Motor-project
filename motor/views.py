@@ -5,7 +5,6 @@ from django.http import Http404
 import logging
 from django.db import connection
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -269,7 +268,9 @@ def add_kuzov(request, car, seria, year, kuzov):
     if request.method == 'POST':
         save_form = SaveFormFirst(request.POST)
         if save_form.is_valid():
+            user_id = request.session.get('user_id', None)
             adv = AdvertiseCar()
+            adv.ID = user_id
             adv.NameCar = car
             adv.SeriaCar = seria
             adv.YearCar = year
@@ -302,6 +303,8 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
             return redirect('LK')
+        else:
+            raise Http404("Some Errors - Invalid forms!!!", save_form.errors)
     params = {'car': car,
                 'seria': seria,
                 'year': year,
@@ -313,7 +316,10 @@ def add_kuzov(request, car, seria, year, kuzov):
 
 
 def LK(request):
-    return render(request, 'motor/LK.html')
+    user_id = request.session.get('user_id', None)
+    adv = AdvertiseCar.objects.filter(id=user_id)
+    params = {'user_id': user_id}
+    return render(request, 'motor/LK.html', params)
 
 
 def add_cabinet(request):
@@ -625,7 +631,6 @@ def user_page(request):
             return redirect('index')
         if userpage_form.is_valid():
             user = User.objects.filter(id=user_id)[0]
-            print('wr')
             if user is None:
                 raise Http404('User {} not found'.format(user_id))
             if 'email' in userpage_form.data:
