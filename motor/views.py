@@ -270,7 +270,7 @@ def add_kuzov(request, car, seria, year, kuzov):
         if save_form.is_valid():
             user_id = request.session.get('user_id', None)
             adv = AdvertiseCar()
-            adv.ID = user_id
+            adv.ID_id = user_id
             adv.NameCar = car
             adv.SeriaCar = seria
             adv.YearCar = year
@@ -302,7 +302,21 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourMail = save_form.data.get('mail', None)
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
-            return redirect('LK')
+            params = {'car': car,
+                        'seria': seria,
+                        'year': year,
+                        'kuzov': kuzov,
+                        'generation': adv.GenerationCar,
+                        'city': adv.YourCity,
+                        'run': adv.RunCar,
+                        'buy_year': adv.BuyYearCar,
+                        'box': adv.GearCar,
+                        'modification': adv.ModificationCar,
+                        'color': adv.ColorCar,
+                        'motor': adv.MotorCar,
+                        'drive': adv.DriveCar,
+                        'price': adv.PriceCar}
+            return render(request, 'motor/LK.html', params)
         else:
             raise Http404("Some Errors - Invalid forms!!!", save_form.errors)
     params = {'car': car,
@@ -316,10 +330,7 @@ def add_kuzov(request, car, seria, year, kuzov):
 
 
 def LK(request):
-    user_id = request.session.get('user_id', None)
-    adv = AdvertiseCar.objects.filter(id=user_id)
-    params = {'user_id': user_id}
-    return render(request, 'motor/LK.html', params)
+    return render(request, 'motor/LK.html')
 
 
 def add_cabinet(request):

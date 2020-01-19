@@ -79,7 +79,7 @@ class AdvertiseCar(models.Model):
     YourMail = models.CharField(max_length=55, verbose_name='Ваша почта')
     YourCity = models.CharField(max_length=55, verbose_name='Город продажи')
     Time = models.DateTimeField(auto_now_add=True, blank=True)
-    ID = models.ForeignKey(User, on_delete=models.CASCADE)
+    ID = models.ForeignKey(User, to_field="id", on_delete=models.CASCADE)
 
 
 """
