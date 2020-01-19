@@ -302,8 +302,10 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourMail = save_form.data.get('mail', None)
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
+            notes = AdvertiseCar.objects.filter(ID_id=user_id)
             params = {'car': car,
                         'seria': seria,
+                        'notes': notes,
                         'year': year,
                         'kuzov': kuzov,
                         'generation': adv.GenerationCar,
