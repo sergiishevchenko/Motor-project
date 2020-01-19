@@ -33,402 +33,345 @@
                 </div>
             </div>
             <div class="col-9">
-                <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ПОДАЧА ОБЪЯВЛЕНИЯ О ПРОДАЖЕ АВТОМОБИЛЯ</div>
-                        <div class="nav-link__subtitle">Для заполнения потребуется около 5 минут</div>
-                        <div class="nav-link__question">{{ car }}/{{ seria }}/{{ year }}/{{ kuzov }}</div>
-                        <div class="nav-link__question" style="margin-bottom: 20px">Выберите тип кузова</div>
-                        <div class="row">
-                            {% for kuzov in all_kuzov %}
-                            <div class="col-md-4 mb-2" style="display: flex; margin-right: 120px; width: 300px; padding-right: 0">
-                                {% load static %}
-                                <a class="col-md-3 mb-2">
-                                    <img class="image_kuzov" src="/static/img/auto/{{ kuzov }}.png" alt="{{ kuzov }}">
-                                </a> 
-                                <div class="nav-link__kuzov">{{ kuzov }}</div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        <div class="nav-link__choose" id="choose">
-                            <div class="nav-link__question" style="margin-bottom: 20px">Поколение</div>
-                            {% for generation in generations %}
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">{{ car }} | {{ seria }} | {{ kuzov }} | {{ generation }} <br>
-                            {% endfor %}
-                        </div>
-                        <div class="nav-link__checkbox">
-                            <div class="nav-link__choose" id="choose">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Коробка</div>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Автомат<br>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Механика<br>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Вариатор<br>
-                            </div>
-                            <div class="nav-link__choose" id="choose">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Привод</div>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Задний<br>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Полный<br>
-                            </div>
-                            <div class="nav-link__choose" id="choose">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Двигатель</div>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Бензин<br>
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Дизель<br>
-                            </div>
-                            <div class="nav-link__choose" id="choose">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Модификация</div>
-                                {% for modification in modifications %}
-                                <input type="radio" name="name" value="value" class='choose' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">{{ modification }}<br>
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ПОДАЧА ОБЪЯВЛЕНИЯ О ПРОДАЖЕ АВТОМОБИЛЯ</div>
+                            <div class="nav-link__subtitle">Для заполнения потребуется около 5 минут</div>
+                            <div class="nav-link__question">{{ car }}/{{ seria }}/{{ year }}/{{ kuzov }}</div>
+                            <div class="nav-link__question" style="margin-bottom: 20px">Выберите тип кузова</div>
+                            <div class="row" style="width: 1000px; height: 200px; overflow-y: scroll;">
+                                {% for kuzov in all_kuzov %}
+                                <div class="col-md-4 mb-2" style="display: flex; margin-right: 120px; width: 300px; padding-right: 0">
+                                    {% load static %}
+                                    <a class="col-md-3 mb-2">
+                                        <img class="image_kuzov" src="/static/img/auto/{{ kuzov }}.png" alt="{{ kuzov }}">
+                                    </a> 
+                                    <div class="nav-link__kuzov">{{ kuzov }}</div>
+                                </div>
                                 {% endfor %}
                             </div>
-                        </div>
-                        <button type="button" class="nav-link__button">СОХРАНИТЬ И ПРОДОЛЖИТЬ</button>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ДОБАВЬТЕ ФОТО И ЦВЕТ АВТОМОБИЛЯ</div>
-                        <div class="nav-link__subtitle">Объявления с фото увеличивают шансы продажи автомобиля</div>
-                        <div class="nav-link__question">Выберите наиболее близкий цвет автомобиля</div>
-                        <div class="row">
-                            <div class="custom-radio-button" style="margin-top: 25px; margin-left: 15px">
-                                <div>
-                                    <input type="radio" id="color-green" name="color" value="color-green">
-                                    <label for="color-green"><span style="background-color: green; background-repeat: no-repeat; background-position: center"></span></label>
+                            <div class="nav-link__question" style="margin-bottom: 20px;">Поколение</div>
+                            <div class="nav-link__choose5" id="choose5" style="width: 600px; height: 200px; overflow: scroll;">
+                                {% for generation in generations %}
+                                    <input type="radio" name="generation" class='choose' value='{{ generation }}' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px; ">{{ car }} | {{ seria }} | {{ kuzov }} | {{ generation }} <br>
+                                {% endfor %}
+                            </div>
+                            <div class="nav-link__checkbox">
+                                <div class="nav-link__choose" id="choose1">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Коробка</div>
+                                    <input type="radio" name="box" value="Автомат" class='choose' {% if check == 'Автомат' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Автомат<br>
+                                    <input type="radio" name="box" value="Механика" class='choose' {% if check == 'Механика' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Механика<br>
+                                    <input type="radio" name="box" value="Вариатор" class='choose' {% if check == 'Вариатор' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Вариатор<br>
                                 </div>
-                                <div>
-                                    <input type="radio" id="color-grey" name="color" value="color-grey">
-                                    <label for="color-grey"><span style="background-color: grey; background-repeat: no-repeat; background-position: center"></span></label>
+                                <div class="nav-link__choose" id="choose2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Привод</div>
+                                    <input type="radio" name="drive" value="Задний" class='choose' {% if check == 'Задний' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Задний<br>
+                                    <input type="radio" name="drive" value="Полный" class='choose' {% if check == 'Полный' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Полный<br>
                                 </div>
-                                <div>
-                                    <input type="radio" id="color-aqua" name="color" value="color-aqua">
-                                    <label for="color-aqua"><span style="background-color: aqua; background-repeat: no-repeat; background-position: center"></span></label>
+                                <div class="nav-link__choose" id="choose3">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Двигатель</div>
+                                    <input type="radio" name="motor" value="Бензин" class='choose' {% if check == 'Бензин' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Бензин<br>
+                                    <input type="radio" name="motor" value="Дизель" class='choose' {% if check == 'Дизель' %} checked {% endif %} style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">Дизель<br>
                                 </div>
-                                <div>
-                                    <input type="radio" id="color-pink" name="color" value="color-pink">
-                                    <label for="color-pink"><span style="background-color: pink; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-red" name="color" value="color-red" checked>
-                                    <label for="color-red"><span style="background-color: red; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-blue" name="color" value="color-blue">
-                                    <label for="color-blue"><span style="background-color: blue; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-orange" name="color" value="color-orange">
-                                    <label for="color-orange"><span style="background-color: orange; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-yellow" name="color" value="color-yellow">
-                                    <label for="color-yellow"><span style="background-color: yellow; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-coral" name="color" value="color-coral">
-                                    <label for="color-primary"><span style="background-color: coral; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-info" name="color" value="color-info">
-                                    <label for="color-info"><span style="background-color: darkgoldenrod; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-gray-darkcyan" name="color" value="color-gray-dark">
-                                    <label for="color-gray-darkcyan"><span style="background-color: darkcyan; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-indigo" name="color" value="color-indigo">
-                                    <label for="color-indigo"><span style="background-color: indigo; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-purple" name="color" value="color-purple">
-                                    <label for="color-purple"><span style="background-color: purple; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-secondary" name="color" value="color-secondary">
-                                    <label for="color-secondary"><span style="background-color: sienna; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-success" name="color" value="color-success">
-                                    <label for="color-success"><span style="background-color: darkblue; background-repeat: no-repeat; background-position: center"></span></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="color-black" name="color" value="color-black">
-                                    <label for="color-black"><span style="background-color: black; background-repeat: no-repeat; background-position: center"></span></label>
+                                <div class="nav-link__choose" id="choose4">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Модификация</div>
+                                    <div class="nav-link_choose4" style="width: 200px; height: 200px; overflow: scroll;">
+                                        {% for modification in modifications %}
+                                        <input type="radio" name="modification" class='choose' value='{{ modification }}' style="color: #3e4950; font-size: 14px; margin-right: 15px; margin-bottom: 10px">{{ modification }}<br>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="nav-link__question">Для добавления фото, нажмите на "+", и выберите файлы на компьютере, или перетащите сюда</div>
-                        <div class="nav-link__subtitle" style="margin-top: 15px">Вы можете добавить до 10 фотографий вашего автомобиля</div>
-                        <input id="tudu" type="file" style="margin-top: 20px" multiple>
-                        <div id="zir" style="justify-content: space-between; width: 400px; margin-top: 20px"></div>
-                        <button type="button" class="nav-link__button">СОХРАНИТЬ И ПРОДОЛЖИТЬ</button>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px; width: 600px">ВЫБЕРИТЕ ОПЦИИ, ВХОДЯЩИЕ В КОМПЛЕКТАЦИЮ АВТОМОБИЛЯ</div>
-                        <div class="nav-link__subtitle" style="margin-top: 20px; margin-left: 20px">Опции автомобиля делают его стоимость выше в глазах покупателя</div>
-                        <div class="nav-link__block">
-                            <div class="nav-link__question" style="margin-left: 15px; margin-bottom: 15px">Мультимедиа</div>
-                            <div class="nav-link__block-item">
-                                <div class="col-md-4 mb-2">
-                                    <div class="nav-link__subtitle" style="color: #656d73; font-size: 14px;">Аудиосистема</div>
-                                    <div class="nav-item dropdown">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 160px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 2px; border: 1px solid grey;">Указать    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px">ДОБАВЬТЕ ФОТО И ЦВЕТ АВТОМОБИЛЯ</div>
+                            <div class="nav-link__subtitle">Объявления с фото увеличивают шансы продажи автомобиля</div>
+                            <div class="nav-link__question">Выберите наиболее близкий цвет автомобиля</div>
+                            <div class="row">
+                                <div class="custom-radio-button" style="margin-top: 25px; margin-left: 15px">
+                                    <div>
+                                        <input type="radio" id="color-green" name="color" value="зелёный">
+                                        <label for="color-green"><span style="background-color: green; background-repeat: no-repeat; background-position: center"></span></label>
                                     </div>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px; margin-top: 20px"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">AUX</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Bluetooth</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">USB</span><br>
-                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Голосовое управление</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Мультимедиа система</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Розетка 12V</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Штатная аудиоподготовка</span><br>
-                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Штатная аудиосистема с TV</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Штатная навигационная система</span><br>
+                                    <div>
+                                        <input type="radio" id="color-grey" name="color" value="серый">
+                                        <label for="color-grey"><span style="background-color: grey; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-aqua" name="color" value="аква">
+                                        <label for="color-aqua"><span style="background-color: aqua; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-pink" name="color" value="розовый">
+                                        <label for="color-pink"><span style="background-color: pink; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-red" name="color" value="красный" checked>
+                                        <label for="color-red"><span style="background-color: red; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-blue" name="color" value="синий">
+                                        <label for="color-blue"><span style="background-color: blue; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-orange" name="color" value="оранжевый">
+                                        <label for="color-orange"><span style="background-color: orange; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-yellow" name="color" value="жёлтый">
+                                        <label for="color-yellow"><span style="background-color: yellow; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-coral" name="color" value="коралловый">
+                                        <label for="color-primary"><span style="background-color: coral; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-info" name="color" value="тёмно-золотой">
+                                        <label for="color-info"><span style="background-color: darkgoldenrod; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-gray-darkcyan" name="color" value="тёмно-серый">
+                                        <label for="color-gray-darkcyan"><span style="background-color: darkcyan; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-indigo" name="color" value="индиго">
+                                        <label for="color-indigo"><span style="background-color: indigo; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-purple" name="color" value="фиолетовый">
+                                        <label for="color-purple"><span style="background-color: purple; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-secondary" name="color" value="сиена">
+                                        <label for="color-secondary"><span style="background-color: sienna; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-success" name="color" value="тёмно-синий">
+                                        <label for="color-success"><span style="background-color: darkblue; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="color-black" name="color" value="чёрный">
+                                        <label for="color-black"><span style="background-color: black; background-repeat: no-repeat; background-position: center"></span></label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="nav-link__question" style="margin-left: 15px; margin-top: 0; margin-bottom: 15px">Комфорт</div>
-                            <div class="nav-link__block-item">
-                                <div class="col-md-4 mb-2">
-                                    <div class="nav-link__subtitle" style="color: #656d73; font-size: 14px;">Климат</div>
-                                    <div class="nav-item dropdown" style="margin-bottom: 15px;">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 160px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 2px; border: 1px solid grey;">Указать    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                        </div>
+                            <div class="nav-link__question">Для добавления фото, нажмите на "+", и выберите файлы на компьютере, или перетащите сюда</div>
+                            <div class="nav-link__subtitle" style="margin-top: 15px">Вы можете добавить до 10 фотографий вашего автомобиля</div>
+                            <input id="file-input" type="file" multiple>
+                            <div id="preview" style="justify-content: space-between; width: 1000px; margin-top: 20px"></div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px; width: 600px">ВЫБЕРИТЕ ОПЦИИ, ВХОДЯЩИЕ В КОМПЛЕКТАЦИЮ АВТОМОБИЛЯ</div>
+                            <div class="nav-link__subtitle" style="margin-top: 20px; margin-left: 20px">Опции автомобиля делают его стоимость выше в глазах покупателя</div>
+                            <div class="nav-link__block">
+                                <div class="nav-link__question" style="margin-left: 15px; margin-bottom: 15px">Мультимедиа</div>
+                                <div class="nav-link__block-item">
+                                    <div class="col-md-4 mb-2" id='media'>
+                                        <input type="radio" name="media" value="AUX" class='choose' style="margin-bottom: 20px"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">AUX</span><br>
+                                        <input type="radio" name="media" value="Bluetooth" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Bluetooth</span><br>
+                                        <input type="radio" name="media" value="USB" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">USB</span><br>
                                     </div>
-                                    <div class="nav-link__subtitle" style="color: #656d73; font-size: 14px;">Сиденье водителя</div>
-                                    <div class="nav-item dropdown" style="margin-bottom: 15px;">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 160px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 2px; border: 1px solid grey;">Указать    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                        </div>
+                                    <div class="col-md-4 mb-2" id='media_system'>
+                                        <input type="radio" name="media_system" value="Голосовое управление" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Голосовое управление</span><br>
+                                        <input type="radio" name="media_system" value="Мультимедиа система" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Мультимедиа система</span><br>
+                                        <input type="radio" name="media_system" value="Розетка 12V" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Розетка 12V</span><br>
+                                        <input type="radio" name="media_system" value="Штатная аудиоподготовка" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Штатная аудиоподготовка</span><br>
                                     </div>
-                                    <div class="nav-link__subtitle" style="color: #656d73; font-size: 14px;">Сиденье пассажира</div>
-                                    <div class="nav-item dropdown" style="margin-bottom: 15px;">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 160px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 2px; border: 1px solid grey;">Указать    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                        </div>
+                                    <div class="col-md-4 mb-2" id="media_audio_system">
+                                        <input type="radio" name="media_audio_system" value="Штатная аудиосистема с TV" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Штатная аудиосистема с TV</span><br>
+                                        <input type="radio" name="media_audio_system" value="Штатная навигационная система" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Штатная навигационная система</span><br>
                                     </div>
-                                    <div class="nav-link__subtitle" style="color: #656d73; font-size: 14px;">Регуреловка руля</div>
-                                    <div class="nav-item dropdown" style="margin-bottom: 15px;">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 160px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 2px; border: 1px solid grey;">Указать    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                            <a class="dropdown-item" href="#">Указать</a>
-                                        </div>
+                                </div>
+                                <div class="nav-link__question" style="margin-left: 15px; margin-top: 0; margin-bottom: 15px">Комфорт</div>
+                                <div class="nav-link__block-item">
+                                    <div class="col-md-4 mb-2" id='comfort1'>
+                                        <input type="radio" name="comfort1" value="Адаптивный круиз-контроль" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Адаптивный круиз-контроль</span><br>
+                                        <input type="radio" name="comfort1" value="Активный усилитель руля" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Активный усилитель руля</span><br>
+                                        <input type="radio" name="comfort1" value="Бортовой компьютер" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Бортовой компьютер</span><br>
+                                        <input type="radio" name="comfort1" value="Датчик давления в шинах" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Датчик давления в шинах</span><br>
+                                        <input type="radio" name="comfort1" value="Запуск двигателя" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Запуск двигателя</span><br>
+                                        <input type="radio" name="comfort1" value="Запуск двигателя с кнопки" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Запуск двигателя с кнопки</span><br>
+                                        <input type="radio" name="comfort1" value="Камера 360 град." class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Камера 360 град.</span><br>
                                     </div>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Адаптивный круиз-контроль</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Активный усилитель руля</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Бортовой компьютер</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Датчик давления в шинах</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Запуск двигателя</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Запуск двигателя с кнопки</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Камера 360 град.</span><br>
+                                    <div class="col-md-4 mb-2" id='comfort2'>
+                                        <input type="radio" name="comfort2" value="Камера заднего вида" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Камера заднего вида</span><br>
+                                        <input type="radio" name="comfort2" value="Круиз-контроль" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Круиз-контроль</span><br>
+                                        <input type="radio" name="comfort2" value="Обогрев сидений" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Обогрев сидений</span><br>
+                                        <input type="radio" name="comfort2" value="Охлаждаемый перчаточный ящик" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Охлаждаемый перчаточный ящик</span><br>
+                                        <input type="radio" name="comfort2" value="Парктроник задний" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Парктроник задний</span><br>
+                                        <input type="radio" name="comfort2" value="Парктроник передний" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Парктроник передний</span><br>
+                                        <input type="radio" name="comfort2" value="Прикуриватель и пепельница" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Прикуриватель и пепельница</span><br>
+                                        <input type="radio" name="comfort2" value="Программируемый отопитель" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Программируемый отопитель</span><br>
+                                        <input type="radio" name="comfort2" value="Регулировка сидений водителя по высоте" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Регулировка сидений водителя по высоте</span><br>
+                                        <input type="radio" name="comfort2" value="Регулировка сидений пассажира" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Регулировка сидений пассажира</span><br>
+                                        <input type="radio" name="comfort2" value="Регулируемый педальный узел" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Регулируемый педальный узел</span><br>
+                                    </div>
+                                    <div class="col-md-4 mb-2" id='comfort3'>
+                                        <input type="radio" name="comfort3" value="Система автоматической парковки" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система автоматической парковки</span><br>
+                                        <input type="radio" name="comfort3" value="Система доступа без ключа" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система доступа без ключа</span><br>
+                                        <input type="radio" name="comfort3" value="Система "старт-стоп"" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система "старт-стоп"</span><br>
+                                        <input type="radio" name="comfort3" value="Солнцезащитная шторка на стекле" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Солнцезащитная шторка на стекле</span><br>
+                                        <input type="radio" name="comfort3" value="Солнцезащитная шторка в задних дверях" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Солнцезащитная шторка в задних дверях</span><br>
+                                        <input type="radio" name="comfort3" value="Тонированные стёкла" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Тонированные стёкла</span><br>
+                                        <input type="radio" name="comfort3" value="Усилитель руля" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Усилитель руля</span><br>
+                                        <input type="radio" name="comfort3" value="Электропривод крышки багажника" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Электропривод крышки багажника</span><br>
+                                        <input type="radio" name="comfort3" value="Электрорегулировка руля" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Электрорегулировка руля</span><br>
+                                        <input type="radio" name="comfort3" value="Электростеклоподъёмники" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Электростеклоподъёмники</span><br>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Камера заднего вида</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Круиз-контроль</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Обогрев сидений</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Охлаждаемый перчаточный ящик</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Парктроник задний</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Парктроник передний</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Прикуриватель и пепельница</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Программируемый отопитель</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Регулировка сидений водителя по высоте</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Регулировка сидений пассажира</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Регулируемый педальный узел</span><br>
-                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система автоматической парковки</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система доступа без ключа</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система "старт-стоп"</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Солнцезащитная шторка на стекле</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Солнцезащитная шторка в задних дверях</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Тонированные стёкла</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Усилитель руля</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Электропривод крышки багажника</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Электрорегулировка руля</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Электростеклоподъёмники</span><br>
-                                </div>
-                            </div>
-                            <div class="nav-link__question" style="margin-left: 15px; margin-top: 0; margin-bottom: 15px">Безопасность</div>
-                            <div class="nav-link__block-item">
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">ABS</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">ESP</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Isofix / LATCH</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Антипробуксовочная система</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Блокировка замков задних дверей</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Датчик усталости водителя</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Ламинированные боковые стекла</span><br>                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Парктроник</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушка безопасности водителя</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушка безопасноти коленей</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушка безопасности пассажира</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушки безопасности боковые</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушки безопасноти задние </span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушки безопасноти оконные</span><br>
-                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система контроля за движением</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система контроля слепых зон</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система ночного видения</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система помощи при старте в гору</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система предотвращения столкновений</span><br>
-                                    <input type="radio" name="name" value="value" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система распознавания знаков</span><br>
+                                <div class="nav-link__question" style="margin-left: 15px; margin-top: 0; margin-bottom: 15px">Безопасность</div>
+                                <div class="nav-link__block-item">
+                                    <div class="col-md-4 mb-2" id='security1'>
+                                        <input type="radio" name="security1" value="ABS" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">ABS</span><br>
+                                        <input type="radio" name="security1" value="ESP" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">ESP</span><br>
+                                        <input type="radio" name="security1" value="Isofix / LATCH" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Isofix / LATCH</span><br>
+                                        <input type="radio" name="security1" value="Антипробуксовочная система" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Антипробуксовочная система</span><br>
+                                        <input type="radio" name="security1" value="Блокировка замков задних дверей" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Блокировка замков задних дверей</span><br>
+                                        <input type="radio" name="security1" value="Датчик усталости водителя" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Датчик усталости водителя</span><br>
+                                        <input type="radio" name="security1" value="Ламинированные боковые стекла" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Ламинированные боковые стекла</span><br>
+                                    </div>
+                                    <div class="col-md-4 mb-2" id='security2'>
+                                        <input type="radio" name="security2" value="Парктроник" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Парктроник</span><br>
+                                        <input type="radio" name="security2" value="Подушка безопасности водителя" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушка безопасности водителя</span><br>
+                                        <input type="radio" name="security2" value="Подушка безопасноти коленей" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушка безопасноти коленей</span><br>
+                                        <input type="radio" name="security2" value="Подушка безопасности пассажира" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушка безопасности пассажира</span><br>
+                                        <input type="radio" name="security2" value="Подушки безопасности боковые" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушки безопасности боковые</span><br>
+                                        <input type="radio" name="security2" value="Подушки безопасноти задние" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушки безопасноти задние </span><br>
+                                        <input type="radio" name="security2" value="Подушки безопасноти оконные" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Подушки безопасноти оконные</span><br>
+                                    </div>
+                                    <div class="col-md-4 mb-2" id='security3'>
+                                        <input type="radio" name="security3" value="Система контроля за движением" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система контроля за движением</span><br>
+                                        <input type="radio" name="security3" value="Система контроля слепых зон" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система контроля слепых зон</span><br>
+                                        <input type="radio" name="security3" value="Система ночного видения" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система ночного видения</span><br>
+                                        <input type="radio" name="security3" value="Система помощи при старте в гору" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система помощи при старте в гору</span><br>
+                                        <input type="radio" name="security3" value="Система предотвращения столкновений" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система предотвращения столкновений</span><br>
+                                        <input type="radio" name="security3" value="Система распознавания знаков" class='choose' style="margin-bottom: 20px;"><span style="color: #3e4950; font-size: 12px; margin-left: 15px;">Система распознавания знаков</span><br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="nav-link__button">СОХРАНИТЬ И ПРОДОЛЖИТЬ</button>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">
-                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px; width: 600px">ВЫБЕРИТЕ ОПЦИИ, ВХОДЯЩИЕ В КОМПЛЕКТАЦИЮ АВТОМОБИЛЯ</div>
-                        <div class="row">
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Когда был куплен автомобиль?</div>
-                                <div class="nav-link__dropdowns" style="display: flex; width: 280px; justify-content: space-between;">
-                                    <div class="nav-item dropdown">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 135px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 4px; border: 1px solid grey;">Год    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Год</a>
-                                            <a class="dropdown-item" href="#">Год</a>
-                                            <a class="dropdown-item" href="#">Год</a>
-                                            <a class="dropdown-item" href="#">Год</a>
-                                            <a class="dropdown-item" href="#">Год</a>
+                        <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">
+                            <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px; width: 600px">ВЫБЕРИТЕ ОПЦИИ, ВХОДЯЩИЕ В КОМПЛЕКТАЦИЮ АВТОМОБИЛЯ</div>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question">Когда был куплен автомобиль?</div>
+                                    <div style="display: flex; width: 220px; justify-content: space-between; margin-top: 0">
+                                        <div class="form-group has-search">
+                                            <input type="text" name='year_buy' class="form-control" style='width: 130px' placeholder="Укажите год">
+                                            <span class="fa fa-search form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group has-search">
+                                            <input type="text" name='month' class="form-control" style='width: 150px; margin-left: 15px;' placeholder="Укажите месяц">
+                                            <span class="fa fa-search form-control-feedback"></span>
                                         </div>
                                     </div>
-                                    <div class="nav-item dropdown">
-                                        <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 135px; height: 37px;
-                                        font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 4px; border: 1px solid grey;">Месяц    <strong>v</strong></a>
-                                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                            <a class="dropdown-item" href="#">Месяц</a>
-                                            <a class="dropdown-item" href="#">Месяц</a>
-                                            <a class="dropdown-item" href="#">Месяц</a>
-                                            <a class="dropdown-item" href="#">Месяц</a>
-                                            <a class="dropdown-item" href="#">Месяц</a>
+                                    <div>
+                                        <div class="nav-link__question" style="margin-bottom: 15px; width: 250px">Какой Вы владелец?</div>
+                                        <div class="form-group has-search">
+                                            <input type="text" name='owner' class="form-control" placeholder="Укажите какой Вы владелец">
+                                            <span class="fa fa-search form-control-feedback"></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="nav-link__question" style="margin-bottom: 15px">Какой Вы владелец?</div>
-                                <div class="nav-item dropdown">
-                                    <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" style="color: #656d73; font-family: Arial; font-size: 14px; width: 280px; height: 37px;
-                                    font-weight: 400; padding-top: 7px; padding-right: 0; padding-bottom: 0; padding-left: 22px; border-radius: 2px; border: 1px solid grey;">Указать    <strong>v</strong></a>
-                                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333" style="width: 100px; height: 300; font-family: Arial; font-size: 13px; font-weight: 400; line-height: 15px;">
-                                        <a class="dropdown-item" href="#">Указать</a>
-                                        <a class="dropdown-item" href="#">Указать</a>
-                                        <a class="dropdown-item" href="#">Указать</a>
-                                        <a class="dropdown-item" href="#">Указать</a>
-                                        <a class="dropdown-item" href="#">Указать</a>
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Пробег автомобиля</div>
+                                    <div class="form-group has-search">
+                                        <input type="text" name='run' class="form-control" placeholder="Укажите пробег в километрах">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Цена продажи</div>
+                                    <div class="form-group has-search">
+                                        <input type="text" name='price' class="form-control" placeholder="Укажите сумму в долларах США">
+                                        <span class="fa fa-search form-control-feedback"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Пробег автомобиля</div>
-                                <div class="form-group has-search">
-                                    <input type="text" class="form-control" placeholder="Укажите пробег в километрах">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Цена продажи</div>
-                                <div class="form-group has-search">
-                                    <input type="text" class="form-control" placeholder="Укажите сумму в долларах США">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </div>
+                            <div class="nav-link__question" style="margin-bottom: 15px">Дополнительное описание*</div>
+                            <div class="form-group has-search">
+                                <input type="text" name='dop' class="form-control" style="width: 900px; height: 170px;">
+                                <span class="fa fa-search form-control-feedback"></span>
                             </div>
                         </div>
-                        <div class="nav-link__question" style="margin-bottom: 15px">Дополнительное описание*</div>
-                        <div class="form-group has-search">
-                            <input type="text" class="form-control" style="width: 900px; height: 170px;">
-                            <span class="fa fa-search form-control-feedback"></span>
+                        <div class="tab-pane fade" id="v-pills-public" role="tabpanel" aria-labelledby="v-pills-public-tab">
+                            <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px; width: 600px">ЗАВЕРШИТЬ ОФОРМЛЕНИЕ АВТОМОБИЛЯ И РАЗМЕСТИТЬ НА САЙТЕ</div>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Ваше имя</div>
+                                    <div class="form-group has-search">
+                                        <input type="text" name='name' class="form-control" placeholder="Укажите своё имя">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">Телефон для связи</div>
+                                    <div class="form-group has-search">
+                                        <input type="text" name='phone' class="form-control" placeholder="Укажите свой телефон">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px">E-mail</div>
+                                    <div class="form-group has-search">
+                                        <input type="text" name='mail' class="form-control" placeholder="Укажите mail">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <div class="nav-link__question" style="margin-bottom: 15px; margin-top: 0">Город продажи</div>
+                                    <div class="form-group has-search">
+                                        <input type="text" name='city' class="form-control" placeholder="Город">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-link__users">
+                                <div class="nav-link__users-text">Нажимая на кнопку «Опубликовать объявление», вы принимаете условия <a href="#">Пользовательского соглашения</a></div>
+                                <button type="submit" class="nav-link__button" style="position: relative; margin-top: 0;">ОПУБЛИКОВАТЬ ОБЪЯВЛЕНИЕ</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-public" role="tabpanel" aria-labelledby="v-pills-public-tab">
-                        <div class="nav-link__title" style="border-left: 3px solid; padding-left: 15px; width: 600px">ЗАВЕРШИТЬ ОФОРМЛЕНИЕ АВТОМОБИЛЯ И РАЗМЕСТИТЬ НА САЙТЕ</div>
-                        <div class="row">
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Ваше имя</div>
-                                <div class="form-group has-search">
-                                    <input type="text" class="form-control" placeholder="Укажите своё имя">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px">Телефон для связи</div>
-                                <div class="form-group has-search">
-                                    <input type="text" class="form-control" placeholder="Укажите свой телефон">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px">E-mail</div>
-                                <div class="form-group has-search">
-                                    <input type="text" class="form-control" placeholder="Укажите mail">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="nav-link__question" style="margin-bottom: 15px; margin-top: 0">Город продажи</div>
-                                <div class="form-group has-search">
-                                    <input type="text" class="form-control" placeholder="Славянск">
-                                    <span class="fa fa-search form-control-feedback"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-link__users">
-                            <div class="nav-link__users-text">Нажимая на кнопку «Опубликовать объявление», вы принимаете условия <a href="#">Пользовательского соглашения</a></div>
-                            <button type="button" class="nav-link__button" style="position: relative; margin-top: 0;">ОПУБЛИКОВАТЬ ОБЪЯВЛЕНИЕ</button>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
-
-{% endblock %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </script>
 <script>
-$('.image_kuzov').click(function(){
-  $(".nav-link__choose").fadeToggle(100);
-});  
+function previewImages() {
+
+    var preview = document.querySelector('#preview');
+
+    if (this.files) {
+    [].forEach.call(this.files, readAndPreview);
+    }
+
+    function readAndPreview(file) {
+
+    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+        return alert(file.name + " is not an image");
+    }
+
+    var reader = new FileReader();
+
+    reader.addEventListener("load", function() {
+        var image = new Image();
+        image.height = 120;
+        image.width = 180;
+        image.name = 'image';
+        image.src = this.result;
+        preview.appendChild(image);
+    });
+
+    reader.readAsDataURL(file);
+
+    }
+}
+
+document.querySelector('#file-input').addEventListener("change", previewImages); 
 </script>
+{% endblock %}

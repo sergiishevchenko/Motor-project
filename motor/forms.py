@@ -60,3 +60,45 @@ class PasswordForm(forms.Form):
     #     if User.objects.filter(Email=passed_email, Password=passed_password).count() == 0:
     #         raise forms.ValidationError(u'Invalid email or password')
     #     return passed_password
+
+
+class SaveFormFirst(forms.Form):
+    BOX = (
+        ('Автомат', 'Автомат'),
+        ('Механика', 'Механика'),
+        ('Вариатор', 'Вариатор'),
+    )
+    DRIVE = (
+        ('Задний', 'Задний'),
+        ('Полный', 'Полный'),
+    )
+    MOTOR = (
+        ('Бензин', 'Бензин'),
+        ('Дизель', 'Дизель'),
+    )
+    generation = forms.CharField(max_length=150)
+    box = forms.ChoiceField(choices=BOX)
+    drive = forms.ChoiceField(choices=DRIVE)
+    motor = forms.ChoiceField(choices=MOTOR)
+    modification = forms.CharField(max_length=150)
+    color = forms.CharField(max_length=150)
+    # image = forms.CharField(max_length=150)
+    media = forms.CharField(max_length=150)
+    media_system = forms.CharField(max_length=150)
+    media_audio_system = forms.CharField(max_length=150)
+    comfort1 = forms.CharField(max_length=150)
+    comfort2 = forms.CharField(max_length=150)
+    comfort3 = forms.CharField(max_length=150)
+    security1 = forms.CharField(max_length=150)
+    security2 = forms.CharField(max_length=150)
+    security3 = forms.CharField(max_length=150)
+    year_buy = forms.CharField(max_length=150)
+    month = forms.CharField(max_length=150)
+    run = forms.CharField(max_length=150)
+    price = forms.CharField(max_length=150)
+    owner = forms.CharField(max_length=150)
+    dop = forms.CharField(max_length=150)
+    name = forms.CharField(max_length=150)
+    phone = forms.CharField(max_length=150)
+    mail = forms.CharField(max_length=150)
+    city = forms.CharField(max_length=150)

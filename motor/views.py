@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm
-from .models import User
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst
+from .models import User, AdvertiseCar
 from django.http import Http404
 import logging
 from django.db import connection
-
 
 logger = logging.getLogger(__name__)
 
@@ -266,6 +265,62 @@ def add_kuzov(request, car, seria, year, kuzov):
             for j in gears:
                 if int(i[1]) == int(j):
                     modifications = gears[j]
+    if request.method == 'POST':
+        save_form = SaveFormFirst(request.POST)
+        if save_form.is_valid():
+            user_id = request.session.get('user_id', None)
+            adv = AdvertiseCar()
+            adv.ID_id = user_id
+            adv.NameCar = car
+            adv.SeriaCar = seria
+            adv.YearCar = year
+            adv.KuzovCar = kuzov
+            adv.GenerationCar = save_form.data.get("generation", None)
+            adv.GearCar = save_form.data.get("box", None)
+            adv.DriveCar = save_form.data.get('drive', None)
+            adv.MotorCar = save_form.data.get('motor', None)
+            adv.ModificationCar = save_form.data.get('modification', None)
+            adv.ColorCar = save_form.data.get("color", None)
+            adv.ImageCar = save_form.data.get('image', None)
+            adv.MediaCar = save_form.data.get('media', None)
+            adv.MediaSystemCar = save_form.data.get('media_system', None)
+            adv.MediaAudioSystemCar = save_form.data.get('media_audio_system', None)
+            adv.ComfortCar1 = save_form.data.get('comfort1', None)
+            adv.ComfortCar2 = save_form.data.get('comfort2', None)
+            adv.ComfortCar3 = save_form.data.get('comfort3', None)
+            adv.SecurityCar1 = save_form.data.get('security1', None)
+            adv.SecurityCar2 = save_form.data.get('security2', None)
+            adv.SecurityCar3 = save_form.data.get('security3', None)
+            adv.BuyYearCar = save_form.data.get('year_buy', None)
+            adv.BuyMonthCar = save_form.data.get('month', None)
+            adv.RunCar = save_form.data.get('run', None)
+            adv.PriceCar = save_form.data.get('price', None)
+            adv.OwnerCar = save_form.data.get('owner', None)
+            adv.DopCar = save_form.data.get('dop', None)
+            adv.YourName = save_form.data.get('name', None)
+            adv.YourPhone = save_form.data.get('phone', None)
+            adv.YourMail = save_form.data.get('mail', None)
+            adv.YourCity = save_form.data.get('city', None)
+            adv.save()
+            notes = AdvertiseCar.objects.filter(ID_id=user_id)
+            params = {'car': car,
+                        'seria': seria,
+                        'notes': notes,
+                        'year': year,
+                        'kuzov': kuzov,
+                        'generation': adv.GenerationCar,
+                        'city': adv.YourCity,
+                        'run': adv.RunCar,
+                        'buy_year': adv.BuyYearCar,
+                        'box': adv.GearCar,
+                        'modification': adv.ModificationCar,
+                        'color': adv.ColorCar,
+                        'motor': adv.MotorCar,
+                        'drive': adv.DriveCar,
+                        'price': adv.PriceCar}
+            return render(request, 'motor/LK.html', params)
+        else:
+            raise Http404("Some Errors - Invalid forms!!!", save_form.errors)
     params = {'car': car,
                 'seria': seria,
                 'year': year,
@@ -274,6 +329,10 @@ def add_kuzov(request, car, seria, year, kuzov):
                 'modifications': modifications,
                 'generations': all_generations}
     return render(request, 'motor/add_kuzov.html', params)
+
+
+def LK(request):
+    return render(request, 'motor/LK.html')
 
 
 def add_cabinet(request):
@@ -585,7 +644,6 @@ def user_page(request):
             return redirect('index')
         if userpage_form.is_valid():
             user = User.objects.filter(id=user_id)[0]
-            print('wr')
             if user is None:
                 raise Http404('User {} not found'.format(user_id))
             if 'email' in userpage_form.data:

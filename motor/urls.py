@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from motor.views import index, register, login, logout, user_page, test_view, change_password, auto, add_model, add_seria, add_year, add_kuzov, add_cabinet, auto_profile
+from motor.views import index, register, login, logout, user_page, test_view, change_password, auto, add_model, add_seria, add_year, add_kuzov, add_cabinet, auto_profile, LK
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('auto/<car>/<seria>/<year>', add_year, name='add_year'),
     path('auto/<car>/<seria>/<year>/<kuzov>', add_kuzov, name='add_kuzov'),
     path('add_cabinet', add_cabinet, name='add_cabinet'),
+    path('LK', LK, name='LK'),
     path('auto_profile', auto_profile, name='auto_profile'),
     path('register', register, name='register'),
     path('login', login, name='login'),
