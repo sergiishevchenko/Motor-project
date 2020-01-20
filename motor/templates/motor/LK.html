@@ -28,8 +28,8 @@
                         <div class="pills-item">
                             {% for note in notes %}
                             <div class="pills-item__header">
-                                <div class="pills-item__header-name">{{ car }}/{{ seria }}/{{ kuzov }}/{{ generation }}</div>
-                                <div class="pills-item__header-price">$ {{ price }}</div>
+                                <div class="pills-item__header-name">{{ car }}/{{ seria }}/{{ kuzov }}/{{ note.GenerationCar }}</div>
+                                <div class="pills-item__header-price">$ {{ note.PriceCar }}</div>
                             </div>
                             <div class="pills-item__car">
                                 <div class="pills-item__car-photo">
@@ -37,19 +37,19 @@
                                     <img src="{% static "img/notebook/1.png" %}" alt="1">
                                 </div>
                                 <div class="pills-item__car-description">
-                                    <div class="pills-item__car-header">{{ city }}, добавлено : {{ date }}</div>
+                                    <div class="pills-item__car-header">{{ note.YourCity }}, добавлено : {{ date }}</div>
                                     <div class="pills-item__car-data">
                                         <div>
-                                            <div class="pills-item__car-text">· {{ run }} км</div>
-                                            <div class="pills-item__car-text">· {{ buy_year }} г.</div>
+                                            <div class="pills-item__car-text">· {{ note.RunCar }} км</div>
+                                            <div class="pills-item__car-text">· {{ note.BuyYearCar }} г.</div>
                                         </div>
                                         <div>
-                                            <div class="pills-item__car-text">· {{ drive }} привод</div>
-                                            <div class="pills-item__car-text">· {{ box }}</div>
+                                            <div class="pills-item__car-text">· {{ note.DriveCar }} привод</div>
+                                            <div class="pills-item__car-text">· {{ note.GearCar }}</div>
                                         </div>
                                         <div>
-                                            <div class="pills-item__car-text">· {{ modification }}</div>
-                                            <div class="pills-item__car-text">· Цвет: {{ color }}</div>
+                                            <div class="pills-item__car-text">· {{ note.ModificationCar }}</div>
+                                            <div class="pills-item__car-text">· Цвет: {{ note.ColorCar }}</div>
                                         </div>
                                     </div>
                                     <div class="pills-item__icons">

@@ -265,6 +265,8 @@ def add_kuzov(request, car, seria, year, kuzov):
             for j in gears:
                 if int(i[1]) == int(j):
                     modifications = gears[j]
+    user_id = request.session.get('user_id', None)
+    notes = AdvertiseCar.objects.filter(ID_id=user_id)
     if request.method == 'POST':
         save_form = SaveFormFirst(request.POST)
         if save_form.is_valid():
@@ -303,21 +305,13 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
             notes = AdvertiseCar.objects.filter(ID_id=user_id)
+            print(notes)
             params = {'car': car,
                         'seria': seria,
                         'notes': notes,
                         'year': year,
                         'kuzov': kuzov,
-                        'generation': adv.GenerationCar,
-                        'city': adv.YourCity,
-                        'run': adv.RunCar,
-                        'buy_year': adv.BuyYearCar,
-                        'box': adv.GearCar,
-                        'modification': adv.ModificationCar,
-                        'color': adv.ColorCar,
-                        'motor': adv.MotorCar,
-                        'drive': adv.DriveCar,
-                        'price': adv.PriceCar}
+                        'notes': notes}
             return render(request, 'motor/LK.html', params)
         else:
             raise Http404("Some Errors - Invalid forms!!!", save_form.errors)
@@ -327,6 +321,7 @@ def add_kuzov(request, car, seria, year, kuzov):
                 'all_kuzov': all_kuzov,
                 'kuzov': kuzov,
                 'modifications': modifications,
+                'notes': notes,
                 'generations': all_generations}
     return render(request, 'motor/add_kuzov.html', params)
 
