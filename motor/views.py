@@ -265,8 +265,6 @@ def add_kuzov(request, car, seria, year, kuzov):
             for j in gears:
                 if int(i[1]) == int(j):
                     modifications = gears[j]
-    user_id = request.session.get('user_id', None)
-    notes = AdvertiseCar.objects.filter(ID_id=user_id)
     if request.method == 'POST':
         save_form = SaveFormFirst(request.POST)
         if save_form.is_valid():
@@ -305,7 +303,6 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
             notes = AdvertiseCar.objects.filter(ID_id=user_id)
-            print(notes)
             params = {'car': car,
                         'seria': seria,
                         'notes': notes,
@@ -327,7 +324,10 @@ def add_kuzov(request, car, seria, year, kuzov):
 
 
 def LK(request):
-    return render(request, 'motor/LK.html')
+    user_id = request.session.get('user_id', None)
+    notes = AdvertiseCar.objects.filter(ID_id=user_id)
+    params = {'notes': notes}
+    return render(request, 'motor/LK.html', params)
 
 
 def add_cabinet(request):

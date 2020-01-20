@@ -10,25 +10,23 @@
         <div class="row">
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                    aria-controls="v-pills-home" aria-selected="true">Мои объявления</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                    aria-controls="v-pills-profile" aria-selected="false">Блокнот</a>
-                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                    aria-controls="v-pills-messages" aria-selected="false">Списки сравнения</a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                    aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
-                    <a class="nav-link" id="v-pills-person-tab" data-toggle="pill" href="#v-pills-person" role="tab"
-                    aria-controls="v-pills-person" aria-selected="false">Персональные данные</a>
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Мои объявления</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Блокнот</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Списки сравнения</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
+                    <a class="nav-link" id="v-pills-person-tab" data-toggle="pill" href="#v-pills-person" role="tab" aria-controls="v-pills-person" aria-selected="false">Персональные данные</a>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary" type="submit" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
                 </div>
             </div>
             <div class="col-7">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style="display: flex;">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="pills-item">
                             {% for note in notes %}
                             <div class="pills-item__header">
-                                <div class="pills-item__header-name">{{ car }}/{{ seria }}/{{ kuzov }}/{{ note.GenerationCar }}</div>
+                                <a href="auto_cabinet"><div class="pills-item__header-name">{{ note.NameCar }}/{{ note.SeriaCar }}/{{ note.KuzovCar }}/{{ note.GenerationCar }}</div></a>
                                 <div class="pills-item__header-price">$ {{ note.PriceCar }}</div>
                             </div>
                             <div class="pills-item__car">
@@ -37,7 +35,7 @@
                                     <img src="{% static "img/notebook/1.png" %}" alt="1">
                                 </div>
                                 <div class="pills-item__car-description">
-                                    <div class="pills-item__car-header">{{ note.YourCity }}, добавлено : {{ date }}</div>
+                                    <div class="pills-item__car-header">{{ note.YourCity }}, добавлено : {{ note.Time }}</div>
                                     <div class="pills-item__car-data">
                                         <div>
                                             <div class="pills-item__car-text">· {{ note.RunCar }} км</div>
@@ -84,9 +82,6 @@
                                 </div>
                             </div>
                             {% endfor %}
-                        </div>
-                        <div class="col-3">
-                            <button class="btn btn-outline-primary" type="submit" style="width: 160px" onclick="window.location.href='auto'">Подать объявление</button>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
