@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from motor.views import index, register, login, logout, user_page, test_view, change_password, auto, add_model, add_seria, add_year, add_kuzov, add_cabinet, auto_profile, LK
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,4 +21,4 @@ urlpatterns = [
     path('user_page', user_page, name='user_page'),
     path('test_view', test_view, name='test_view'),
     path('change_password', change_password, name='change_password')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
