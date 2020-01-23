@@ -5,6 +5,7 @@ from django.http import Http404
 import logging
 from django.db import connection
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -199,9 +200,9 @@ def add_seria(request, car, seria):
         for j in generation_model_begin_end:
             if i[1] == j[0]:
                 seria_years[i[0]] = j[2:4]
+    years = []
     for item in seria_years.keys():
         if item == seria:
-            years = []
             for i in range(int(seria_years[item][0]), int(seria_years[item][1]), 1):
                 years.append(i)
     params = {'car': car,
@@ -266,7 +267,7 @@ def add_kuzov(request, car, seria, year, kuzov):
                 if int(i[1]) == int(j):
                     modifications = gears[j]
     if request.method == 'POST':
-        save_form = SaveFormFirst(request.POST)
+        save_form = SaveFormFirst(request.POST, request.FILES)
         if save_form.is_valid():
             user_id = request.session.get('user_id', None)
             adv = AdvertiseCar()
@@ -281,7 +282,7 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.MotorCar = save_form.data.get('motor', None)
             adv.ModificationCar = save_form.data.get('modification', None)
             adv.ColorCar = save_form.data.get("color", None)
-            adv.ImageCar = save_form.data.get('image', None)
+            # adv.ImageCar = request.FILES['image']
             adv.MediaCar = save_form.data.get('media', None)
             adv.MediaSystemCar = save_form.data.get('media_system', None)
             adv.MediaAudioSystemCar = save_form.data.get('media_audio_system', None)
@@ -303,6 +304,8 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
             notes = AdvertiseCar.objects.filter(ID_id=user_id)
+            for note in notes:
+                print(note)
             params = {'car': car,
                         'seria': seria,
                         'notes': notes,
@@ -318,7 +321,6 @@ def add_kuzov(request, car, seria, year, kuzov):
                 'all_kuzov': all_kuzov,
                 'kuzov': kuzov,
                 'modifications': modifications,
-                'notes': notes,
                 'generations': all_generations}
     return render(request, 'motor/add_kuzov.html', params)
 
