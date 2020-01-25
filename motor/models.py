@@ -1,9 +1,4 @@
 from django.db import models
-import os
-
-
-def get_image_path(instance, filename):
-    return os.path.join('photos', str(instance.id), filename)
 
 
 class User(models.Model):
@@ -58,7 +53,7 @@ class AdvertiseCar(models.Model):
     MotorCar = models.CharField(max_length=55, verbose_name='Двигатель автомобиля')
     ModificationCar = models.CharField(max_length=55, verbose_name='Модификация автомобиля')
     ColorCar = models.CharField(max_length=55, verbose_name='Название автомобиля')
-    ImageCar = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    ImageCar = models.ImageField(upload_to='cars/')
     MediaCar = models.CharField(max_length=55, verbose_name='Мультмедиа автомобиля')
     MediaSystemCar = models.CharField(max_length=55, verbose_name='Мультмедиасистемы автомобиля')
     MediaAudioSystemCar = models.CharField(max_length=55, verbose_name='Мультмедиааудиосистемы автомобиля')

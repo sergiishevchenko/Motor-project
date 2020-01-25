@@ -5,6 +5,7 @@ from django.http import Http404
 import logging
 from django.db import connection
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -199,9 +200,9 @@ def add_seria(request, car, seria):
         for j in generation_model_begin_end:
             if i[1] == j[0]:
                 seria_years[i[0]] = j[2:4]
+    years = []
     for item in seria_years.keys():
         if item == seria:
-            years = []
             for i in range(int(seria_years[item][0]), int(seria_years[item][1]), 1):
                 years.append(i)
     params = {'car': car,
@@ -266,7 +267,7 @@ def add_kuzov(request, car, seria, year, kuzov):
                 if int(i[1]) == int(j):
                     modifications = gears[j]
     if request.method == 'POST':
-        save_form = SaveFormFirst(request.POST)
+        save_form = SaveFormFirst(request.POST, request.FILES)
         if save_form.is_valid():
             user_id = request.session.get('user_id', None)
             adv = AdvertiseCar()
@@ -281,7 +282,7 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.MotorCar = save_form.data.get('motor', None)
             adv.ModificationCar = save_form.data.get('modification', None)
             adv.ColorCar = save_form.data.get("color", None)
-            adv.ImageCar = save_form.data.get('image', None)
+            adv.ImageCar = request.FILES['image']
             adv.MediaCar = save_form.data.get('media', None)
             adv.MediaSystemCar = save_form.data.get('media_system', None)
             adv.MediaAudioSystemCar = save_form.data.get('media_audio_system', None)
@@ -308,16 +309,7 @@ def add_kuzov(request, car, seria, year, kuzov):
                         'notes': notes,
                         'year': year,
                         'kuzov': kuzov,
-                        'generation': adv.GenerationCar,
-                        'city': adv.YourCity,
-                        'run': adv.RunCar,
-                        'buy_year': adv.BuyYearCar,
-                        'box': adv.GearCar,
-                        'modification': adv.ModificationCar,
-                        'color': adv.ColorCar,
-                        'motor': adv.MotorCar,
-                        'drive': adv.DriveCar,
-                        'price': adv.PriceCar}
+                        'notes': notes}
             return render(request, 'motor/LK.html', params)
         else:
             raise Http404("Some Errors - Invalid forms!!!", save_form.errors)
@@ -332,7 +324,10 @@ def add_kuzov(request, car, seria, year, kuzov):
 
 
 def LK(request):
-    return render(request, 'motor/LK.html')
+    user_id = request.session.get('user_id', None)
+    notes = AdvertiseCar.objects.filter(ID_id=user_id)
+    params = {'notes': notes}
+    return render(request, 'motor/LK.html', params)
 
 
 def add_cabinet(request):
