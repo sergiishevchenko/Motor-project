@@ -282,7 +282,7 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.MotorCar = save_form.data.get('motor', None)
             adv.ModificationCar = save_form.data.get('modification', None)
             adv.ColorCar = save_form.data.get("color", None)
-            # adv.ImageCar = request.FILES['image']
+            adv.ImageCar = request.FILES['image']
             adv.MediaCar = save_form.data.get('media', None)
             adv.MediaSystemCar = save_form.data.get('media_system', None)
             adv.MediaAudioSystemCar = save_form.data.get('media_audio_system', None)
@@ -304,8 +304,6 @@ def add_kuzov(request, car, seria, year, kuzov):
             adv.YourCity = save_form.data.get('city', None)
             adv.save()
             notes = AdvertiseCar.objects.filter(ID_id=user_id)
-            for note in notes:
-                print(note)
             params = {'car': car,
                         'seria': seria,
                         'notes': notes,

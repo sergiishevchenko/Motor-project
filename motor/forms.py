@@ -82,7 +82,7 @@ class SaveFormFirst(forms.Form):
     motor = forms.ChoiceField(choices=MOTOR)
     modification = forms.CharField(max_length=150)
     color = forms.CharField(max_length=150)
-    # image = forms.FileField()
+    image = forms.ImageField()
     media = forms.CharField(max_length=150)
     media_system = forms.CharField(max_length=150)
     media_audio_system = forms.CharField(max_length=150)

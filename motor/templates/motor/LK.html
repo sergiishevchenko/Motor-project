@@ -32,7 +32,7 @@
                             <div class="pills-item__car">
                                 <div class="pills-item__car-photo">
                                     {% load static %}
-                                    <img src="{{ note.image.url }}" name="image" alt="image">
+                                    <img src="/media/{{ note.ImageCar }}" name="image" alt="image" style="width: 170px; height: 110px">
                                 </div>
                                 <div class="pills-item__car-description">
                                     <div class="pills-item__car-header">{{ note.YourCity }}, добавлено : {{ note.Time }}</div>
