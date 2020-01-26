@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.7"
+install:
+  - pip install -r requirements.txt
+script:
+  - flake8 . --ignore=F841,W503,E126,E123,E501
+  - python3 -m pytest --cov=webapp --cov-report=xml
+deploy:
+  provider: heroku
+  api_key: "543a4906-8235-4813-a3f0-976d14242e3c"
+  app: motor-project
