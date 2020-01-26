@@ -38,9 +38,9 @@ pip install -r requirements.txt
     python manage.py createsuperuser
     ```
 3. Import data from **PostgreSQL** by **Python** to **JavaScript** and from **JavaScript** to **HTML**.
-4. Advertisement's publication. For this purpose I used Form.\
-    4.1 Creating forms in **Django**, is really similar to creating a model. 
-        I just need to inherit from **Django** class and the class attributes will be the form fields. 
+4. Advertisement's publication. For this purpose I used **Form**.\
+    4.1 Creating forms in **Django**, is really similar to creating a model.\ 
+        I just need to inherit from **Django** class and the class attributes will be the form fields.\
         I added to a **forms.py** file in myapp folder **SaveFormFirst Form**.
     ```
         class SaveFormFirst(forms.Form):
@@ -61,14 +61,14 @@ pip install -r requirements.txt
         def add_kuzov(request, car, seria, year, kuzov):
             cursor = connection.cursor()
             if request.method == 'POST':
-        save_form = SaveFormFirst(request.POST, request.FILES)
-        if save_form.is_valid():
-            user_id = request.session.get('user_id', None)
-            advertisement = AdvertiseCar()
-            advertisement.GenerationCar = save_form.data.get("generation", None)
-            advertisement.GearCar = save_form.data.get("box", None)
-            advertisement.DriveCar = save_form.data.get('drive', None)
-            ##########################################################
+                save_form = SaveFormFirst(request.POST, request.FILES)
+                if save_form.is_valid():
+                    user_id = request.session.get('user_id', None)
+                    advertisement = AdvertiseCar()
+                    advertisement.GenerationCar = save_form.data.get("generation", None)
+                    advertisement.GearCar = save_form.data.get("box", None)
+                    advertisement.DriveCar = save_form.data.get('drive', None)
+                    ##########################################################
     ```
     4.3 The view will display the result of the **Form** posted through the **LK.html**.
     ```
