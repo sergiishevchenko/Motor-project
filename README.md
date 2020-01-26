@@ -38,10 +38,10 @@ pip install -r requirements.txt
     python manage.py createsuperuser
     ```
 3. Import data from **PostgreSQL** by **Python** to **JavaScript** and from **JavaScript** to **HTML**.
-4. Advertisement's publication. For this purpose I used Form.
-    4.1 Creating forms in Django, is really similar to creating a model. 
-        I just need to inherit from Django class and the class attributes will be the form fields. 
-        I added to a forms.py file in myapp folder SaveFormFirst Form.
+4. Advertisement's publication. For this purpose I used Form.\
+    4.1 Creating forms in **Django**, is really similar to creating a model. 
+        I just need to inherit from **Django** class and the class attributes will be the form fields. 
+        I added to a **forms.py** file in myapp folder **SaveFormFirst Form**.
     ```
         class SaveFormFirst(forms.Form):
             generation = forms.CharField(max_length=150)
@@ -53,7 +53,7 @@ pip install -r requirements.txt
             image = forms.ImageField()
             #########################
     ```
-    4.2 Using Form in a View.
+    4.2 Using **Form** in a **View**.
     ```
         from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst
         from .models import User, AdvertiseCar
@@ -70,7 +70,7 @@ pip install -r requirements.txt
             advertisement.DriveCar = save_form.data.get('drive', None)
             ##########################################################
     ```
-    4.3 The view will display the result of the Form posted through the LK.html.
+    4.3 The view will display the result of the **Form** posted through the **LK.html**.
     ```
         <form method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
@@ -79,11 +79,14 @@ pip install -r requirements.txt
             <button type="submit" class="nav-link__button">ОПУБЛИКОВАТЬ ОБЪЯВЛЕНИЕ</button>
         </form>
     ```
-        The code will display a Form and post the result to our view above. You have probably noticed the tag in the template, which is just to prevent Cross-site Request Forgery (CSRF) attack on your site.
+
+        The code will display a **Form** and post the result to our view above. 
+        You have probably noticed the tag in the template, which is just to prevent Cross-site Request Forgery (CSRF) attack on your site.
+
     ```
         {% csrf_token %}
     ```
-    4.4 Now, I need our URLs to get started: motor/urls.py.
+    4.4 Now, I need our **URLs** to get started: **motor/urls.py**.
     ```
         urlpatterns = [
             path('admin/', admin.site.urls),
