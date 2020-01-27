@@ -4,7 +4,7 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - flake8 . --ignore=F841,W503,E126,E123,E501
+  - flake8 . --ignore=F841,W503,E126,E123,E501,E127,47,335,334,333,321,841
 deploy:
   provider: heroku
   api_key: "543a4906-8235-4813-a3f0-976d14242e3c"
