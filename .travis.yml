@@ -7,5 +7,5 @@ script:
   - flake8 . --ignore=F841,W503,E126,E123,E501,E127,47,335,334,333,321,841
 deploy:
   provider: heroku
-  api_key: "543a4906-8235-4813-a3f0-976d14242e3c"
+  api_key: "28cfa6e0-d617-47c0-b1be-1ce9632b3d71"
   app: motor-project
