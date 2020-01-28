@@ -303,14 +303,7 @@ def add_kuzov(request, car, seria, year, kuzov):
             advertisement.YourMail = save_form.data.get('mail', None)
             advertisement.YourCity = save_form.data.get('city', None)
             advertisement.save()
-            notes = AdvertiseCar.objects.filter(ID_id=user_id)
-            params = {'car': car,
-                        'seria': seria,
-                        'notes': notes,
-                        'year': year,
-                        'kuzov': kuzov,
-                        'notes': notes}
-            return render(request, 'motor/LK.html', params)
+            return redirect('LK')
         else:
             raise Http404("Some Errors - Invalid forms!!!", save_form.errors)
     params = {'car': car,
