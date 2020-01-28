@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/sergiishevchenko/Motor-project.svg?branch=master)](https://travis-ci.org/sergiishevchenko/Motor-project)
-
 # Motor-website
 
 ## How to start?
