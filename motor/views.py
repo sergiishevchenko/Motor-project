@@ -436,7 +436,7 @@ def add_cabinet(request):
     return render(request, 'motor/auto_cabinet.html', params)
 
 
-def auto_profile(request):
+def auto_profile(request, id):
     signup_form = FormWrapper(SignUpForm())
     login_form = FormWrapper(LoginForm())
     user_id = request.session.get('user_id', None)
@@ -521,7 +521,7 @@ def auto_profile(request):
         user = User.objects.filter(id=user_id).first()
         if user is None:
             raise Http404('Error 404')
-
+    note = AdvertiseCar.objects.filter(id=id)[0]
     params = None
     if user_id is None:
         params = {'signup_form': signup_form,
@@ -533,6 +533,7 @@ def auto_profile(request):
                     'models_infinity': models_infinity,
                     'gears': gears,
                     'kuzov': kuzov,
+                    'note': note,
                     'model_series_sum': model_series_sum,
                     'models_cars': models_cars}
     else:
@@ -542,6 +543,7 @@ def auto_profile(request):
                     'all_models_begin': all_models_begin,
                     'all_models_end': all_models_end,
                     'gears': gears,
+                    'note': note,
                     'kuzov': kuzov,
                     'model_series_sum': model_series_sum,
                     'models_infinity': models_infinity,
