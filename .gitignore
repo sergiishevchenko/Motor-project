@@ -108,4 +108,4 @@ venv.bak/
 .vscode
 .github 
 .DS_Store
-/sass
+sass/
