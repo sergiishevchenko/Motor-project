@@ -289,46 +289,31 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
+                        {% for comment in comments %}
                         <div class="auto_profile-comment">
                             {% load static %}
                             <img src="{% static "img/label.png" %}" style="width: 40px; height: 40px;">
                             <div class="auto_profile-comment__block">
-                                <div class="auto_profile-comment__title">Павел В.</div>
-                                <div class="auto_profile-comment__subtitle">24 сентября 2019 16:45</div>
-                                <div class="auto_profile-comment__text">Красавица , лимитед эдишен на 339 стиле , по сравнению с ф30 просто сказка , в новой трешке все какое то уже не такое как тут, похоже что с 90-м кузовом эпоха тех трешек оборвалась , лучший вариант за свои деньги , меня поражает этот дизайн , который такой крутой и актуальный уже более 10 лет.</div>
+                                <div class="auto_profile-comment__title">{{ comment.Name }}</div>
+                                <div class="auto_profile-comment__subtitle">{{ comment.Time }}</div>
+                                <div class="auto_profile-comment__text">{{ comment.Comment }}</div>
                             </div>
                         </div>
-                        <div class="auto_profile-comment">
-                            {% load static %}
-                            <img src="{% static "img/label.png" %}" style="width: 40px; height: 40px;">
-                            <div class="auto_profile-comment__block">
-                                <div class="auto_profile-comment__title">Павел В.</div>
-                                <div class="auto_profile-comment__subtitle">24 сентября 2019 16:45</div>
-                                <div class="auto_profile-comment__text">Красавица , лимитед эдишен на 339 стиле , по сравнению с ф30 просто сказка , в новой трешке все какое то уже не такое как тут, похоже что с 90-м кузовом эпоха тех трешек оборвалась , лучший вариант за свои деньги , меня поражает этот дизайн , который такой крутой и актуальный уже более 10 лет.</div>
-                            </div>
-                        </div>
-                        <div class="auto_profile-comment">
-                            {% load static %}
-                            <img src="{% static "img/label.png" %}" style="width: 40px; height: 40px;">
-                            <div class="auto_profile-comment__block">
-                                <div class="auto_profile-comment__title">Павел В.</div>
-                                <div class="auto_profile-comment__subtitle">24 сентября 2019 16:45</div>
-                                <div class="auto_profile-comment__text">Красавица , лимитед эдишен на 339 стиле , по сравнению с ф30 просто сказка , в новой трешке все какое то уже не такое как тут, похоже что с 90-м кузовом эпоха тех трешек оборвалась , лучший вариант за свои деньги , меня поражает этот дизайн , который такой крутой и актуальный уже более 10 лет.</div>
-                            </div>
-                        </div>
+                        {% endfor %}
                         <div class="auto_profile-comment__form">
-                            <form style="margin-top: 30px">
+                            <form method="POST" style="margin-top: 30px">
+                                {% csrf_token %}
                                 <div class="auto_profile-comment__header">ДОБАВИТЬ КОММЕНТАРИЙ</div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="Ваше имя" style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                        <input type="text" class="form-control" name='Name' placeholder="Ваше имя" style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="Ваш e-mail" style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                        <input type="text" class="form-control" name='Email' placeholder="Ваш e-mail" style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Ваш комментарий" style="width: 860px; height: 114px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
-                                <button type="button" class="auto_profile-button">ОТПРАВИТЬ</button>
+                                <input type="text" class="form-control" name='Comment' placeholder="Ваш комментарий" style="width: 860px; height: 114px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                <button type="submit" class="auto_profile-button">ОТПРАВИТЬ</button>
                             </form>
                         </div>
                     </div>
