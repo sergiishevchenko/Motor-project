@@ -77,6 +77,20 @@ class AdvertiseCar(models.Model):
     ID = models.ForeignKey(User, to_field="id", on_delete=models.CASCADE)
 
 
+class AdvertiseComments(models.Model):
+    class Meta:
+        verbose_name_plural = 'Комментарии'
+
+    def __str__(self):
+        return f'Комментарий {self.Name}'
+
+    Name = models.CharField(max_length=30, verbose_name='Имя пользователя')
+    Email = models.CharField(max_length=30, verbose_name='Емейл пользователя', unique=True)
+    Comment = models.CharField(max_length=30, verbose_name='Комментарий пользователя')
+    ID_Advertisement = models.CharField(max_length=30, verbose_name='Номер комментария')
+    Time = models.DateTimeField(auto_now_add=True, blank=True)
+
+
 """
 class LoginAttempt(models.Model):
     LoginAttemptID

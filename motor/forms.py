@@ -102,3 +102,9 @@ class SaveFormFirst(forms.Form):
     phone = forms.CharField(max_length=150)
     mail = forms.CharField(max_length=150)
     city = forms.CharField(max_length=150)
+
+
+class SaveFormComments(forms.Form):
+    Name = forms.CharField(max_length=150)
+    Email = forms.CharField(max_length=150)
+    Comment = forms.CharField(max_length=150)
