@@ -85,7 +85,7 @@ class AdvertiseComments(models.Model):
         return f'Комментарий {self.Name}'
 
     Name = models.CharField(max_length=30, verbose_name='Имя пользователя')
-    Email = models.CharField(max_length=30, verbose_name='Емейл пользователя', unique=True)
+    Email = models.CharField(max_length=30, verbose_name='Емейл пользователя')
     Comment = models.CharField(max_length=30, verbose_name='Комментарий пользователя')
     ID_Advertisement = models.CharField(max_length=30, verbose_name='Номер комментария')
     Time = models.DateTimeField(auto_now_add=True, blank=True)
