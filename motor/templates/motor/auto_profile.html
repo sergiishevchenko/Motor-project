@@ -104,140 +104,160 @@
                     </div>
                     <button type="button" class="auto_profile-check__button">ПОСМОТРЕТЬ ОТЧЁТ</button>
                 </div>
-                <div class="row" style="margin-left: 10px; margin-top: 20px">
-                    <div class="col-4.5">
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Целостность кузова</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-4.5" style="margin-left: 20px">
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="kuzov_star">
+                                    <div class="auto_profile-rating__text">Целостность кузова</div>
+                                    <fieldset class="rating one" style="margin-left: 50px">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">10</div>
+                            </div>
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="cover_star">
+                                    <div class="auto_profile-rating__text">Лакокрасочное покрытие</div>
+                                    <fieldset class="rating two" style="margin-left: 50px">
+                                        <input type="radio" id="star5_2" name="rating_2" value="5" /><label class = "full" for="star5_2" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_2" name="rating_2" value="4 and a half" /><label class="half" for="star4half_2" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_2" name="rating_2" value="4" /><label class = "full" for="star4_2" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_2" name="rating_2" value="3 and a half" /><label class="half" for="star3half_2" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_2" name="rating_2" value="3" /><label class = "full" for="star3_2" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_2" name="rating_2" value="2 and a half" /><label class="half" for="star2half_2" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_2" name="rating_2" value="2" /><label class = "full" for="star2_2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_2" name="rating_2" value="1 and a half" /><label class="half" for="star1half_2" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_2" name="rating_2" value="1" /><label class = "full" for="star1_2" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_2" name="rating_2" value="half" /><label class="half" for="starhalf_2" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">5</div>
+                            </div>
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="salon_star">
+                                    <div class="auto_profile-rating__text">Салон и интерьер</div>
+                                    <fieldset class="rating three">
+                                        <input type="radio" id="star5_3" name="rating_3" value="5" /><label class = "full" for="star5_3" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_3" name="rating_3" value="4 and a half" /><label class="half" for="star4half_3" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_3" name="rating_3" value="4" /><label class = "full" for="star4_3" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_3" name="rating_3" value="3 and a half" /><label class="half" for="star3half_3" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_3" name="rating_3" value="3" /><label class = "full" for="star3_3" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_3" name="rating_3" value="2 and a half" /><label class="half" for="star2half_3" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_3" name="rating_3" value="2" /><label class = "full" for="star2_3" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_3" name="rating_3" value="1 and a half" /><label class="half" for="star1half_3" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_3" name="rating_3" value="1" /><label class = "full" for="star1_3" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_3" name="rating_3" value="half" /><label class="half" for="starhalf_3" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">5</div>
+                            </div>
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="exterer_star">
+                                    <div class="auto_profile-rating__text">+1 пункт по экстерьеру</div>
+                                    <fieldset class="rating four">
+                                        <input type="radio" id="star5_4" name="rating_4" value="5" /><label class = "full" for="star5_4" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_4" name="rating_4" value="4 and a half" /><label class="half" for="star4half_4" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_4" name="rating_4" value="4" /><label class = "full" for="star4_4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_4" name="rating_4" value="3 and a half" /><label class="half" for="star3half_4" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_4" name="rating_4" value="3" /><label class = "full" for="star3_4" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_4" name="rating_4" value="2 and a half" /><label class="half" for="star2half_4" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_4" name="rating_4" value="2" /><label class = "full" for="star2_4" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_4" name="rating_4" value="1 and a half" /><label class="half" for="star1half_4" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_4" name="rating_4" value="1" /><label class = "full" for="star1_4" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_4" name="rating_4" value="half" /><label class="half" for="starhalf_4" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">5</div>
                             </div>
                         </div>
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Лакокрасочное покрытие</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
+                        <div class="col-4.5" style="margin-left: 50px">
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="electro_star">
+                                    <div class="auto_profile-rating__text">Электрооборудование</div>
+                                    <fieldset class="rating five" style="margin-left: 50px">
+                                        <input type="radio" id="star5_5" name="rating_5" value="5" /><label class = "full" for="star5_5" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_5" name="rating_5" value="4 and a half" /><label class="half" for="star4half_5" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_5" name="rating_5" value="4" /><label class = "full" for="star4_5" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_5" name="rating_5" value="3 and a half" /><label class="half" for="star3half_5" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_5" name="rating_5" value="3" /><label class = "full" for="star3_5" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_5" name="rating_5" value="2 and a half" /><label class="half" for="star2half_5" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_5" name="rating_5" value="2" /><label class = "full" for="star2_5" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_5" name="rating_5" value="1 and a half" /><label class="half" for="star1half_5" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_5" name="rating_5" value="1" /><label class = "full" for="star1_5" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_5" name="rating_5" value="half" /><label class="half" for="starhalf_5" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">10</div>
                             </div>
-                        </div>
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Салон и интерьер</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="hod_star">
+                                    <div class="auto_profile-rating__text">Ходовая часть</div>
+                                    <fieldset class="rating six">
+                                        <input type="radio" id="star5_6" name="rating_6" value="5" /><label class = "full" for="star5_6" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_6" name="rating_6" value="4 and a half" /><label class="half" for="star4half_6" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_6" name="rating_6" value="4" /><label class = "full" for="star4_6" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_6" name="rating_6" value="3 and a half" /><label class="half" for="star3half_6" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_6" name="rating_6" value="3" /><label class = "full" for="star3_6" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_6" name="rating_6" value="2 and a half" /><label class="half" for="star2half_6" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_6" name="rating_6" value="2" /><label class = "full" for="star2_6" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_6" name="rating_6" value="1 and a half" /><label class="half" for="star1half_6" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_6" name="rating_6" value="1" /><label class = "full" for="star1_6" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_6" name="rating_6" value="half" /><label class="half" for="starhalf_6" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">10</div>
+                            </div>   
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="motor_star">
+                                    <div class="auto_profile-rating__text">Двигатель</div>
+                                    <fieldset class="rating seven">
+                                        <input type="radio" id="star5_7" name="rating_7" value="5" /><label class = "full" for="star5_7" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_7" name="rating_7" value="4 and a half" /><label class="half" for="star4half_7" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_7" name="rating_7" value="4" /><label class = "full" for="star4_7" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_7" name="rating_7" value="3 and a half" /><label class="half" for="star3half_7" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_7" name="rating_7" value="3" /><label class = "full" for="star3_7" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_7" name="rating_7" value="2 and a half" /><label class="half" for="star2half_7" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_7" name="rating_7" value="2" /><label class = "full" for="star2_7" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_7" name="rating_7" value="1 and a half" /><label class="half" for="star1half_7" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_7" name="rating_7" value="1" /><label class = "full" for="star1_7" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_7" name="rating_7" value="half" /><label class="half" for="starhalf_7" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">10</div>
                             </div>
-                        </div>
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">+1 пункт по экстерьеру</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
+                            <div class="auto_profile-rating__block">
+                                <div class="auto_profile-rating__item" id="box_star">
+                                    <div class="auto_profile-rating__text">Коробка передач</div>
+                                    <fieldset class="rating eight">
+                                        <input type="radio" id="star5_8" name="rating_8" value="5" /><label class = "full" for="star5_8" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half_8" name="rating_8" value="4 and a half" /><label class="half" for="star4half_8" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4_8" name="rating_8" value="4" /><label class = "full" for="star4_8" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half_8" name="rating_8" value="3 and a half" /><label class="half" for="star3half_8" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3_8" name="rating_8" value="3" /><label class = "full" for="star3_8" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half_8" name="rating_8" value="2 and a half" /><label class="half" for="star2half_8" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2_8" name="rating_8" value="2" /><label class = "full" for="star2_8" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half_8" name="rating_8" value="1 and a half" /><label class="half" for="star1half_8" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1_8" name="rating_8" value="1" /><label class = "full" for="star1_8" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf_8" name="rating_8" value="half" /><label class="half" for="starhalf_8" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </div>
+                                <div class="auto_profile-rating__count">10</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4.5" style="margin-left: 10px">
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Электрооборудование</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
-                            </div>
-                        </div>
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Ходовая часть</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
-                            </div>
-                        </div>
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Двигатель</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
-                            </div>
-                        </div>
-                        <div class="auto_profile-rating__item">
-                            <div class="auto_profile-rating__text">Коробка передач</div>
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text">1 star</label>
-                            </div>
-                        </div>
-                    </div>
-                    <svg class="circle-chart" style='margin-top: 45px; margin-left: 80px;' viewbox="0 0 33.83098862 33.83098862" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                        <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                        <g class="circle-chart__info">
-                          <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8">30%</text>
-                          <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Yay 30% progress!</text>
-                        </g>
-                    </svg>
-                </div>
+                    <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: 20px;">Проголосовать</button>
+                </form>
                 <div class="nav nav-tabs" id="myTab" role="tablist" style="margin-right: auto; margin-top: 20px">
                     <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">ОПИСАНИЕ АВТО</a>
                     <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">КОМПЛЕКТАЦИЯ</a>
@@ -304,16 +324,12 @@
                             <form method="POST" style="margin-top: 30px">
                                 {% csrf_token %}
                                 <div class="auto_profile-comment__header">ДОБАВИТЬ КОММЕНТАРИЙ</div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" name='Name' placeholder="Ваше имя" required style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
-                                    </div>
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" name='Email' placeholder="Ваш e-mail" required style="width: 400px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
-                                    </div>
+                                <div class="row" style="margin: auto; justify-content: space-between;">
+                                    <input type="text" class="form-control" name='Name' placeholder="Ваше имя" required style="width: 420px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                    <input type="text" class="form-control" name='Email' placeholder="Ваш e-mail" required style="width: 420px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
                                 </div>
-                                <input type="text" class="form-control" name='Comment' placeholder="Ваш комментарий" required style="width: 860px; height: 114px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
-                                <button type="submit" class="auto_profile-button">ОТПРАВИТЬ</button>
+                                <input type="text" class="form-control" name='Comment' placeholder="Ваш комментарий" required style="width: 100%; height: 114px; border: 1px solid #707070; background-color: #ffffff; color: #2e393f; font-family: Arial; font-size: 14px; font-weight: 400">
+                                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px">Отправить</button>
                             </form>
                         </div>
                     </div>
@@ -322,7 +338,7 @@
             <div class="col-3.5">
                 <div class="auto_profile-author">
                     {% load static %}
-                    <img src="{% static "img/cabinet/author.png" %}" style="border-radius: 30px; width: 60px; height: 60px; background-color: #64b5f6; margin-left: 15px" alt="glass">
+                    <img src="{% static "img/cabinet/author.png" %}" style="border-radius: 30px; width: 60px; height: 60px; background-color: #007bff; margin-left: 15px" alt="glass">
                     <div class="auto_profile-author__block">
                         <div class="auto_profile-author__name">{{ note.YourName }}</div>
                         <div class="auto_profile-author__text">частное лицо</div>
@@ -345,7 +361,7 @@
                         <div class="auto_profile-info__text"><strong>Расположение:</strong>{{ note.YourCity }}</div>
                     </div>
                 </div>
-                <button type="button" class="auto_profile-button">НАПИСАТЬ ПРОДАВЦУ</button>
+                <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px">Написать продавцу</button>
             </div>
         </div>
     </div>

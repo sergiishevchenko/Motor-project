@@ -3,6 +3,7 @@ from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFi
 from .models import User, AdvertiseCar, AdvertiseComments
 from django.http import Http404
 import logging
+from django.contrib.auth.decorators import login_required
 from django.db import connection
 
 
@@ -316,6 +317,7 @@ def add_kuzov(request, car, seria, year, kuzov):
     return render(request, 'motor/add_kuzov.html', params)
 
 
+@login_required
 def LK(request):
     user_id = request.session.get('user_id', None)
     notes = AdvertiseCar.objects.filter(ID_id=user_id)
@@ -323,6 +325,7 @@ def LK(request):
     return render(request, 'motor/LK.html', params)
 
 
+@login_required
 def add_cabinet(request):
     signup_form = FormWrapper(SignUpForm())
     login_form = FormWrapper(LoginForm())
@@ -436,6 +439,7 @@ def add_cabinet(request):
     return render(request, 'motor/auto_cabinet.html', params)
 
 
+@login_required
 def auto_profile(request, id):
     note = AdvertiseCar.objects.filter(id=id)[0]
     comments = AdvertiseComments.objects.filter(ID_Advertisement=id)
@@ -533,6 +537,7 @@ def change_password(request):
         return render(request, 'motor/change_password.html', params)
 
 
+@login_required
 def user_page(request):
     if request.method == 'POST':
         userpage_form = UserpageForm(request.POST)
