@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormComments
-from .models import User, AdvertiseCar, AdvertiseComments
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormComments, SaveFormRating
+from .models import User, AdvertiseCar, AdvertiseComments, Ratings
 from django.http import Http404
 import logging
 from django.contrib.auth.decorators import login_required
@@ -443,8 +443,11 @@ def add_cabinet(request):
 def auto_profile(request, id):
     note = AdvertiseCar.objects.filter(id=id)[0]
     comments = AdvertiseComments.objects.filter(ID_Advertisement=id)
+    all_ratings = Ratings.objects.filter(ID=id)
+    last_rating = all_ratings[len(all_ratings) - 1]
     if request.method == 'POST':
         save_form = SaveFormComments(request.POST)
+        rating_form = SaveFormRating(request.POST)
         if save_form.is_valid():
             comment = AdvertiseComments()
             comment.Name = save_form.data.get('Name', None)
@@ -452,12 +455,52 @@ def auto_profile(request, id):
             comment.Comment = save_form.data.get('Comment', None)
             comment.ID_Advertisement = id
             comment.save()
+        elif rating_form.is_valid():
+            rating = Ratings()
+            rating.kuzov = save_form.data.get('kuzov', None)
+            rating.cover = save_form.data.get('cover', None)
+            rating.salon = save_form.data.get('salon', None)
+            rating.exterer = save_form.data.get('exterer', None)
+            rating.electro = save_form.data.get('electro', None)
+            rating.hod = save_form.data.get('hod', None)
+            rating.motor = save_form.data.get('motor', None)
+            rating.gearbox = save_form.data.get('gearbox', None)
+            rating.ID = id
+            rating.save()
+            summ_kuzov = 0
+            summ_cover = 0
+            summ_salon = 0
+            summ_exterer = 0
+            summ_electro = 0
+            summ_hod = 0
+            summ_motor = 0
+            summ_gearbox = 0
+            for i in Ratings.objects.filter(ID=id):
+                summ_kuzov = summ_kuzov + float(i.kuzov)
+                summ_salon = summ_salon + float(i.salon)
+                summ_cover = summ_cover + float(i.cover)
+                summ_exterer = summ_exterer + float(i.exterer)
+                summ_electro = summ_electro + float(i.electro)
+                summ_hod = summ_hod + float(i.hod)
+                summ_motor = summ_motor + float(i.motor)
+                summ_gearbox = summ_gearbox + float(i.gearbox)
+            rating.kuzov_average = round(summ_kuzov / len(Ratings.objects.filter(ID=id)), 1)
+            rating.salon_average = round(summ_salon / len(Ratings.objects.filter(ID=id)), 1)
+            rating.cover_average = round(summ_cover / len(Ratings.objects.filter(ID=id)), 1)
+            rating.exterer_average = round(summ_exterer / len(Ratings.objects.filter(ID=id)), 1)
+            rating.electro_average = round(summ_electro / len(Ratings.objects.filter(ID=id)), 1)
+            rating.hod_average = round(summ_hod / len(Ratings.objects.filter(ID=id)), 1)
+            rating.motor_average = round(summ_motor / len(Ratings.objects.filter(ID=id)), 1)
+            rating.gearbox_average = round(summ_gearbox / len(Ratings.objects.filter(ID=id)), 1)
+            rating.save()
     params = None
     if id is None:
         params = {'note': note,
+                    'last_rating': last_rating,
                     'comments': comments}
     else:
         params = {'note': note,
+                    'last_rating': last_rating,
                     'comments': comments}
     return render(request, 'motor/auto_profile.html', params)
 

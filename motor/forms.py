@@ -108,3 +108,14 @@ class SaveFormComments(forms.Form):
     Name = forms.CharField(max_length=150)
     Email = forms.CharField(max_length=150)
     Comment = forms.CharField(max_length=150)
+
+
+class SaveFormRating(forms.Form):
+    kuzov = forms.CharField(max_length=150)
+    cover = forms.CharField(max_length=150)
+    salon = forms.CharField(max_length=150)
+    exterer = forms.CharField(max_length=150)
+    electro = forms.CharField(max_length=150)
+    hod = forms.CharField(max_length=150)
+    motor = forms.CharField(max_length=150)
+    gearbox = forms.CharField(max_length=150)
