@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -6,6 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 /* line 11, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/normalize.scss */
 html {
   line-height: 1.15;
@@ -1416,13 +1416,12 @@ template {
 
 /* line 96, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .pills-item__car-data {
-  width: 350px;
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
 }
 
-/* line 101, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 100, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .pills-item__car-text {
   color: #1c2931;
   font-family: Arial;
@@ -1430,7 +1429,7 @@ template {
   font-weight: 400;
 }
 
-/* line 106, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 105, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .pills-item__icons {
   display: flex;
   width: 450px;
@@ -1439,7 +1438,7 @@ template {
   justify-content: space-between;
 }
 
-/* line 112, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 111, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .pills-item__icons-text {
   color: #656d73;
   font-family: Arial;
@@ -1449,13 +1448,13 @@ template {
   margin-left: 10px;
 }
 
-/* line 119, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 118, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .pills-item__icons-notebook {
   display: flex;
   justify-content: space-between;
 }
 
-/* line 123, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 122, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-title {
   color: #1c2931;
   font-family: Arial;
@@ -1464,7 +1463,7 @@ template {
   margin: auto;
 }
 
-/* line 129, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 128, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-subtitle {
   opacity: 0.8;
   color: #3e4950;
@@ -1477,7 +1476,7 @@ template {
   margin-bottom: 11px;
 }
 
-/* line 139, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 138, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-start {
   opacity: 0.8;
   color: #3e4950;
@@ -1489,7 +1488,7 @@ template {
   margin-top: 30px;
 }
 
-/* line 148, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 147, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-price {
   width: 303px;
   color: #1c2931;
@@ -1500,7 +1499,7 @@ template {
   padding-top: 36px;
 }
 
-/* line 156, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 155, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-buttons {
   display: flex;
   margin: auto;
@@ -1511,7 +1510,7 @@ template {
   margin-bottom: 67px;
 }
 
-/* line 164, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 163, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-buttons__submit {
   width: 127px;
   height: 30px;
@@ -1522,7 +1521,7 @@ template {
   font-weight: 700;
 }
 
-/* line 172, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 171, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .auto_up-buttons__up {
   color: #ffffff;
   font-family: "Open Sans";
@@ -1533,18 +1532,18 @@ template {
   background-color: #1c2931;
 }
 
-/* line 181, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 180, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .weekDays-selector {
   width: 350px;
   margin: auto;
 }
 
-/* line 185, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 184, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .weekDays-selector input {
   display: none;
 }
 
-/* line 187, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 186, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .weekDays-selector input[type=checkbox] + label {
   display: inline-block;
   border-radius: 6px;
@@ -1556,13 +1555,13 @@ template {
   cursor: pointer;
 }
 
-/* line 197, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 196, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .weekDays-selector input[type=checkbox]:checked + label {
   background: blue;
   color: white;
 }
 
-/* line 200, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 199, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period {
   display: flex;
   width: 350px;
@@ -1571,7 +1570,7 @@ template {
   margin-top: 10px;
 }
 
-/* line 206, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 205, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-text {
   margin-left: 23px;
   color: #2e393f;
@@ -1581,12 +1580,12 @@ template {
   line-height: 32px;
 }
 
-/* line 213, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 212, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-countries {
   position: relative;
 }
 
-/* line 215, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 214, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-countries::before {
   content: '';
   display: block;
@@ -1603,7 +1602,7 @@ template {
   pointer-events: none;
 }
 
-/* line 229, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 228, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-countries::after {
   content: '';
   display: block;
@@ -1620,12 +1619,12 @@ template {
   pointer-events: none;
 }
 
-/* line 243, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 242, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-continents {
   position: relative;
 }
 
-/* line 245, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 244, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-continents::before {
   content: '';
   display: block;
@@ -1642,7 +1641,7 @@ template {
   pointer-events: none;
 }
 
-/* line 259, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 258, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 .period-continents::after {
   content: '';
   display: block;
@@ -1659,7 +1658,7 @@ template {
   pointer-events: none;
 }
 
-/* line 273, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 272, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 #continents {
   width: 89px;
   height: 39px;
@@ -1674,7 +1673,7 @@ template {
   appearance: none;
 }
 
-/* line 285, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
+/* line 284, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_LK.sass */
 #selectcountries {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -7893,7 +7892,7 @@ template {
 /* line 101, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-check {
   display: flex;
-  background-color: #70de70;
+  background-color: #007bff;
   height: 100px;
   justify-content: space-around;
   align-items: center;
@@ -7941,15 +7940,31 @@ template {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 350px;
 }
 
-/* line 134, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 135, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-rating__text {
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 700;
+  color: #007bff;
 }
 
-/* line 138, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 139, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.auto_profile-rating__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 143, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.auto_profile-rating__count {
+  margin-left: 30px;
+  color: #007bff;
+  font-weight: 700;
+}
+
+/* line 148, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-tabs__title {
   font-family: "Arial - Bold MT";
   font-weight: 700;
@@ -7959,7 +7974,7 @@ template {
   margin-top: 10px;
 }
 
-/* line 145, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 155, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-tabs__subtitle {
   color: #2e393f;
   font-family: Arial;
@@ -7968,13 +7983,13 @@ template {
   line-height: 23px;
 }
 
-/* line 151, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 161, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-comment {
   display: flex;
   margin-top: 15px;
 }
 
-/* line 154, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 164, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-comment__header {
   color: #2e393f;
   font-family: "Open Sans";
@@ -7984,7 +7999,7 @@ template {
   padding-left: 10px;
 }
 
-/* line 161, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 171, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-comment__title {
   color: #2e393f;
   font-family: Arial;
@@ -7992,7 +8007,7 @@ template {
   font-weight: 700;
 }
 
-/* line 166, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 176, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-comment__subtitle {
   color: #2e393f;
   font-family: Arial;
@@ -8000,7 +8015,7 @@ template {
   font-weight: 400;
 }
 
-/* line 171, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 181, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-comment__text {
   color: #2e393f;
   font-family: Arial;
@@ -8010,12 +8025,12 @@ template {
   margin-top: 15px;
 }
 
-/* line 178, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 188, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .auto_profile-comment__block {
   margin-left: 15px;
 }
 
-/* line 180, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 190, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel {
   width: 600px;
   height: 337px;
@@ -8023,7 +8038,7 @@ template {
   margin-top: 20px;
 }
 
-/* line 185, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 195, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 ul.slides {
   display: block;
   position: relative;
@@ -8034,7 +8049,7 @@ ul.slides {
   list-style: none;
 }
 
-/* line 194, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 204, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .slides * {
   user-select: none;
   -ms-user-select: none;
@@ -8044,17 +8059,17 @@ ul.slides {
   -webkit-touch-callout: none;
 }
 
-/* line 202, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 212, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 ul.slides input {
   display: none;
 }
 
-/* line 205, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 215, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .slide-container {
   display: block;
 }
 
-/* line 208, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 218, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .slide-image {
   display: block;
   position: absolute;
@@ -8065,14 +8080,14 @@ ul.slides input {
   transition: all .7s ease-in-out;
 }
 
-/* line 217, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 227, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .slide-image img {
   width: auto;
   min-width: 100%;
   height: 100%;
 }
 
-/* line 222, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 232, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-controls {
   position: absolute;
   top: 0;
@@ -8084,7 +8099,7 @@ ul.slides input {
   color: #fff;
 }
 
-/* line 232, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 242, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-controls label {
   display: none;
   position: absolute;
@@ -8094,31 +8109,31 @@ ul.slides input {
   cursor: pointer;
 }
 
-/* line 240, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 250, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .slide-image:hover + .carousel-controls label {
   opacity: 0.5;
 }
 
-/* line 244, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 254, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-controls label:hover {
   opacity: 1;
 }
 
-/* line 247, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 257, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-controls .prev-slide {
   width: 49%;
   text-align: left;
   left: 0;
 }
 
-/* line 252, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 262, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-controls .next-slide {
   width: 49%;
   text-align: right;
   right: 0;
 }
 
-/* line 257, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 267, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-dots {
   position: absolute;
   left: 0;
@@ -8128,7 +8143,7 @@ ul.slides input {
   text-align: center;
 }
 
-/* line 265, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 275, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 .carousel-dots .carousel-dot {
   display: inline-block;
   width: 30px;
@@ -8139,125 +8154,91 @@ ul.slides input {
   margin: 10px;
 }
 
-/* line 276, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 286, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 input:checked + .slide-container .slide-image {
   opacity: 1;
   transform: scale(1);
   transition: opacity 1s ease-in-out;
 }
 
-/* line 281, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 291, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 input:checked + .slide-container .carousel-controls label {
   display: block;
 }
 
-/* line 284, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 294, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 input#img-1:checked ~ .carousel-dots label#img-dot-1, input#img-2:checked ~ .carousel-dots label#img-dot-2, input#img-3:checked ~ .carousel-dots label#img-dot-3, input#img-4:checked ~ .carousel-dots label#img-dot-4, input#img-5:checked ~ .carousel-dots label#img-dot-5, input#img-6:checked ~ .carousel-dots label#img-dot-6 {
   opacity: 1;
 }
 
-/* line 287, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+/* line 297, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
 input:checked + .slide-container .nav label {
   display: block;
 }
 
-/* line 290, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate {
+/*rating */
+/* line 303, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+fieldset, label {
+  margin: 0;
+  padding: 0;
+}
+
+/****** Style Star Rating Widget **** */
+/* line 309, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating {
+  border: none;
   float: left;
-  height: 46px;
-  padding: 0 10px;
 }
 
-/* line 297, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate:not(:checked) > input {
-  position: absolute;
-  top: -9999px;
+/* line 314, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating > input {
+  display: none;
 }
 
-/* line 301, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate:not(:checked) > label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ccc;
-}
-
-/* line 310, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate:not(:checked) > label:before {
-  content: '★ ';
-}
-
-/* line 313, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate:not(:checked) > label:hover {
-  color: #deb217;
-}
-
-/* line 316, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate:not(:checked) > label:hover ~ label {
-  color: #deb217;
-}
-
-/* line 319, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate > input:checked ~ label {
-  color: #ffc700;
+/* line 317, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
 }
 
 /* line 324, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate > input:checked + label:hover, .rate > input:checked ~ label:hover {
-  color: #c59b08;
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
 }
 
-/* line 327, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover ~ label {
-  color: #c59b08;
-}
-
-/* line 330, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
+/* line 328, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating > label {
+  color: #ddd;
+  float: right;
 }
 
 /* line 332, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.circle-chart__circle {
-  animation: circle-chart-fill 2s reverse;
-  transform: rotate(-90deg);
-  transform-origin: center;
+.rating > input:checked ~ label {
+  color: #FFD700;
 }
 
-/* line 339, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.circle-chart__circle--negative {
-  transform: rotate(-90deg) scale(1, -1);
+/* line 335, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating:not(:checked) > label:hover {
+  color: #FFD700;
+}
+
+/* line 338, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700;
 }
 
 /* line 343, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.circle-chart__info {
-  animation: circle-chart-appear 2s forwards;
-  opacity: 0;
-  transform: translateY(0.3em);
+.rating > input:checked + label:hover, .rating > input:checked ~ label:hover {
+  color: #FFED85;
 }
 
-@keyframes circle-chart-fill {
-  to {
-    stroke-dasharray: 0 100;
-  }
-}
-
-@keyframes circle-chart-appear {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* line 357, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
-.grid {
-  display: grid;
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
-  grid-template-columns: repeat(1, 1fr);
+/* line 346, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_auto_profile.sass */
+.rating > label:hover ~ input:checked ~ label, .rating > input:checked ~ label:hover ~ label {
+  color: #FFED85;
 }
 
 /*# sourceMappingURL=style.css.map */

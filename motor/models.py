@@ -85,10 +85,36 @@ class AdvertiseComments(models.Model):
         return f'Комментарий {self.Name}'
 
     Name = models.CharField(max_length=30, verbose_name='Имя пользователя')
-    Email = models.CharField(max_length=30, verbose_name='Емейл пользователя', unique=True)
+    Email = models.CharField(max_length=30, verbose_name='Емейл пользователя')
     Comment = models.CharField(max_length=30, verbose_name='Комментарий пользователя')
     ID_Advertisement = models.CharField(max_length=30, verbose_name='Номер комментария')
     Time = models.DateTimeField(auto_now_add=True, blank=True)
+
+
+class Ratings(models.Model):
+    class Meta:
+        verbose_name_plural = 'Голосование'
+
+    def __str__(self):
+        return f'Комментарий {self.kuzov}'
+
+    kuzov = models.CharField(max_length=30, verbose_name='Целостность кузова')
+    kuzov_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    cover = models.CharField(max_length=30, verbose_name='Лакокрасочное покрытие')
+    cover_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    salon = models.CharField(max_length=30, verbose_name='Салон и интерьер')
+    salon_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    exterer = models.CharField(max_length=30, verbose_name='+1 пункт по экстерьеру')
+    exterer_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    electro = models.CharField(max_length=30, verbose_name='Электрооборудование')
+    electro_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    hod = models.CharField(max_length=30, verbose_name='Ходовая часть')
+    hod_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    motor = models.CharField(max_length=30, verbose_name='Двигатель')
+    motor_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    gearbox = models.CharField(max_length=30, verbose_name='Коробка передач')
+    gearbox_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
+    ID = models.CharField(max_length=30, verbose_name='Номер объявления')
 
 
 """
