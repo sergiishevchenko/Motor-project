@@ -361,7 +361,7 @@
                         <div class="auto_profile-info__text"><strong>Расположение:</strong>{{ note.YourCity }}</div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px">Написать продавцу</button>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px" onclick="window.location.href='mailto: {{ note.YourMail }}'">Написать продавцу</button>
             </div>
         </div>
     </div>
