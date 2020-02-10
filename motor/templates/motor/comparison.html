@@ -1,0 +1,43 @@
+{% extends "motor/base.html" %}
+
+{% block title %} <title>Motor</title> {% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="my_cabinet-header">Главная | Личный кабинет</div>
+        <div class="row">
+            <div class="col-3">
+                <div style="font-weight: 700; margin-bottom: 20px;">Показать:</div>
+                <input type="radio" name="name_check" value="value" class='choose' style="margin-bottom: 10px;"><span style="padding-left: 20px;">Все параметры</span><br>
+                <input type="radio" name="name_check" value="value" class='choose'><span style="padding-left: 20px;">Только отличия</span>
+            </div>
+            <div class="col-6">
+                <div class="my_cabinet-items">
+                    <div class="my_cabinet-items_item">
+                        {% load static %}
+                        <img src="{% static "img/main/mazda.png" %}" alt="mazda" style="width: 265px">
+                        <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                        <div class="my_cabinet-items_item-price">$ 31 900</div>
+                    </div>
+                    <div class="my_cabinet-items_item">
+                        {% load static %}
+                        <img src="{% static "img/main/mazda1.png" %}" alt="mazda1" style="width: 265px">
+                        <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                        <div class="my_cabinet-items_item-price">$ 31 900</div>
+                    </div>
+                    <div class="my_cabinet-items_item">
+                        {% load static %}
+                        <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
+                        <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                        <div class="my_cabinet-items_item-price">$ 31 900</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% endblock %}

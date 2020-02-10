@@ -15,10 +15,8 @@
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Списки сравнения</a>
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
                 </div>
-                <div>
-                    <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
-                    <button class="btn btn-outline-danger" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='user_page'">Вернуться в личный кабинет</button>
-                </div>
+                <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
+                <button class="btn btn-outline-danger" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='user_page'">Вернуться в личный кабинет</button>
             </div>
             <div class="col-7">
                 <div class="tab-content" id="v-pills-tabContent">
@@ -26,7 +24,7 @@
                         <div class="pills-item">
                             {% for note in notes %}
                             <div class="pills-item__header">
-                                <a href="{% url 'auto_profile' id=note.id %}"><div class="pills-item__header-name">{{ note.NameCar }}/{{ note.SeriaCar }}/{{ note.KuzovCar }}/{{ note.GenerationCar }}</div></a>
+                                <a href="{% url 'auto_profile' id=note.id %}" style="text-decoration: none"><div class="pills-item__header-name">{{ note.NameCar }}/{{ note.SeriaCar }}/{{ note.KuzovCar }}/{{ note.GenerationCar }}</div></a>
                                 <div class="pills-item__header-price">$ {{ note.PriceCar }}</div>
                             </div>
                             <div class="pills-item__car">
@@ -51,16 +49,16 @@
                                         </div>
                                     </div>
                                     <div class="pills-item__icons">
-                                        <div class="pills-item__icons-notebook">
+                                        <a class="pills-item__icons-notebook" href='user_page'>
                                             {% load static %}
-                                            <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
+                                            <img src="{% static "img/notebook/bloknot.png" %}" style="width: 15px; height: 15px" alt="notebook">
                                             <div class="pills-item__icons-text">В блокнот</div>
-                                        </div>
-                                        <div class="pills-item__icons-notebook">
+                                        </a>
+                                        <a class="pills-item__icons-notebook" href='user_page'>
                                             {% load static %}
-                                            <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
+                                            <img src="{% static "img/notebook/compare.png" %}" style="width: 15px; height: 15px" alt="compare">
                                             <div class="pills-item__icons-text">В сравнение</div>
-                                        </div>
+                                        </a>
                                         <div class="pills-item__icons-notebook">
                                             {% load static %}
                                             <img src="{% static "img/settings.png" %}" style="width: 17px; height: 17px" alt="settings">
