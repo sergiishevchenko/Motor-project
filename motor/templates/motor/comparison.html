@@ -13,31 +13,78 @@
                 <input type="radio" name="name_check" value="value" class='choose' style="margin-bottom: 10px;"><span style="padding-left: 20px;">Все параметры</span><br>
                 <input type="radio" name="name_check" value="value" class='choose'><span style="padding-left: 20px;">Только отличия</span>
             </div>
-            <div class="col-6">
-                <div class="my_cabinet-items">
-                    <div class="my_cabinet-items_item">
+            <div id="carousel-example" class="carousel slide" data-ride="carousel" style="width: 70%">
+                <div class="carousel-inner" role="listbox" style="display: flex;">
+                    <div class="carousel-item active">
                         {% load static %}
                         <img src="{% static "img/main/mazda.png" %}" alt="mazda" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
-                    <div class="my_cabinet-items_item">
+                    <div class="carousel-item">
                         {% load static %}
                         <img src="{% static "img/main/mazda1.png" %}" alt="mazda1" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
-                    <div class="my_cabinet-items_item">
+                    <div class="carousel-item">
+                        {% load static %}
+                        <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
+                        <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                        <div class="my_cabinet-items_item-price">$ 31 900</div>
+                    </div>
+                    <div class="carousel-item">
+                        {% load static %}
+                        <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
+                        <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
+                        <div class="my_cabinet-items_item-price">$ 31 900</div>
+                    </div>
+                    <div class="carousel-item">
                         {% load static %}
                         <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
                 </div>
+                <div class="buttons-slider" style="display: flex; position: absolute; width: 50px;">
+                    <div class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                        {% load static %}
+                        <img src="{% static "img/arrow_left.png" %}" alt="left">
+                    </div>
+                    <div class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                        {% load static %}
+                        <img src="{% static "img/arrow_right.png" %}" alt="right">
+                    </div>
+                </div>
             </div>
         </div>
-        
     </div>
 </section>
-
+{% load static %}
+<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery-migrate-3.0.0.min.js' %}"></script>
+<script>
+$('#carousel-example').on('slide.bs.carousel', function (e) {
+    /*
+        CC 2.0 License Iatek LLC 2018 - Attribution required
+    */
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 5;
+    var totalItems = $('.carousel-item').length;
+ 
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+});
+</script>
 {% endblock %}
