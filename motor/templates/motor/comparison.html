@@ -13,33 +13,33 @@
                 <input type="radio" name="name_check" value="value" class='choose' style="margin-bottom: 10px;"><span style="padding-left: 20px;">Все параметры</span><br>
                 <input type="radio" name="name_check" value="value" class='choose'><span style="padding-left: 20px;">Только отличия</span>
             </div>
-            <div id="carousel-example" class="carousel slide" data-ride="carousel" style="width: 70%">
+            <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false" style="width: 70%">
                 <div class="carousel-inner" role="listbox" style="display: flex;">
-                    <div class="carousel-item active">
+                    <div class="carousel-item active" style="margin-left: 18px">
                         {% load static %}
                         <img src="{% static "img/main/mazda.png" %}" alt="mazda" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item" style="margin-left: 18px">
                         {% load static %}
                         <img src="{% static "img/main/mazda1.png" %}" alt="mazda1" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item" style="margin-left: 18px">
                         {% load static %}
                         <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item" style="margin-left: 18px">
                         {% load static %}
                         <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
                         <div class="my_cabinet-items_item-price">$ 31 900</div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item" style="margin-left: 18px">
                         {% load static %}
                         <img src="{% static "img/main/mazda2.png" %}" alt="mazda2" style="width: 265px">
                         <div class="my_cabinet-items_item-title">BMW 5 серия 523, E39</div>
@@ -58,16 +58,165 @@
                 </div>
             </div>
         </div>
+        <div class="comparison">
+            <div class="comparison-block">
+                <div class="comparison-block__title">ОСНОВНЫЕ ХАРАКТЕРИСТИКИ</div>
+            </div>
+            <div class="comparison-data">
+                <div class="comparison-data__title">
+                    <div class="comparison-data__title-item">Год выпуска</div>
+                    <div class="comparison-data__title-item">Пробег</div>
+                    <div class="comparison-data__title-item">Кузов</div>
+                    <div class="comparison-data__title-item">Цвет</div>
+                    <div class="comparison-data__title-item">Двигатель</div>
+                    <div class="comparison-data__title-item">Коробка</div>
+                    <div class="comparison-data__title-item">Привод</div>
+                    <div class="comparison-data__title-item">Руль</div>
+                    <div class="comparison-data__title-item">Состояние</div>
+                    <div class="comparison-data__title-item">Владельцы</div>
+                    <div class="comparison-data__title-item">ПТС</div>
+                    <div class="comparison-data__title-item">Владение</div>
+                    <div class="comparison-data__title-item">Таможня</div>
+                    <div class="comparison-data__title-item">Обмен</div>
+                </div>
+                <div class="comparison-data__text1">
+                    <div class="comparison-data__text-item">1986</div>
+                    <div class="comparison-data__text-item">100 000 км</div>
+                    <div class="comparison-data__text-item">Седан</div>
+                    <div class="comparison-data__text-item">Чёрный</div>
+                    <div class="comparison-data__text-item">1.8 л/90 л.с./бензин</div>
+                    <div class="comparison-data__text-item">Механическая</div>
+                    <div class="comparison-data__text-item">Задний</div>
+                    <div class="comparison-data__text-item">Левый</div>
+                    <div class="comparison-data__text-item">Не требует ремонта</div>
+                    <div class="comparison-data__text-item">2 владельца</div>
+                    <div class="comparison-data__text-item">Оригинал</div>
+                    <div class="comparison-data__text-item">2 года</div>
+                    <div class="comparison-data__text-item">Растаможен</div>
+                    <div class="comparison-data__text-item">Рассмотрю варианты</div>
+                </div>
+                <div class="comparison-data__text2">
+                    <div class="comparison-data__text-item">1986</div>
+                    <div class="comparison-data__text-item">100 000 км</div>
+                    <div class="comparison-data__text-item">Седан</div>
+                    <div class="comparison-data__text-item">Чёрный</div>
+                    <div class="comparison-data__text-item">1.8 л/90 л.с./бензин</div>
+                    <div class="comparison-data__text-item">Механическая</div>
+                    <div class="comparison-data__text-item">Задний</div>
+                    <div class="comparison-data__text-item">Левый</div>
+                    <div class="comparison-data__text-item">Не требует ремонта</div>
+                    <div class="comparison-data__text-item">2 владельца</div>
+                    <div class="comparison-data__text-item">Оригинал</div>
+                    <div class="comparison-data__text-item">2 года</div>
+                    <div class="comparison-data__text-item">Растаможен</div>
+                    <div class="comparison-data__text-item">Рассмотрю варианты</div>
+                </div>
+                <div class="comparison-data__text3">
+                    <div class="comparison-data__text-item">1986</div>
+                    <div class="comparison-data__text-item">100 000 км</div>
+                    <div class="comparison-data__text-item">Седан</div>
+                    <div class="comparison-data__text-item">Чёрный</div>
+                    <div class="comparison-data__text-item">1.8 л/90 л.с./бензин</div>
+                    <div class="comparison-data__text-item">Механическая</div>
+                    <div class="comparison-data__text-item">Задний</div>
+                    <div class="comparison-data__text-item">Левый</div>
+                    <div class="comparison-data__text-item">Не требует ремонта</div>
+                    <div class="comparison-data__text-item">2 владельца</div>
+                    <div class="comparison-data__text-item">Оригинал</div>
+                    <div class="comparison-data__text-item">2 года</div>
+                    <div class="comparison-data__text-item">Растаможен</div>
+                    <div class="comparison-data__text-item">Рассмотрю варианты</div>
+                </div>
+            </div>
+        </div>
+        <div class="comparison">
+            <div class="comparison-block">
+                <div class="comparison-block__title">МУЛЬТИМЕДИЯ И ЭЛЕКТРОНИКА</div>
+            </div>
+            <div class="comparison-data">
+                <div class="comparison-data__title">
+                    <div class="comparison-data__title-item">Аудиосистема</div>
+                    <div class="comparison-data__title-item">Опции</div>
+                    <div class="comparison-data__title-item">Штатная система</div>
+                </div>
+                <div class="comparison-data__text1">
+                    <div class="comparison-data__text-item">Bluetooth</div>
+                    <div class="comparison-data__text-item">Голосовое управление</div>
+                    <div class="comparison-data__text-item">Штатная аудиосистема с TV</div>
+                </div>
+                <div class="comparison-data__text2">
+                    <div class="comparison-data__text-item">Bluetooth</div>
+                    <div class="comparison-data__text-item">Голосовое управление</div>
+                    <div class="comparison-data__text-item">Штатная аудиосистема с TV</div>
+                </div>
+                <div class="comparison-data__text3">
+                    <div class="comparison-data__text-item">Bluetooth</div>
+                    <div class="comparison-data__text-item">Голосовое управление</div>
+                    <div class="comparison-data__text-item">Штатная аудиосистема с TV</div>
+                </div>
+            </div>
+        </div>
+        <div class="comparison">
+            <div class="comparison-block">
+                <div class="comparison-block__title">КОМФОРТ</div>
+            </div>
+            <div class="comparison-data">
+                <div class="comparison-data__title">
+                    <div class="comparison-data__title-item">Опция №1</div>
+                    <div class="comparison-data__title-item">Опция №2</div>
+                    <div class="comparison-data__title-item">Опция №3</div>
+                </div>
+                <div class="comparison-data__text1">
+                    <div class="comparison-data__text-item">Бортовой компьютер</div>
+                    <div class="comparison-data__text-item">Обогрев сидений</div>
+                    <div class="comparison-data__text-item">Усилитель руля</div>
+                </div>
+                <div class="comparison-data__text2">
+                    <div class="comparison-data__text-item">Бортовой компьютер</div>
+                    <div class="comparison-data__text-item">Обогрев сидений</div>
+                    <div class="comparison-data__text-item">Усилитель руля</div>
+                </div>
+                <div class="comparison-data__text3">
+                    <div class="comparison-data__text-item">Бортовой компьютер</div>
+                    <div class="comparison-data__text-item">Обогрев сидений</div>
+                    <div class="comparison-data__text-item">Усилитель руля</div>
+                </div>
+            </div>
+        </div>
+        <div class="comparison">
+            <div class="comparison-block">
+                <div class="comparison-block__title">БЕЗОПАСНОСТЬ</div>
+            </div>
+            <div class="comparison-data">
+                <div class="comparison-data__title">
+                    <div class="comparison-data__title-item">Опции</div>
+                    <div class="comparison-data__title-item">Подушки безопасности</div>
+                    <div class="comparison-data__title-item">Система контроля</div>
+                </div>
+                <div class="comparison-data__text1">
+                    <div class="comparison-data__title-item">ABS</div>
+                    <div class="comparison-data__title-item">Подушки безопасности боковые</div>
+                    <div class="comparison-data__title-item">Система ночного видения</div>
+                </div>
+                <div class="comparison-data__text2">
+                    <div class="comparison-data__title-item">ABS</div>
+                    <div class="comparison-data__title-item">Подушки безопасности боковые</div>
+                    <div class="comparison-data__title-item">Система ночного видения</div>
+                </div>
+                <div class="comparison-data__text3">
+                    <div class="comparison-data__title-item">ABS</div>
+                    <div class="comparison-data__title-item">Подушки безопасности боковые</div>
+                    <div class="comparison-data__title-item">Система ночного видения</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% load static %}
 <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'assets/js/jquery-migrate-3.0.0.min.js' %}"></script>
-<script>
+<!-- <script>
 $('#carousel-example').on('slide.bs.carousel', function (e) {
-    /*
-        CC 2.0 License Iatek LLC 2018 - Attribution required
-    */
     var $e = $(e.relatedTarget);
     var idx = $e.index();
     var itemsPerSlide = 5;
@@ -86,5 +235,5 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
         }
     }
 });
-</script>
+</script> -->
 {% endblock %}

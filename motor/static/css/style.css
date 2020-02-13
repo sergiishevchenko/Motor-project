@@ -8267,4 +8267,54 @@ fieldset, label {
   right: 0px;
 }
 
+/* line 7, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison {
+  margin-bottom: 5px;
+}
+
+/* line 9, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-block {
+  background-color: #9ee5fb;
+  padding-left: 20px;
+  height: 50px;
+  padding-top: 8px;
+}
+
+/* line 14, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-block__title {
+  border-left: 4px solid #1c2931;
+  padding-left: 10px;
+  color: #1c2931;
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: 700;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 23, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-data {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 30, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-data__title {
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+/* line 35, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-data__text1, .comparison-data__text2, .comparison-data__text3 {
+  font-size: 16px;
+  font-family: Helvetica;
+  line-height: 30px;
+}
+
 /*# sourceMappingURL=style.css.map */
