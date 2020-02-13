@@ -8290,9 +8290,42 @@ fieldset, label {
   font-weight: 700;
   padding-top: 5px;
   padding-bottom: 5px;
+  position: relative;
 }
 
-/* line 23, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+/* line 24, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-block__title::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 18px;
+  height: 4px;
+  background-color: #1c2931;
+  transform: rotate(-27deg);
+  top: 20px;
+  right: 15px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 37, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+.comparison-block__title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 18px;
+  height: 4px;
+  background-color: #1c2931;
+  transform: rotate(-152deg);
+  top: 20px;
+  right: 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* line 50, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
 .comparison-data {
   display: flex;
   justify-content: space-between;
@@ -8302,7 +8335,7 @@ fieldset, label {
   margin-bottom: 15px;
 }
 
-/* line 30, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+/* line 57, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
 .comparison-data__title {
   font-size: 16px;
   font-family: Helvetica;
@@ -8310,7 +8343,7 @@ fieldset, label {
   line-height: 30px;
 }
 
-/* line 35, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
+/* line 62, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/blocks/_comparison.sass */
 .comparison-data__text1, .comparison-data__text2, .comparison-data__text3 {
   font-size: 16px;
   font-family: Helvetica;
