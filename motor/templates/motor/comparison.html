@@ -59,8 +59,9 @@
             </div>
         </div>
         <div class="comparison">
-            <div class="comparison-block">
+            <div class="comparison-block" id="container">
                 <div class="comparison-block__title">ОСНОВНЫЕ ХАРАКТЕРИСТИКИ</div>
+                <a><div id="icon" class="fa fa-chevron-down rotate"></div></a>
             </div>
             <div class="comparison-data">
                 <div class="comparison-data__title">
@@ -130,8 +131,9 @@
             </div>
         </div>
         <div class="comparison">
-            <div class="comparison-block">
+            <div class="comparison-block" id="container1">
                 <div class="comparison-block__title">МУЛЬТИМЕДИЯ И ЭЛЕКТРОНИКА</div>
+                <a><div id="icon1" class="fa fa-chevron-down rotate"></div></a>
             </div>
             <div class="comparison-data">
                 <div class="comparison-data__title">
@@ -157,8 +159,9 @@
             </div>
         </div>
         <div class="comparison">
-            <div class="comparison-block">
+            <div class="comparison-block" id="container2">
                 <div class="comparison-block__title">КОМФОРТ</div>
+                <a><div id="icon2" class="fa fa-chevron-down rotate"></div></a>
             </div>
             <div class="comparison-data">
                 <div class="comparison-data__title">
@@ -184,8 +187,9 @@
             </div>
         </div>
         <div class="comparison">
-            <div class="comparison-block">
+            <div class="comparison-block" id="container3">
                 <div class="comparison-block__title">БЕЗОПАСНОСТЬ</div>
+                <a><div id="icon3" class="fa fa-chevron-down rotate"></div></a>
             </div>
             <div class="comparison-data">
                 <div class="comparison-data__title">
@@ -236,4 +240,82 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     }
 });
 </script> -->
+<script>
+(function(document){
+  var div = document.getElementById('container');
+  var icon = document.getElementById('icon');
+  var open = false;
+  
+  div.addEventListener('click', function(){
+    if(open){
+      icon.className = 'fa fa-chevron-down';  
+    } else{
+      icon.className = 'fa fa-chevron-down open';
+    }
+    
+    open = !open;
+  });
+})(document);
+
+(function(document){
+  var div1 = document.getElementById('container1');
+  var icon1 = document.getElementById('icon1');
+  var open = false;
+  
+  div1.addEventListener('click', function(){
+    if(open){
+      icon1.className = 'fa fa-chevron-down';  
+    } else{
+      icon1.className = 'fa fa-chevron-down open';
+    }
+    
+    open = !open;
+  });
+})(document);
+
+(function(document){
+  var div2 = document.getElementById('container2');
+  var icon2 = document.getElementById('icon2');
+  var open = false;
+  
+  div2.addEventListener('click', function(){
+    if(open){
+      icon2.className = 'fa fa-chevron-down';  
+    } else{
+      icon2.className = 'fa fa-chevron-down open';
+    }
+    
+    open = !open;
+  });
+})(document);
+
+(function(document){
+  var div3 = document.getElementById('container3');
+  var icon3 = document.getElementById('icon3');
+  var open = false;
+  
+  div3.addEventListener('click', function(){
+    if(open){
+      icon3.className = 'fa fa-chevron-down';  
+    } else{
+      icon3.className = 'fa fa-chevron-down open';
+    }
+    
+    open = !open;
+  });
+})(document);
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+<script>
+$(function() {
+
+    $('.comparison-block').click(function(e) {
+        e.stopPropagation();
+        $(this).next().toggle();
+    });
+    
+});
+</script>
 {% endblock %}
