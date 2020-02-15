@@ -444,8 +444,10 @@ def auto_profile(request, id):
     note = AdvertiseCar.objects.filter(id=id)[0]
     comments = AdvertiseComments.objects.filter(ID_Advertisement=id)
     all_ratings = Ratings.objects.filter(ID=id)
-    print(all_ratings)
-    last_rating = all_ratings[len(all_ratings) - 1]
+    if len(all_ratings) > 0:
+        last_rating = all_ratings[len(all_ratings) - 1]
+    else:
+        last_rating = []
     if request.method == 'POST':
         save_form = SaveFormComments(request.POST)
         rating_form = SaveFormRating(request.POST)
