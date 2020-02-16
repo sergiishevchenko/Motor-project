@@ -16,6 +16,7 @@
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
                 </div>
                 <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
+                <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='comparison'">К списку сравнения</button>
                 <button class="btn btn-outline-danger" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='user_page'">Вернуться в личный кабинет</button>
             </div>
             <div class="col-7">
@@ -49,12 +50,12 @@
                                         </div>
                                     </div>
                                     <div class="pills-item__icons">
-                                        <a class="pills-item__icons-notebook" href='user_page'>
+                                        <a class="pills-item__icons-notebook" data-toggle="modal" data-target="#modal-notebook">
                                             {% load static %}
                                             <img src="{% static "img/notebook/bloknot.png" %}" style="width: 15px; height: 15px" alt="notebook">
                                             <div class="pills-item__icons-text">В блокнот</div>
                                         </a>
-                                        <a class="pills-item__icons-notebook" href='/'>
+                                        <a class="pills-item__icons-notebook" data-toggle="modal" data-target="#modal-comparison">
                                             {% load static %}
                                             <img src="{% static "img/notebook/compare.png" %}" style="width: 15px; height: 15px" alt="compare">
                                             <div class="pills-item__icons-text">В сравнение</div>
