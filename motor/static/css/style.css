@@ -499,7 +499,7 @@ template {
 }
 
 /* line 75, ../../../../../Users/serg/Desktop/projects/motor-website/Motor-website/motor/static/sass/_interface.sass */
-.nav-item:hover, .nav-link:hover {
+.nav-item:hover {
   background: #d7dadc;
 }
 

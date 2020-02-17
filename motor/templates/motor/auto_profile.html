@@ -18,12 +18,12 @@
                                 <img src="{% static "img/cabinet/glass.png" %}" style="width: 20px; height: 14px" alt="glass">
                                 <div class="auto_profile-subtitle__text">285 (18 сегодня)</div>
                             </div>
-                            <a class="auto_profile-subtitle__notebook" href='/' style="width: 120px;">
+                            <a class="auto_profile-subtitle__notebook" data-toggle="modal" data-target="#modal-notebook" style="width: 120px;">
                                 {% load static %}
                                 <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 14px" alt="notebook">
                                 <div class="auto_profile-subtitle__text">В блокнот</div>
                             </a>
-                            <a class="auto_profile-subtitle__notebook" href='/'>
+                            <a class="auto_profile-subtitle__notebook" data-toggle="modal" data-target="#modal-comparison">
                                 {% load static %}
                                 <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 14px" alt="compare">
                                 <div class="auto_profile-subtitle__text">В сравнение</div>

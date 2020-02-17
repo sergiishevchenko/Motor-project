@@ -126,7 +126,7 @@ def index(request):
                     'model_series_sum': model_series_sum,
                     'models_infinity': models_infinity,
                     'models_cars': models_cars}
-    return render(request, 'motor/comparison.html', params)
+    return render(request, 'motor/index.html', params)
 
 
 def auto(request):
@@ -323,6 +323,11 @@ def LK(request):
     notes = AdvertiseCar.objects.filter(ID_id=user_id)
     params = {'notes': notes}
     return render(request, 'motor/LK.html', params)
+
+
+@login_required
+def comparison(request):
+    return render(request, 'motor/comparison.html')
 
 
 @login_required
