@@ -119,3 +119,11 @@ class SaveFormRating(forms.Form):
     hod = forms.CharField(max_length=150)
     motor = forms.CharField(max_length=150)
     gearbox = forms.CharField(max_length=150)
+
+
+class SaveFormNotebook(forms.Form):
+    to_notebook = forms.CharField(max_length=150)
+
+
+class SaveFormComparison(forms.Form):
+    to_comparison = forms.CharField(max_length=150)

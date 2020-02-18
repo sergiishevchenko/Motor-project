@@ -117,6 +117,14 @@ class Ratings(models.Model):
     ID = models.CharField(max_length=30, verbose_name='Номер объявления')
 
 
+class ComparisonFirst(models.Model):
+    ID_Advertisement = models.CharField(max_length=30, verbose_name='Номер объявления')
+
+
+class ComparisonGeneral(models.Model):
+    ID_LIST = models.CharField(max_length=30, verbose_name='Номер списка сравнения')
+
+
 """
 class LoginAttempt(models.Model):
     LoginAttemptID

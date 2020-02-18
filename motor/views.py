@@ -321,6 +321,7 @@ def add_kuzov(request, car, seria, year, kuzov):
 def LK(request):
     user_id = request.session.get('user_id', None)
     notes = AdvertiseCar.objects.filter(ID_id=user_id)
+
     params = {'notes': notes}
     return render(request, 'motor/LK.html', params)
 
