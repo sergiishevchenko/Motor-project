@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormComments, SaveFormRating
-from .models import User, AdvertiseCar, AdvertiseComments, Ratings
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormComments, SaveFormRating, SaveFormComparison
+from .models import User, AdvertiseCar, AdvertiseComments, Ratings, ComparisonFirst, ComparisonGeneral
 from django.http import Http404
 import logging
 from django.contrib.auth.decorators import login_required
@@ -321,14 +321,37 @@ def add_kuzov(request, car, seria, year, kuzov):
 def LK(request):
     user_id = request.session.get('user_id', None)
     notes = AdvertiseCar.objects.filter(ID_id=user_id)
-
+    if request.method == 'POST':
+        save_form = SaveFormComparison(request.POST)
+        advertisements = []
+        for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
+            advertisements.append(item[0])
+        if save_form.is_valid():
+            comparisons = ComparisonFirst()
+            if save_form.data.get('to_comparison') not in advertisements:
+                comparisons.ID_Advertisement = save_form.data.get('to_comparison', None)
+                comparisons.ID_User = user_id
+                comparisons.save()
     params = {'notes': notes}
     return render(request, 'motor/LK.html', params)
 
 
 @login_required
 def comparison(request):
-    return render(request, 'motor/comparison.html')
+    user_id = request.session.get('user_id', None)
+    advertisements = []
+    for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
+        advertisements.append(item[0])
+    list_comparison = []
+    for i in advertisements:
+        list_comparison.append(AdvertiseCar.objects.filter(id=i)[0])
+    new_list = ComparisonGeneral()
+    new_list.ID_LIST = advertisements
+    new_list.ID_User = user_id
+    new_list.save()
+    ComparisonFirst.objects.all().delete()
+    params = {'list_comparison': list_comparison}
+    return render(request, 'motor/comparison.html', params)
 
 
 @login_required

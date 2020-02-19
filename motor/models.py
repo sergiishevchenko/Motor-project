@@ -119,10 +119,12 @@ class Ratings(models.Model):
 
 class ComparisonFirst(models.Model):
     ID_Advertisement = models.CharField(max_length=30, verbose_name='Номер объявления')
+    ID_User = models.CharField(max_length=30, verbose_name='Номер пользователя')
 
 
 class ComparisonGeneral(models.Model):
-    ID_LIST = models.CharField(max_length=30, verbose_name='Номер списка сравнения')
+    ID_LIST = models.CharField(max_length=30, verbose_name='Список сравнения объявлений')
+    ID_User = models.CharField(max_length=30, verbose_name='Номер пользователя')
 
 
 """
