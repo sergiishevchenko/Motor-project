@@ -15,11 +15,11 @@
             </div>
             <div class="my_cabinet-items" role="listbox" style="width: 70%; margin-bottom: 20px;">
                 {% for advertise in list_comparison %}
-                <div class="my_cabinet-items-item" style="margin-left: 18px">
-                    <img src="/media/{{ advertise.ImageCar }}" alt="picture" style="width: 265px; height: 175px">
+                <a class="my_cabinet-items-item" style="margin-left: 18px; text-decoration: none;" href="{% url 'auto_profile' id=advertise.id %}">
+                    <img src="/media/{{ advertise.ImageCar }}" alt="picture" style="width: 265px; height: 175px; margin-top: 10px">
                     <div class="my_cabinet-items_item-title">{{ advertise.NameCar }} {{ advertise.SeriaCar }} {{ advertise.KuzovCar }}</div>
                     <div class="my_cabinet-items_item-price">$ {{ advertise.PriceCar }}</div>
-                </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
@@ -45,54 +45,24 @@
                     <div class="comparison-data__title-item">Таможня</div>
                     <div class="comparison-data__title-item">Обмен</div>
                 </div>
+                {% for advertise in list_comparison %}
                 <div class="comparison-data__text1">
-                    <div class="comparison-data__text-item">1986</div>
-                    <div class="comparison-data__text-item">100 000 км</div>
-                    <div class="comparison-data__text-item">Седан</div>
-                    <div class="comparison-data__text-item">Чёрный</div>
-                    <div class="comparison-data__text-item">1.8 л/90 л.с./бензин</div>
-                    <div class="comparison-data__text-item">Механическая</div>
-                    <div class="comparison-data__text-item">Задний</div>
-                    <div class="comparison-data__text-item">Левый</div>
-                    <div class="comparison-data__text-item">Не требует ремонта</div>
-                    <div class="comparison-data__text-item">2 владельца</div>
-                    <div class="comparison-data__text-item">Оригинал</div>
-                    <div class="comparison-data__text-item">2 года</div>
-                    <div class="comparison-data__text-item">Растаможен</div>
-                    <div class="comparison-data__text-item">Рассмотрю варианты</div>
+                    <div class="comparison-data__text-item">{{ advertise.YearCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.RunCar }} км</div>
+                    <div class="comparison-data__text-item">{{ advertise.KuzovCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.ColorCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.ModificationCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.GearCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.MotorCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.WheelCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.RemontCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.OwnerCar }} владельца</div>
+                    <div class="comparison-data__text-item">{{ advertise.PasswordCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.YearBuyCar }} года</div>
+                    <div class="comparison-data__text-item">{{ advertise.CustomCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.ChangeCar }}</div>
                 </div>
-                <div class="comparison-data__text2">
-                    <div class="comparison-data__text-item">1986</div>
-                    <div class="comparison-data__text-item">100 000 км</div>
-                    <div class="comparison-data__text-item">Седан</div>
-                    <div class="comparison-data__text-item">Чёрный</div>
-                    <div class="comparison-data__text-item">1.8 л/90 л.с./бензин</div>
-                    <div class="comparison-data__text-item">Механическая</div>
-                    <div class="comparison-data__text-item">Задний</div>
-                    <div class="comparison-data__text-item">Левый</div>
-                    <div class="comparison-data__text-item">Не требует ремонта</div>
-                    <div class="comparison-data__text-item">2 владельца</div>
-                    <div class="comparison-data__text-item">Оригинал</div>
-                    <div class="comparison-data__text-item">2 года</div>
-                    <div class="comparison-data__text-item">Растаможен</div>
-                    <div class="comparison-data__text-item">Рассмотрю варианты</div>
-                </div>
-                <div class="comparison-data__text3">
-                    <div class="comparison-data__text-item">1986</div>
-                    <div class="comparison-data__text-item">100 000 км</div>
-                    <div class="comparison-data__text-item">Седан</div>
-                    <div class="comparison-data__text-item">Чёрный</div>
-                    <div class="comparison-data__text-item">1.8 л/90 л.с./бензин</div>
-                    <div class="comparison-data__text-item">Механическая</div>
-                    <div class="comparison-data__text-item">Задний</div>
-                    <div class="comparison-data__text-item">Левый</div>
-                    <div class="comparison-data__text-item">Не требует ремонта</div>
-                    <div class="comparison-data__text-item">2 владельца</div>
-                    <div class="comparison-data__text-item">Оригинал</div>
-                    <div class="comparison-data__text-item">2 года</div>
-                    <div class="comparison-data__text-item">Растаможен</div>
-                    <div class="comparison-data__text-item">Рассмотрю варианты</div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="comparison">
@@ -106,21 +76,13 @@
                     <div class="comparison-data__title-item">Опции</div>
                     <div class="comparison-data__title-item">Штатная система</div>
                 </div>
+                {% for advertise in list_comparison %}
                 <div class="comparison-data__text1">
-                    <div class="comparison-data__text-item">Bluetooth</div>
-                    <div class="comparison-data__text-item">Голосовое управление</div>
-                    <div class="comparison-data__text-item">Штатная аудиосистема с TV</div>
+                    <div class="comparison-data__text-item">{{ advertise.MediaCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.MediaSystemCar }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.MediaAudioSystemCar }}</div>
                 </div>
-                <div class="comparison-data__text2">
-                    <div class="comparison-data__text-item">Bluetooth</div>
-                    <div class="comparison-data__text-item">Голосовое управление</div>
-                    <div class="comparison-data__text-item">Штатная аудиосистема с TV</div>
-                </div>
-                <div class="comparison-data__text3">
-                    <div class="comparison-data__text-item">Bluetooth</div>
-                    <div class="comparison-data__text-item">Голосовое управление</div>
-                    <div class="comparison-data__text-item">Штатная аудиосистема с TV</div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="comparison">
@@ -134,21 +96,13 @@
                     <div class="comparison-data__title-item">Опция №2</div>
                     <div class="comparison-data__title-item">Опция №3</div>
                 </div>
+                {% for advertise in list_comparison %}
                 <div class="comparison-data__text1">
-                    <div class="comparison-data__text-item">Бортовой компьютер</div>
-                    <div class="comparison-data__text-item">Обогрев сидений</div>
-                    <div class="comparison-data__text-item">Усилитель руля</div>
+                    <div class="comparison-data__text-item">{{ advertise.ComfortCar1 }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.ComfortCar2 }}</div>
+                    <div class="comparison-data__text-item">{{ advertise.ComfortCar3 }}</div>
                 </div>
-                <div class="comparison-data__text2">
-                    <div class="comparison-data__text-item">Бортовой компьютер</div>
-                    <div class="comparison-data__text-item">Обогрев сидений</div>
-                    <div class="comparison-data__text-item">Усилитель руля</div>
-                </div>
-                <div class="comparison-data__text3">
-                    <div class="comparison-data__text-item">Бортовой компьютер</div>
-                    <div class="comparison-data__text-item">Обогрев сидений</div>
-                    <div class="comparison-data__text-item">Усилитель руля</div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="comparison">
@@ -162,21 +116,13 @@
                     <div class="comparison-data__title-item">Подушки безопасности</div>
                     <div class="comparison-data__title-item">Система контроля</div>
                 </div>
+                {% for advertise in list_comparison %}
                 <div class="comparison-data__text1">
-                    <div class="comparison-data__title-item">ABS</div>
-                    <div class="comparison-data__title-item">Подушки безопасности боковые</div>
-                    <div class="comparison-data__title-item">Система ночного видения</div>
+                    <div class="comparison-data__title-item">{{ advertise.SecurityCar1 }}</div>
+                    <div class="comparison-data__title-item">{{ advertise.SecurityCar2 }}</div>
+                    <div class="comparison-data__title-item">{{ advertise.SecurityCar3 }}</div>
                 </div>
-                <div class="comparison-data__text2">
-                    <div class="comparison-data__title-item">ABS</div>
-                    <div class="comparison-data__title-item">Подушки безопасности боковые</div>
-                    <div class="comparison-data__title-item">Система ночного видения</div>
-                </div>
-                <div class="comparison-data__text3">
-                    <div class="comparison-data__title-item">ABS</div>
-                    <div class="comparison-data__title-item">Подушки безопасности боковые</div>
-                    <div class="comparison-data__title-item">Система ночного видения</div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
