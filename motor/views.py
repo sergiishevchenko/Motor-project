@@ -326,6 +326,12 @@ def add_kuzov(request, car, seria, year, kuzov):
 def LK(request):
     user_id = request.session.get('user_id', None)
     notes = AdvertiseCar.objects.filter(ID_id=user_id)
+    result = []
+    for item in ComparisonGeneral.objects.all().values_list('ID_LIST'):
+        group = []
+        result.append(group)
+        for i in item[0]:
+            group.append(AdvertiseCar.objects.filter(id=i)[0])
     if request.method == 'POST':
         save_form = SaveFormComparison(request.POST)
         advertisements = []
@@ -337,7 +343,8 @@ def LK(request):
                 comparisons.ID_Advertisement = save_form.data.get('to_comparison', None)
                 comparisons.ID_User = user_id
                 comparisons.save()
-    params = {'notes': notes}
+    params = {'notes': notes,
+                'result': result}
     return render(request, 'motor/LK.html', params)
 
 

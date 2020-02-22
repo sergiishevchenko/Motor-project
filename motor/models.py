@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 
 class User(models.Model):
@@ -128,7 +129,7 @@ class ComparisonFirst(models.Model):
 
 
 class ComparisonGeneral(models.Model):
-    ID_LIST = models.CharField(max_length=30, verbose_name='Список сравнения объявлений')
+    ID_LIST = ArrayField(models.CharField(max_length=200), blank=True)
     ID_User = models.CharField(max_length=30, verbose_name='Номер пользователя')
 
 
