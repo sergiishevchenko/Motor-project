@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 
 class User(models.Model):
@@ -65,6 +66,11 @@ class AdvertiseCar(models.Model):
     SecurityCar3 = models.CharField(max_length=55, verbose_name='Безопасность3 автомобиля')
     BuyYearCar = models.CharField(max_length=55, verbose_name='Год покупки автомобиля')
     BuyMonthCar = models.CharField(max_length=55, verbose_name='Месяц покупки автомобиля')
+    WheelCar = models.CharField(max_length=55, verbose_name='Расположение руля')
+    RemontCar = models.CharField(max_length=55, verbose_name='Нужен ли ремонт?')
+    PasswordCar = models.CharField(max_length=55, verbose_name='ПТС')
+    CustomCar = models.CharField(max_length=55, verbose_name='Нужна ли растаможка?')
+    ChangeCar = models.CharField(max_length=55, verbose_name='Нужна ли растаможка?')
     RunCar = models.CharField(max_length=55, verbose_name='Пробег автомобиля')
     PriceCar = models.CharField(max_length=55, verbose_name='Цена автомобиля')
     OwnerCar = models.CharField(max_length=55, verbose_name='Владелец автомобиля')
@@ -115,6 +121,16 @@ class Ratings(models.Model):
     gearbox = models.CharField(max_length=30, verbose_name='Коробка передач')
     gearbox_average = models.CharField(max_length=30, verbose_name='Целостность кузова (среднее)')
     ID = models.CharField(max_length=30, verbose_name='Номер объявления')
+
+
+class ComparisonFirst(models.Model):
+    ID_Advertisement = models.CharField(max_length=30, verbose_name='Номер объявления')
+    ID_User = models.CharField(max_length=30, verbose_name='Номер пользователя')
+
+
+class ComparisonGeneral(models.Model):
+    ID_LIST = ArrayField(models.CharField(max_length=200), blank=True)
+    ID_User = models.CharField(max_length=30, verbose_name='Номер пользователя')
 
 
 """

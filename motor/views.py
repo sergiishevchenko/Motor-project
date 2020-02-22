@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormComments, SaveFormRating
-from .models import User, AdvertiseCar, AdvertiseComments, Ratings
+from .forms import SignUpForm, LoginForm, UserpageForm, PasswordForm, SaveFormFirst, SaveFormComments, SaveFormRating, SaveFormComparison
+from .models import User, AdvertiseCar, AdvertiseComments, Ratings, ComparisonFirst, ComparisonGeneral
 from django.http import Http404
 import logging
 from django.contrib.auth.decorators import login_required
@@ -295,6 +295,11 @@ def add_kuzov(request, car, seria, year, kuzov):
             advertisement.SecurityCar3 = save_form.data.get('security3', None)
             advertisement.BuyYearCar = save_form.data.get('year_buy', None)
             advertisement.BuyMonthCar = save_form.data.get('month', None)
+            advertisement.WheelCar = save_form.data.get('wheel', None)
+            advertisement.RemontCar = save_form.data.get('remont', None)
+            advertisement.PasswordCar = save_form.data.get('passport', None)
+            advertisement.CustomCar = save_form.data.get('custom', None)
+            advertisement.ChangeCar = save_form.data.get('change', None)
             advertisement.RunCar = save_form.data.get('run', None)
             advertisement.PriceCar = save_form.data.get('price', None)
             advertisement.OwnerCar = save_form.data.get('owner', None)
@@ -321,8 +326,44 @@ def add_kuzov(request, car, seria, year, kuzov):
 def LK(request):
     user_id = request.session.get('user_id', None)
     notes = AdvertiseCar.objects.filter(ID_id=user_id)
-    params = {'notes': notes}
+    result = []
+    for item in ComparisonGeneral.objects.all().values_list('ID_LIST'):
+        group = []
+        result.append(group)
+        for i in item[0]:
+            group.append(AdvertiseCar.objects.filter(id=i)[0])
+    if request.method == 'POST':
+        save_form = SaveFormComparison(request.POST)
+        advertisements = []
+        for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
+            advertisements.append(item[0])
+        if save_form.is_valid():
+            comparisons = ComparisonFirst()
+            if save_form.data.get('to_comparison') not in advertisements:
+                comparisons.ID_Advertisement = save_form.data.get('to_comparison', None)
+                comparisons.ID_User = user_id
+                comparisons.save()
+    params = {'notes': notes,
+                'result': result}
     return render(request, 'motor/LK.html', params)
+
+
+@login_required
+def comparison(request):
+    user_id = request.session.get('user_id', None)
+    advertisements = []
+    for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
+        advertisements.append(item[0])
+    list_comparison = []
+    for i in advertisements:
+        list_comparison.append(AdvertiseCar.objects.filter(id=i)[0])
+    new_list = ComparisonGeneral()
+    new_list.ID_LIST = advertisements
+    new_list.ID_User = user_id
+    new_list.save()
+    ComparisonFirst.objects.all().delete()
+    params = {'list_comparison': list_comparison}
+    return render(request, 'motor/comparison.html', params)
 
 
 @login_required
@@ -444,7 +485,10 @@ def auto_profile(request, id):
     note = AdvertiseCar.objects.filter(id=id)[0]
     comments = AdvertiseComments.objects.filter(ID_Advertisement=id)
     all_ratings = Ratings.objects.filter(ID=id)
-    last_rating = all_ratings[len(all_ratings) - 1]
+    if len(all_ratings) > 0:
+        last_rating = all_ratings[len(all_ratings) - 1]
+    else:
+        last_rating = []
     if request.method == 'POST':
         save_form = SaveFormComments(request.POST)
         rating_form = SaveFormRating(request.POST)

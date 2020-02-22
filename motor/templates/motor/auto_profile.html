@@ -18,16 +18,16 @@
                                 <img src="{% static "img/cabinet/glass.png" %}" style="width: 20px; height: 14px" alt="glass">
                                 <div class="auto_profile-subtitle__text">285 (18 сегодня)</div>
                             </div>
-                            <div class="auto_profile-subtitle__notebook" style="width: 120px">
+                            <a class="auto_profile-subtitle__notebook" data-toggle="modal" data-target="#modal-notebook" style="width: 120px;">
                                 {% load static %}
                                 <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 14px" alt="notebook">
                                 <div class="auto_profile-subtitle__text">В блокнот</div>
-                            </div>
-                            <div class="auto_profile-subtitle__notebook">
+                            </a>
+                            <a class="auto_profile-subtitle__notebook" data-toggle="modal" data-target="#modal-comparison">
                                 {% load static %}
                                 <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 14px" alt="compare">
                                 <div class="auto_profile-subtitle__text">В сравнение</div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="auto_profile-block__price">$ {{ note.PriceCar }}</div>
@@ -361,7 +361,7 @@
                         <div class="auto_profile-info__text"><strong>Расположение:</strong>{{ note.YourCity }}</div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px">Написать продавцу</button>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px" onclick="window.location.href='mailto: {{ note.YourMail }}'">Написать продавцу</button>
             </div>
         </div>
     </div>

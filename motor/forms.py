@@ -94,6 +94,11 @@ class SaveFormFirst(forms.Form):
     security3 = forms.CharField(max_length=150)
     year_buy = forms.CharField(max_length=150)
     month = forms.CharField(max_length=150)
+    wheel = forms.CharField(max_length=150)
+    remont = forms.CharField(max_length=150)
+    passport = forms.CharField(max_length=150)
+    custom = forms.CharField(max_length=150)
+    change = forms.CharField(max_length=150)
     run = forms.CharField(max_length=150)
     price = forms.CharField(max_length=150)
     owner = forms.CharField(max_length=150)
@@ -119,3 +124,11 @@ class SaveFormRating(forms.Form):
     hod = forms.CharField(max_length=150)
     motor = forms.CharField(max_length=150)
     gearbox = forms.CharField(max_length=150)
+
+
+class SaveFormNotebook(forms.Form):
+    to_notebook = forms.CharField(max_length=150)
+
+
+class SaveFormComparison(forms.Form):
+    to_comparison = forms.CharField(max_length=150)

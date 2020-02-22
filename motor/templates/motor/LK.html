@@ -14,12 +14,10 @@
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Блокнот</a>
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Списки сравнения</a>
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
-                    <a class="nav-link" id="v-pills-person-tab" data-toggle="pill" href="#v-pills-person" role="tab" aria-controls="v-pills-person" aria-selected="false">Персональные данные</a>
                 </div>
-                <div>
-                    <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
-                    <button class="btn btn-outline-danger" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='user_page'">Вернуться в личный кабинет</button>
-                </div>
+                <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
+                <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='comparison'">К списку сравнения</button>
+                <button class="btn btn-outline-danger" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='user_page'">Вернуться в личный кабинет</button>
             </div>
             <div class="col-7">
                 <div class="tab-content" id="v-pills-tabContent">
@@ -27,7 +25,7 @@
                         <div class="pills-item">
                             {% for note in notes %}
                             <div class="pills-item__header">
-                                <a href="{% url 'auto_profile' id=note.id %}"><div class="pills-item__header-name">{{ note.NameCar }}/{{ note.SeriaCar }}/{{ note.KuzovCar }}/{{ note.GenerationCar }}</div></a>
+                                <a href="{% url 'auto_profile' id=note.id %}" style="text-decoration: none"><div class="pills-item__header-name">{{ note.NameCar }}/{{ note.SeriaCar }}/{{ note.KuzovCar }}/{{ note.GenerationCar }}</div></a>
                                 <div class="pills-item__header-price">$ {{ note.PriceCar }}</div>
                             </div>
                             <div class="pills-item__car">
@@ -52,16 +50,22 @@
                                         </div>
                                     </div>
                                     <div class="pills-item__icons">
-                                        <div class="pills-item__icons-notebook">
-                                            {% load static %}
-                                            <img src="{% static "img/notebook/bloknot.png" %}" style="width: 13px; height: 15px" alt="notebook">
-                                            <div class="pills-item__icons-text">В блокнот</div>
-                                        </div>
-                                        <div class="pills-item__icons-notebook">
-                                            {% load static %}
-                                            <img src="{% static "img/notebook/compare.png" %}" style="width: 13px; height: 15px" alt="compare">
-                                            <div class="pills-item__icons-text">В сравнение</div>
-                                        </div>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <button class="pills-item__icons-notebook" style="border: 0" type="button" value="{{ note.id }}" name="to_notebook" data-toggle="modal" data-target="#modal-notebook">
+                                                {% load static %}
+                                                <img src="{% static "img/notebook/bloknot.png" %}" style="width: 15px; height: 15px" alt="notebook">
+                                                <div class="pills-item__icons-text">В блокнот</div>
+                                            </button>
+                                        </form>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <button class="pills-item__icons-notebook" style="border: 0" name="to_comparison" type="submit" value="{{ note.id }}" data-toggle="modal" data-target="#modal-comparison">
+                                                {% load static %}
+                                                <img src="{% static "img/notebook/compare.png" %}" style="width: 15px; height: 15px" alt="compare">
+                                                <div class="pills-item__icons-text">В сравнение</div>
+                                            </button>
+                                        </form>
                                         <div class="pills-item__icons-notebook">
                                             {% load static %}
                                             <img src="{% static "img/settings.png" %}" style="width: 17px; height: 17px" alt="settings">
@@ -143,9 +147,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    {% for group in result %}
+                        <div class="my_cabinet-items">
+                            {% for item in group %}
+                            <a href="{% url 'auto_profile' id=item.id %}" style="text-decoration: none">
+                                <div class="my_cabinet-items_item">
+                                    {% load static %}
+                                    <img src="/media/{{ item.ImageCar }}" alt="picture" style="width: 270px; height: 180px">
+                                    <div class="my_cabinet-items_item-title">{{ item.NameCar }} | {{ item.SeriaCar }} | {{ item.KuzovCar }}</div>
+                                    <div class="my_cabinet-items_item-price">$ {{ item.PriceCar }}</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                        <div style="margin-bottom: 20px; margin-top: 10px; display: flex; justify-content: space-between; width: 120%">
+                            <button class="btn btn-outline-primary" type="button" style="width: 260px;" onclick="window.location.href='comparison'">Просмотреть список сравнения</button>
+                            <button class="btn btn-outline-danger" type="button" style="width: 230px;" onclick="window.location.href='LK'">Удалить список сравнения</button>
+                        </div>
+                    {% endfor %}
+                    </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">...</div>
                 </div>
             </div>
         </div>
