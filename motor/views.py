@@ -332,24 +332,29 @@ def LK(request):
         for adv in item[0]:
             result.append(list(AdvertiseCar.objects.filter(id=adv)))
         all_advs[item[1]] = result
+
     if request.method == 'POST':
         save_form = SaveFormComparison(request.POST)
-        advertisements = []
-        for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
-            advertisements.append(item[0])
+        # advertisements = []
+        # for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
+        #     advertisements.append(item[0])
+        # if save_form.is_valid():
+        #     comparisons = ComparisonFirst()
+        #     if save_form.data.get('to_comparison') not in advertisements:
+        #         comparisons.ID_Advertisement = save_form.data.get('to_comparison', None)
+        #         comparisons.ID_User = user_id
+        #         comparisons.save()
         if save_form.is_valid():
-            comparisons = ComparisonFirst()
-            if save_form.data.get('to_comparison') not in advertisements:
-                comparisons.ID_Advertisement = save_form.data.get('to_comparison', None)
-                comparisons.ID_User = user_id
-                comparisons.save()
+            comparisons = ComparisonGeneral()
+            comparisons.ID_LIST = save_form.data.get('to_comparison', None)
+            comparisons.save()
     params = {'notes': notes,
                 'all_advs': all_advs}
     return render(request, 'motor/LK.html', params)
 
 
 @login_required
-def comparison(request):
+def comparison(request, id):
     user_id = request.session.get('user_id', None)
     advertisements = []
     for item in ComparisonFirst.objects.values_list('ID_Advertisement'):
@@ -357,11 +362,14 @@ def comparison(request):
     list_comparison = []
     for i in advertisements:
         list_comparison.append(AdvertiseCar.objects.filter(id=i)[0])
+
     new_list = ComparisonGeneral()
     new_list.ID_LIST = advertisements
     new_list.ID_User = user_id
     new_list.save()
     ComparisonFirst.objects.all().delete()
+
+
     params = {'list_comparison': list_comparison}
     return render(request, 'motor/comparison.html', params)
 

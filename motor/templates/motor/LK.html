@@ -16,7 +16,9 @@
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Системные сообщения</a>
                 </div>
                 <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 40px" onclick="window.location.href='auto'">Подать объявление</button>
-                <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='comparison'">К списку сравнения</button>
+                <a href="{% url 'comparison' id=12 %}" style="text-decoration: none">
+                    <button class="btn btn-outline-primary" type="button" style="width: 270px; margin-top: 20px">К списку сравнения</button>
+                </a>
                 <button class="btn btn-outline-danger" type="button" style="width: 270px; margin-top: 20px" onclick="window.location.href='user_page'">Вернуться в личный кабинет</button>
             </div>
             <div class="col-7">
@@ -151,17 +153,23 @@
                     {% for key, value in all_advs.items %}
                         <div class="my_cabinet-items">
                             {% for i in value %}
+                            <a href="{% url 'auto_profile' id=i.0.id %}" style="text-decoration: none">
                                 <div class="my_cabinet-items_item">
                                     {% load static %}
                                     <img src="/media/{{ i.0.ImageCar }}" alt="picture" style="width: 270px; height: 180px">
                                     <div class="my_cabinet-items_item-title">{{ i.0.NameCar }} | {{ i.0.SeriaCar }} | {{ i.0.KuzovCar }}</div>
                                     <div class="my_cabinet-items_item-price">$ {{ i.0.PriceCar }}</div>
                                 </div>
+                            </a>
                             {% endfor %}
                         </div>
                         <div style="margin-bottom: 20px; margin-top: 10px; display: flex; justify-content: space-between; width: 120%">
-                            <button class="btn btn-outline-primary" type="button" style="width: 49%;">Просмотреть список сравнения</button>
-                            <button class="btn btn-outline-danger" type="button" style="width: 49%;">Удалить список сравнения</button>
+                            <a href="{% url 'comparison' id=key %}" style="text-decoration: none">
+                                <button class="btn btn-outline-primary" type="button">Просмотреть список сравнения</button>
+                            </a>
+                            <a style="text-decoration: none">
+                                <button class="btn btn-outline-danger" type="button">Удалить список сравнения</button>
+                            </a>
                         </div>
                     {% endfor %}
                     </div>
