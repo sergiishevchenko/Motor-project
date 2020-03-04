@@ -368,8 +368,6 @@ def comparison(request, id):
     new_list.ID_User = user_id
     new_list.save()
     ComparisonFirst.objects.all().delete()
-
-
     params = {'list_comparison': list_comparison}
     return render(request, 'motor/comparison.html', params)
 
